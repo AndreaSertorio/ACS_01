@@ -255,6 +255,9 @@ td {
     .right-sidebar.open .toggle-area::before {
         content: '>';
     }
+    .right-sidebar .tab-content {
+        margin-left: 40px;
+    }
 
 .content {
     display: flex;
