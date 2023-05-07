@@ -55,21 +55,16 @@ document.querySelector('.toggle-area').addEventListener('click', () => {
 
 const mainMenuItems = document.querySelectorAll('.sidebar > ul > li');
 
-mainMenuItems.forEach(item => {
-    item.addEventListener('click', event => {
-        event.stopPropagation();
-
-        mainMenuItems.forEach(el => {
-            if (el !== item) {
-                el.classList.remove('clicked');
-            }
+menuItems.forEach(item => {
+    if (item.id === 'abdomen') {
+        item.addEventListener('click', () => {
+            createSubmenu(item.id, ctAbdomenOptions, 'abdomen-submenu');
         });
-
-        item.classList.toggle('clicked');
-
-        // Aggiungi questa riga per fare in modo che il sottomenu rimanga aperto quando si fa clic su un elemento del menu principale
-        toggleSubmenu('ct-abdomen-submenu');
-    });
+    } else if (templates.hasOwnProperty(item.id)) {
+        item.addEventListener('click', () => {
+            changeContent(item.id);
+        });
+    }
 });
 
 
@@ -137,16 +132,21 @@ function createClinicOption(text) {
 }
 
 // Funzione per creare un sottomenu con le indicazioni cliniche
-function createClinicSubmenu(id, clinicOptions) {
+function createSubmenu(id, clinicOptions, submenuId = null) {
+    // Aggiungi una verifica per assicurarsi che il sottomenu sia stato creato solo una volta
+    if (submenuId && document.getElementById(submenuId)) {
+        return;
+    }
+
+    const parentElement = document.getElementById(id);
     const submenu = document.createElement('ul');
-    submenu.id = id;
-    submenu.style.display = 'none';
+    submenu.id = submenuId || `${id}-submenu`;
 
     clinicOptions.forEach(text => {
         submenu.appendChild(createClinicOption(text));
     });
 
-    return submenu;
+    parentElement.appendChild(submenu);
 }
 
 // Aggiungi gli ID e i sottomenu per ciascuna delle opzioni del menu "Clinica-Metodica"
@@ -195,6 +195,11 @@ function setupClinicMenuItems(menuItems, optionsData) {
             const submenu = createClinicSubmenu(`${item.id}-submenu`, matchingOption.options);
             item.appendChild(submenu);
 
+            item.removeEventListener('click', event => {
+                event.stopPropagation();
+                toggleSubmenu(`${item.id}-submenu`);
+            });
+
             item.addEventListener('click', event => {
                 event.stopPropagation();
                 toggleSubmenu(`${item.id}-submenu`);
@@ -214,5 +219,21 @@ function checkContent(element) {
         element.classList.remove("visible-options");
     }
 }
+// Crea una funzione JavaScript showOptions che accetta l'ID dell'elemento selezionato e mostra le opzioni corrispondenti nel secondo tab "Clinica-Metodica".
+function showOptions(selectedId) {
+    // Nascondi tutti i sottomenu nel secondo tab
+    const options = document.querySelectorAll('#Clinica-Metodica > ul > li > ul');
+    options.forEach(option => {
+        option.style.display = 'none';
+    });
 
+    // Mostra solo il sottomenu corrispondente nel secondo tab
+    const correspondingOption = document.querySelector(`#Clinica-Metodica > ul > li#${selectedId} > ul`);
+    correspondingOption.style.display = 'block';
 
+    // Seleziona il secondo tab "Clinica-Metodica"
+    document.querySelector('.tab-button[onclick="openTab(event, \'Clinica-Metodica\')"]').click();
+}
+
+  
+  
