@@ -1,6 +1,7 @@
 ﻿
 const templates = {
     'ct-head': `
+    <div data-template-id="ct-head">
     <table>
         <tr>
             <th>Organo\Sistema</th>
@@ -149,9 +150,157 @@ const templates = {
     </table>
     `,
 
-    'ct-neck': 'Contenuto per CT NECK!!...',
-    'ct-sinuses': 'Contenuto per CT SINUSES...',
-    'ct-chest': 'Contenuto per CT CHEST...',
+    'ct-neck': `
+    <table>
+        <tr>
+            <th>ANATOMICAL STRUCTURE/AREA</th>
+            <th>DESCRIPTION OF FINDINGS</th>
+        </tr>
+        <tr>
+            <td>Neck soft tissues</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>THYROID:</td>
+                        <td contenteditable="true">The thyroid gland is homogeneous in texture and has normal dimensions (right lobe measures 5.0 x 1.8 x 1.7 cm and left lobe measures 4.5 x 1.6 x 1.5 cm). No nodules or masses are identified.</td>
+                    </tr>
+                    <tr>
+                        <td>LYMPH NODES:</td>
+                        <td contenteditable="true">Multiple small reactive lymph nodes are noted in the bilateral cervical chains.</td>
+                    </tr>
+                    <tr>
+                        <td>MUSCLES:</td>
+                        <td contenteditable="true">The sternocleidomastoid and strap muscles appear normal in appearance and signal intensity.</td>
+                    </tr>
+                    <tr>
+                        <td>FAT:</td>
+                        <td contenteditable="true">The subcutaneous and prevertebral fat are within normal limits.</td>
+                    </tr>
+                    <tr>
+                        <td>VESSELS:</td>
+                        <td contenteditable="true">The carotid and vertebral arteries are patent without evidence of stenosis or aneurysm.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="neck-option-1-row" style="display: none;">
+            <td>OPZIONE 1</td>
+            <td class="description" contenteditable="true">Testo opzione 1</td>
+        </tr>
+        <tr id="neck-option-2-row" style="display: none;">
+            <td>OPZIONE 2</td>
+            <td class="description" contenteditable="true">Testo opzione 2</td>
+        </tr>
+    </table>
+    `,
+
+    'ct-sinuses': `
+    <table>
+        <tr>
+            <th>ANATOMICAL STRUCTURE/AREA</th>
+            <th>DESCRIPTION OF FINDINGS</th>
+        </tr>
+        <tr>
+            <td>Sphenoid and posterior ethmoid sinuses</td>
+            <td contenteditable="true">Unremarkable, no significant mucosal thickening or fluid collections.</td>
+        </tr>
+        <tr>
+            <td>Sphenoethmoidal recess</td>
+            <td contenteditable="true">Clear bilaterally.</td>
+        </tr>
+        <tr>
+            <td>Frontal, anterior ethmoid, and maxillary sinuses</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>MAXILLARY SINUSES:</td>
+                        <td contenteditable="true">Near complete opacification of the left maxillary sinus with mucosal thickening, suggestive of sinusitis. Right maxillary sinus clear with no significant mucosal thickening.</td>
+                    </tr>
+                    <tr>
+                        <td>ETHMOID AIR CELLS:</td>
+                        <td contenteditable="true">Mild mucosal thickening bilaterally, more pronounced on the left side.</td>
+                    </tr>
+                    <tr>
+                        <td>FRONTAL SINUSES:</td>
+                        <td contenteditable="true">Nessuna evidenza di patologia.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Maxillary ostium</td>
+            <td contenteditable="true">Clear bilaterally.</td>
+        </tr>
+        <tr>
+            <td>Nasal cavity</td>
+            <td contenteditable="true">Mild septal deviation to the right without significant obstruction.</td>
+        </tr>
+        <tr>
+            <td>Other</td>
+            <td contenteditable="true">No evidence of bony erosion or destruction.</td>
+        </tr>
+        <tr id="sinuses-option-1-row" style="display: none;">
+            <td>OPZIONE 1</td>
+            <td class="description" contenteditable="true">Testo opzione 1</td>
+        </tr>
+        <tr id="sinuses-option-2-row" style="display: none;">
+            <td>OPZIONE 2</td>
+            <td class="description" contenteditable="true">Testo opzione 2</td>
+        </tr>
+    </table>
+    `,
+    'ct-chest': `
+    <table>
+        <tr>
+            <th>STRUTTURE DI SUPPORTO</th>
+            <td contenteditable="true">Normali.</td>
+        </tr>
+        <tr>
+            <th>PARENCHIMA POLMONARE</th>
+            <td contenteditable="true">Lieve versamento pleurico bilaterale con tracce di atelettasia basale sinistra. Nessun segno di formazione di empiema o ascesso. Alcuni piccoli noduli pleurici di natura incerta.</td>
+        </tr>
+        <tr>
+            <th>TRACHEA E VIE AEREE CENTRALI</th>
+            <td contenteditable="true">Normali.</td>
+        </tr>
+        <tr>
+            <th>BRONCHI PERIFERICI</th>
+            <td contenteditable="true">Normali.</td>
+        </tr>
+        <tr>
+            <th>LN MEDIASTINALI</th>
+            <td contenteditable="true">Singolo linfonodo mediastinico posteriore che misura fino a 7 mm a sinistra (immagine n. 70).</td>
+        </tr>
+        <tr>
+            <th>CUORE/GRANDI VASI</th>
+            <td contenteditable="true">Normali.</td>
+        </tr>
+        <tr>
+            <th>VASCOLARIZZAZIONE POLMONARE</th>
+            <td contenteditable="true">Normale.</td>
+        </tr>
+        <tr>
+            <th>ALTRE STRUTTURE MEDIASTINALI</th>
+            <td contenteditable="true">Normali.</td>
+        </tr>
+        <tr>
+            <th>PLEURE</th>
+            <td contenteditable="true">Normali.</td>
+        </tr>
+        <tr>
+            <th>TESSUTO MAMMARIO</th>
+            <td contenteditable="true">Normale.</td>
+        </tr>
+        <tr id="chest-option-1-row" style="display: none;">
+            <th>OPZIONE 1</th>
+            <td class="description" contenteditable="true">Testo opzione 1</td>
+        </tr>
+        <tr id="chest-option-2-row" style="display: none;">
+            <th>OPZIONE 2</th>
+            <td class="description" contenteditable="true">Testo opzione 2</td>
+        </tr>
+    </table>
+    `,
     'ct-abdomen': `
                                          <table>
                             <tr>
@@ -215,11 +364,254 @@ const templates = {
                                 <td class="description" contenteditable="true">Normal.</td>
                             </tr>
                         </table>
-                                        `,
+     `,
 
-    'ct-abdomen-pelvis': 'Contenuto per CT ABDOMEN-PELVIS...',
-    'ct-pankreas': 'Contenuto per CT PANKREAS...',
-    'ct-spine': 'Contenuto per CT SPINE...',
+     'ct-abdomen-pelvis': `
+    <table>
+        <tr>
+            <th>Struttura anatomica</th>
+            <th>Descrizione dei risultati</th>
+        </tr>
+        <tr>
+            <td>FEGATO</td>
+            <td contenteditable="true">Il fegato appare di dimensioni e attenuazione normali, senza lesioni focali.</td>
+        </tr>
+        <tr>
+            <td>SISTEMA BILIARE</td>
+            <td class="description">
+                <table>
+                    <tr>
+                        <td>DILATAZIONE DOTTI BILIARI:</td>
+                        <td contenteditable="true">Assente</td>
+                    </tr>
+                    <tr>
+                        <td>CALCOLOSI VESCICOLARE:</td>
+                        <td contenteditable="true">Presente con presenza di molteplici calcoli alla colecisti, ma senza segni di colecistite o ispessimento della parete.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>MILZA</td>
+            <td contenteditable="true">Normale</td>
+        </tr>
+        <tr>
+            <td>PANCREAS</td>
+            <td contenteditable="true">Normale</td>
+        </tr>
+        <tr>
+            <td>ADRENALI</td>
+            <td contenteditable="true">Normali</td>
+        </tr>
+        <tr>
+            <td>RENIDimensioni e configurazione</td>
+            <td contenteditable="true">Entrambi i reni sono entro i limiti della normalità in termini di dimensioni e configurazione. Non sono presenti calcoli renali o ureterali e non è presente idrouretere o idronefrosi.</td>
+        </tr>
+        <tr>
+            <td>URETERI</td>
+            <td contenteditable="true">Assenza di calcoli ureterali.</td>
+        </tr>
+        <tr>
+            <td>VESCICA</td>
+            <td contenteditable="true">La vescica appare non eccezionale, senza masse intrinseche o estrinseche.</td>
+        </tr>
+        <tr>
+            <td>INTESTINO</td>
+            <td class="description">
+                <table>
+                    <tr>
+                        <td>DIVERTICOLI:</td>
+                        <td contenteditable="true">Sigmoidi, ma senza segni di diverticolite acuta. Non è presente occlusione intestinale o ispessimento significativo della parete intestinale.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>APPENDICE</td>
+            <td contenteditable="true">Non identificato.</td>
+        </tr>
+        <tr>
+            <td>CALOTTA PERITONEALE</td>
+            <td class="description">
+                <table>
+                    <tr>
+                        <td>ASCITE ADDOMINALE:</td>
+                        <td contenteditable="true">Assente</td>
+                    </tr>
+                    <tr>
+                        <td>LINFADENOPATIA ADDOMINALE:</td>
+                        <td contenteditable="true">Non presente.</td>
+                    </tr>
+                </table>
+            </td>
+    </tr>
+ </table>
+    `,
+    'ct-pankreas': `
+<table>
+        <tr>
+            <th>TABELLA TUMORE DEL PANCREAS</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>TUMORE PANCREATICO PRESENTE</td>
+            <td contenteditable="true">Sì</td>
+        </tr>
+        <tr>
+            <td>LOCALIZZAZIONE</td>
+            <td contenteditable="true">Testa</td>
+        </tr>
+        <tr>
+            <td>DIMENSIONE</td>
+            <td contenteditable="true">3,5 x 3,2 x 2,8 cm</td>
+        </tr>
+        <tr>
+            <td>ENHANCEMENT RELATIVO AL PANCREAS</td>
+            <td contenteditable="true">Ipo</td>
+        </tr>
+        <tr>
+            <td>CONFINATO AL PANCREAS CON CHIARO PIANO DI GRASSO</td>
+            <td contenteditable="true">No</td>
+        </tr>
+        <tr>
+            <td>COINVOLGIMENTO BILIARE</td>
+            <td contenteditable="true">No</td>
+        </tr>
+        <tr>
+            <td>RESTANTE PANCREAS</td>
+            <td contenteditable="true">Dilatazione dei dotti biliari intraepatici</td>
+        </tr>
+        <tr>
+            <td>ADENOPATIA PRESENTE</td>
+            <td contenteditable="true">Sì</td>
+        </tr>
+        <tr>
+            <td>MALATTIA METASTATICA</td>
+            <td contenteditable="true">Sì</td>
+        </tr>
+        <tr>
+            <td>ASCITE / LIQUIDO PERIPANCREATICO</td>
+            <td contenteditable="true">No</td>
+        </tr>
+
+     
+        <tr>
+            <td>Tavola vascolare pancreatico</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>INVOLVIMENTO TUMORALE VASCOLARE E GRADO:</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>INVOLVIMENTO DEL CELIACO:</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>INVOLVIMENTO DELL'A. MESENTERICA SUPERIORE (AMS):</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>INVOLVIMENTO DELLA V. MESENTERICA SUPERIORE (VMS):</td>
+                        <td contenteditable="true">&lt;50%</td>
+                    </tr>
+                    <tr>
+                        <td>ALTRO INVOLVIMENTO VASCOLARE:</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>TROMBOSI QUALSIASI VASO:</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>ANATOMIA ABERRANTE:</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>A. EPATICA DESTRA SOSTITUITA:</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>PRINCIPALI ACCESSORI O ALTRE ARTERIE, VENE, COLLATERALI O VASI DILATATI SOSTITUITI:</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>ORIGINI ATTEROSCLEROSE DELL'ASSE CELIACO E DELL'AMS:</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>DISTANZA DALLA VMS:</td>
+                        <td contenteditable="true">Non fornita</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="neck-option-1-row" style="display: none;">
+            <td>OPZIONE 1</td>
+            <td class="description" contenteditable="true">Testo opzione 1</td>
+        </tr>
+        <tr id="neck-option-2-row" style="display: none;">
+            <td>OPZIONE 2</td>
+            <td class="description" contenteditable="true">Testo opzione 2</td>
+        </tr>
+    </table>
+    `,
+    'ct-spine': `
+    <table>
+        <tr>
+            <th>STRUTTURA ANATOMICA/ZONA</th>
+            <th>DESCRIZIONE DEI RISULTATI</th>
+        </tr>
+        <tr>
+            <td>Allineamento</td>
+            <td contenteditable="true">L'allineamento della colonna cervicale è mantenuto.</td>
+        </tr>
+        <tr>
+            <td>Frattura/Sublussazione</td>
+            <td contenteditable="true">Nessuna evidenza di frattura o sublussazione acuta.</td>
+        </tr>
+        <tr>
+            <td>Altezza corpi vertebrali</td>
+            <td contenteditable="true">Le altezze dei corpi vertebrali sono conservate.</td>
+        </tr>
+        <tr>
+            <td>Spazi discali</td>
+            <td contenteditable="true">Gli spazi intervertebrali sono ben conservati.</td>
+        </tr>
+        <tr>
+            <td>Malattia degenerativa del disco</td>
+            <td contenteditable="true">Una lieve malattia degenerativa del disco a livello C5-C6 con piccola formazione di osteofiti, più evidente sul lato sinistro, senza significativo restringimento foraminal.</td>
+        </tr>
+        <tr>
+            <td>Dischi cervicali rimanenti</td>
+            <td contenteditable="true">I dischi cervicali rimanenti non mostrano anomalie significative.</td>
+        </tr>
+        <tr>
+            <td>Articolazioni a cerniera (facet joints)</td>
+            <td contenteditable="true">Le articolazioni a cerniera sono indenni.</td>
+        </tr>
+        <tr>
+            <td>Tessuti molli</td>
+            <td contenteditable="true">I tessuti molli prevertebrali e paravertebrali appaiono normali.</td>
+        </tr>
+        <tr>
+            <td>Linfadenopatia/Masse</td>
+            <td contenteditable="true">Non sono identificate linfadenopatie o masse significative.</td>
+        </tr>
+        <tr>
+            <td>Fossa posteriore/regione soprasellare</td>
+            <td contenteditable="true">Le parti visualizzate della fossa posteriore e della regione soprasellare non mostrano anomalie.</td>
+        </tr>
+        <tr id="neck-option-1-row" style="display: none;">
+            <td>OPZIONE 1</td>
+            <td class="description" contenteditable="true">Testo opzione 1</td>
+        </tr>
+        <tr id="neck-option-2-row" style="display: none;">
+            <td>OPZIONE 2</td>
+            <td class="description" contenteditable="true">Testo opzione 2</td>
+        </tr>
+    </table>
+    `,
     'angio-tc': 'Contenuto per ANGIO TC...',
     'mr-neck': 'Contenuto per MR NECK...',
     'mr-cardiac': 'Contenuto per MR CARDIAC...',

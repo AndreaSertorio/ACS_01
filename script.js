@@ -75,23 +75,47 @@ document.getElementById("Metodica").style.display = "block";
 let currentTemplateId = null;
 
 function fillTemplate(templateId, indicazioneClinica) {
+    debug('Chiamata a fillTemplate');
+  
     if (currentTemplateId === templateId) {
+      debug('Il template è già il corrente');
       return;
     }
+
+    debug('Impostazione del nuovo template');
   
     currentTemplateId = templateId;
     const content = document.querySelector('.table-container');
     content.innerHTML = templates[templateId];
   
+   
+    // Generate the list of hidden options
+    const hiddenOptions = generateHiddenOptionsList(templateId);
+    debug('Generazione elenco opzioni nascoste');
+
+    // Create a string with all the hidden options
+    const hiddenOptionsText = hiddenOptions.join(', ');
+    debug('Creazione stringa opzioni nascoste');
+
+    // Find the text container and update its content
+    const textContainer = document.querySelector('.text-container');
+    debug('textContainer: ' + textContainer);
+
+    textContainer.textContent = `Opzioni nascoste: ${hiddenOptionsText}`;
+    debug('Opzioni nascoste: ' + hiddenOptionsText);
+
+
     const indicazioneClinicaRow = document.getElementById('indicazione-clinica-row');
     if (indicazioneClinica) {
+      debug('Mostra indicazione clinica');
       indicazioneClinicaRow.style.display = '';
     } else {
+      debug('Nascondi indicazione clinica');
       indicazioneClinicaRow.style.display = 'none';
     }
-    
-  }
-  
+
+}
+
   
   
   ///aggiungi un event listener alla checkbox per aggiornare il template quando lo stato della checkbox cambia:
@@ -114,6 +138,28 @@ function fillTemplate(templateId, indicazioneClinica) {
 }
 
 
+//// cerca elementi nascosti dentro template
+
+function generateHiddenOptionsList(templateId) {
+    // Get the template
+    const template = templates[templateId];
+
+    // Create a temporary DOM element to hold the template
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = template;
+
+    // Find all rows that are initially hidden
+    const hiddenRows = tempDiv.querySelectorAll('tr[style*="display: none"]');
+
+    // Generate a list of the hidden option names
+    const hiddenOptionNames = Array.from(hiddenRows).map(row => {
+        // Assume the name is in the first cell of the row
+        return row.querySelector('td').textContent;
+    });
+
+    // Return the list of hidden option names
+    return hiddenOptionNames;
+}
 
 
 
@@ -162,3 +208,11 @@ const rxOptions = [
 ];
 
 
+/// DEBUG
+
+function debug(message) {
+    const debugElement = document.getElementById('debug');
+    const messageElement = document.createElement('p');
+    messageElement.textContent = message;
+    debugElement.appendChild(messageElement);
+}

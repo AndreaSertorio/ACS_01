@@ -234,21 +234,7 @@ h1 {
         align-items: center;
     }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
 
-th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    font-weight: bold;
-    background-color: #f2f2f2;
-}
 
 .editable-text {
     width: 100%;
@@ -258,7 +244,7 @@ th {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: white;
+    background-color: rgb(252, 252, 252);
     font-family: Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
@@ -295,20 +281,43 @@ th {
     margin-top: 60px; /* Aggiungi questa riga */
 
 }
-
+/* TEMPLATE */
 table {
-    margin-left: auto;
-    margin-right: auto;
     border-collapse: collapse;
-}
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  td[contenteditable="true"] {
+    background-color: #fff9c0;
+    color: #333;
+  }
+  
+  td.description {
+    padding: 0;
+    border: none;
+  }
+  
+  td.description table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  td.description td {
+    border: none;
+    padding: 8px;
+  }
 
-td {
-    padding: 5px;
-}
 
-    td.description {
-        border: 1px solid #ccc;
-    }
 
 
  /* COntenitone UnityWebGl */
@@ -328,4 +337,19 @@ td {
         width: 100%;
         height: 100%;
         border: none;
+    }
+
+
+    /* DEBUG */
+    .debug {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        z-index: 100;
+        border: #333;
     }
