@@ -1,9 +1,16 @@
 ﻿// mette il template dopo che hai schiacchiato il bottone nel menu laterale sinistro
 function changeContent(id) {
     const tableContainer = document.querySelector('.table-container');
-    const editableText = document.querySelector('.editable-text');
     tableContainer.innerHTML = templates[id];
 }
+
+function handleSubMenuClick(event) {
+    const targetId = event.target.id;
+    changeContent(targetId);
+}
+document.querySelectorAll('#Metodica li[id]').forEach(submenu => {
+    submenu.addEventListener('click', handleSubMenuClick);
+});
 // gestisce tab del menu laterale sinsitro
 function openTab(evt, tabName) {
     var i, tabcontent, tabbuttons;
@@ -19,14 +26,12 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-// Apri la scheda "Metodica" di default 
-
-document.getElementById("Metodica").style.display = "block";
-
-
+// apre menu laterale sinsitro
 document.querySelector('.right-sidebar .toggle-area').addEventListener('click', function () {
     document.querySelector('.right-sidebar').classList.toggle('open');
 });
+
+
 
 document.querySelector('.toggle-area').addEventListener('click', () => {
     const sidebar = document.querySelector('.sidebar');
@@ -40,24 +45,47 @@ document.querySelector('.toggle-area').addEventListener('click', () => {
     }
 });
 
-// teoricamente modifica il template ma è da rifare
-function modifyTemplate(checkbox, text) {
-    const editableText = document.querySelector('.editable-text');
-    const existingText = editableText.innerHTML;
 
-    if (checkbox.checked) {
-        // Se la checkbox è stata selezionata, aggiungi il testo al template
-        editableText.innerHTML = existingText + '\n' + text;
+// Apri la scheda "Metodica" di default 
+
+document.getElementById("Metodica").style.display = "block";
+
+
+/////////// Update Template con indicazionii clinica 
+let currentTemplateId = null;
+
+function fillTemplate(templateId, indicazioneClinica) {
+    currentTemplateId = templateId;
+    const template = templates[templateId];
+    const content = document.getElementById('content');
+    content.innerHTML = template;
+  
+    const indicazioneClinicaRow = document.getElementById('indicazione-clinica-row');
+    if (indicazioneClinica) {
+      indicazioneClinicaRow.style.display = '';
     } else {
-        // Se la checkbox è stata deselezionata, rimuovi il testo dal template
-        editableText.innerHTML = existingText.replace('\n' + text, '');
+      indicazioneClinicaRow.style.display = 'none';
     }
-}
+  }
+  
+  ///aggiungi un event listener alla checkbox per aggiornare il template quando lo stato della checkbox cambia:
+  document.getElementById('indicazione-clinica-checkbox').addEventListener('change', (e) => {
+    const indicazioneClinica = e.target.checked;
+    fillTemplate(currentTemplateId, indicazioneClinica);
+  });
+  
+  
+
+
+
+
+
+
+
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
 
 // Aggiungi gli ID e i sottomenu per ciascuna delle opzioni del menu "Clinica-Metodica"
