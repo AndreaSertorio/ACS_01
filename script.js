@@ -1,9 +1,10 @@
-﻿function changeContent(id) {
+﻿// mette il template dopo che hai schiacchiato il bottone nel menu laterale sinistro
+function changeContent(id) {
     const tableContainer = document.querySelector('.table-container');
     const editableText = document.querySelector('.editable-text');
     tableContainer.innerHTML = templates[id];
 }
-
+// gestisce tab del menu laterale sinsitro
 function openTab(evt, tabName) {
     var i, tabcontent, tabbuttons;
     tabcontent = document.getElementsByClassName("tab-content");
@@ -22,20 +23,6 @@ function openTab(evt, tabName) {
 
 document.getElementById("Metodica").style.display = "block";
 
-const menuItems = document.querySelectorAll('.sidebar ul li');
-
-menuItems.forEach(item => {
-    if (item.id === 'abdomen') {
-        item.addEventListener('click', () => {
-            const submenu = createCtAbdomenSubmenu(ctAbdomenOptions);
-            item.appendChild(submenu);
-        });
-    } else if (templates.hasOwnProperty(item.id)) {
-        item.addEventListener('click', () => {
-            changeContent(item.id);
-        });
-    }
-});
 
 document.querySelector('.right-sidebar .toggle-area').addEventListener('click', function () {
     document.querySelector('.right-sidebar').classList.toggle('open');
@@ -53,53 +40,7 @@ document.querySelector('.toggle-area').addEventListener('click', () => {
     }
 });
 
-const mainMenuItems = document.querySelectorAll('.sidebar > ul > li');
-
-menuItems.forEach(item => {
-    if (item.id === 'abdomen') {
-        item.addEventListener('click', () => {
-            createSubmenu(item.id, ctAbdomenOptions, 'abdomen-submenu');
-        });
-    } else if (templates.hasOwnProperty(item.id)) {
-        item.addEventListener('click', () => {
-            changeContent(item.id);
-        });
-    }
-});
-
-
-function createCtAbdomenSubmenu() {
-    // Aggiungi una verifica per assicurarsi che il sottomenu sia stato creato solo una volta
-    if (document.getElementById('abdomen-submenu')) {
-        return;
-    }
-
-    const ctAbdomen = document.getElementById('abdomen');
-    const ctAbdomenSubmenu = document.createElement('ul');
-    ctAbdomenSubmenu.id = 'abdomen-submenu';
-
-    ctAbdomenOptions.forEach((option, index) => {
-        const ctAbdomenOption = document.createElement('li');
-        ctAbdomenOption.innerHTML = `<input type="checkbox" id="abdomen-option-${index}" onchange="modifyTemplate(this, '${option}')">${option}`;
-
-        ctAbdomenSubmenu.appendChild(ctAbdomenOption);
-    });
-
-    ctAbdomen.appendChild(ctAbdomenSubmenu);
-}
-
-
-document.getElementById('abdomen').addEventListener('click', createCtAbdomenSubmenu);
-function toggleSubmenu(submenuId) {
-    const submenu = document.getElementById(submenuId);
-    if (submenu.style.display === 'none' || submenu.style.display === '') {
-        submenu.style.display = 'block';
-    } else {
-        submenu.style.display = 'none';
-    }
-}
-
-
+// teoricamente modifica il template ma è da rifare
 function modifyTemplate(checkbox, text) {
     const editableText = document.querySelector('.editable-text');
     const existingText = editableText.innerHTML;
@@ -113,41 +54,11 @@ function modifyTemplate(checkbox, text) {
     }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Funzione per creare un'opzione di indicazione clinica come elemento di checkbox
-function createClinicOption(text) {
-    const option = document.createElement('li');
-    const label = document.createElement('label');
-    const checkbox = document.createElement('input');
 
-    checkbox.type = 'checkbox';
-    checkbox.addEventListener('change', function () {
-        modifyTemplate(this, text);
-    });
 
-    label.appendChild(checkbox);
-    label.appendChild(document.createTextNode(text));
-    option.appendChild(label);
 
-    return option;
-}
 
-// Funzione per creare un sottomenu con le indicazioni cliniche
-function createSubmenu(id, clinicOptions, submenuId = null) {
-    // Aggiungi una verifica per assicurarsi che il sottomenu sia stato creato solo una volta
-    if (submenuId && document.getElementById(submenuId)) {
-        return;
-    }
 
-    const parentElement = document.getElementById(id);
-    const submenu = document.createElement('ul');
-    submenu.id = submenuId || `${id}-submenu`;
-
-    clinicOptions.forEach(text => {
-        submenu.appendChild(createClinicOption(text));
-    });
-
-    parentElement.appendChild(submenu);
-}
 
 // Aggiungi gli ID e i sottomenu per ciascuna delle opzioni del menu "Clinica-Metodica"
 const tcOptions = [
@@ -187,53 +98,4 @@ const rxOptions = [
     { id: 'rx', options: ['RX option 1', 'RX option 2'] },
 ];
 
-// Funzione per aggiungere sottomenu e gestire eventi click
-function setupClinicMenuItems(menuItems, optionsData) {
-    menuItems.forEach(item => {
-        const matchingOption = optionsData.find(optionData => optionData.id === item.id);
-        if (matchingOption) {
-            const submenu = createClinicSubmenu(`${item.id}-submenu`, matchingOption.options);
-            item.appendChild(submenu);
 
-            item.removeEventListener('click', event => {
-                event.stopPropagation();
-                toggleSubmenu(`${item.id}-submenu`);
-            });
-
-            item.addEventListener('click', event => {
-                event.stopPropagation();
-                toggleSubmenu(`${item.id}-submenu`);
-            });
-        }
-    });
-}
-
-// Aggiungi event listener e sottomenu per le opzioni del menu "Clinica-Metodica"
-const tcMenuItems = document.querySelectorAll('#Clinica-Metodica ul li ul li');
-setupClinicMenuItems(tcMenuItems, [...tcOptions, ...mriOptions, ...ecoOptions]);
-
-function checkContent(element) {
-    if (element.querySelector('td[contenteditable="true"]').textContent.trim() !== "") {
-        element.classList.add("visible-options");
-    } else {
-        element.classList.remove("visible-options");
-    }
-}
-// Crea una funzione JavaScript showOptions che accetta l'ID dell'elemento selezionato e mostra le opzioni corrispondenti nel secondo tab "Clinica-Metodica".
-function showOptions(selectedId) {
-    // Nascondi tutti i sottomenu nel secondo tab
-    const options = document.querySelectorAll('#Clinica-Metodica > ul > li > ul');
-    options.forEach(option => {
-        option.style.display = 'none';
-    });
-
-    // Mostra solo il sottomenu corrispondente nel secondo tab
-    const correspondingOption = document.querySelector(`#Clinica-Metodica > ul > li#${selectedId} > ul`);
-    correspondingOption.style.display = 'block';
-
-    // Seleziona il secondo tab "Clinica-Metodica"
-    document.querySelector('.tab-button[onclick="openTab(event, \'Clinica-Metodica\')"]').click();
-}
-
-  
-  
