@@ -138,6 +138,10 @@ const templates = {
             <td>ALTRI RISULTATI</td>
             <td class="description" contenteditable="true">Nessuna significativa opacizzazione delle cellule mastoidee</td>
         </tr>
+        <tr id="indicazione-clinica-row" style="display: none;">
+        <td>INDICAZIONE CLINICA</td>
+        <td class="description" contenteditable="true"></td>
+      </tr>
     </table>
     `,
 

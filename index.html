@@ -15,7 +15,6 @@
 
         <div class="tab-bar">
             <button class="tab-button active" onclick="openTab(event, 'Metodica')">Metodica</button>
-            <button class="tab-button" onclick="openTab(event, 'Clinica-Metodica')">Clinica-Metodica</button>
             <button class="tab-button" onclick="openTab(event, 'Clinica-Sistemi')">Clinica-Sistemi</button>
 
         </div>
@@ -32,15 +31,29 @@
                 <li>
                     TC
                     <ul>
-                        <li id="ct-head" onclick="showOptions('ct-head')">CT HEAD</li>
-                        <li id="ct-neck" onclick="showOptions('ct-neck')">CT NECK</li>
-                        <li id="ct-sinuses" onclick="showOptions('ct-sinuses')">CT SINUSES</li>
-                        <li id="ct-chest" onclick="showOptions('ct-chest')">CT CHEST</li>
-                        <li id="ct-abdomen" onclick="showOptions('ct-abdomen')">CT ABDOMEN</li>
-                        <li id="ct-abdomen-pelvis" onclick="showOptions('ct-abdomen-pelvis')">CT ABDOMEN-PELVIS</li>
-                        <li id="ct-pankreas" onclick="showOptions('ct-pankreas')">CT PANKREAS</li>
-                        <li id="ct-spine" onclick="showOptions('ct-spine')">CT SPINE</li>
-                        <li id="angio-tc" onclick="showOptions('angio-tc')">ANGIO TC</li>
+                        <li id="ct-head">CT HEAD
+                            CT HEAD
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="head-option-1" onchange="updateTemplate('head-option-1', 'Testo opzione 1')">
+                                    <label for="head-option-1">Opzione 1</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="head-option-2" onchange="updateTemplate('head-option-2', 'Testo opzione 2')">
+                                    <label for="head-option-2">Opzione 2</label>
+                                </li>
+                                <!-- Aggiungi altre opzioni qui -->
+                            </ul>
+                        </li>
+                    
+                        <li id="ct-neck">CT NECK</li>
+                        <li id="ct-sinuses">CT SINUSES</li>
+                        <li id="ct-chest">CT CHEST</li>
+                        <li id="ct-abdomen">CT ABDOMEN</li>
+                        <li id="ct-abdomen-pelvis">CT ABDOMEN-PELVIS</li>
+                        <li id="ct-pankreas">CT PANKREAS</li>
+                        <li id="ct-spine">CT SPINE</li>
+                        <li id="angio-tc">ANGIO TC</li>
                     </ul>
                 </li>
                 <li>
@@ -67,51 +80,7 @@
                 </li>
             </ul>
         </div>
-        <div id="Clinica-Metodica" class="tab-content Clinica-Metodica" style="display: none;">
-            <!-- Contenuto del secondo tab: Clinica -->
-            <ul>
-                <li>
-                    RX
-                    <!-- Aggiungi ulteriori sottomenu o sottocategorie qui, se necessario -->
-                </li>
-                <li>
-                    TC
-                    <ul>
-                        <li id="head">HEAD</li>
-                        <li id="neck">NECK</li>
-                        <li id="sinuses">SINUSES</li>
-                        <li id="chest">CHEST</li>
-                        <li id="abdomen">ABDOMEN</li>
-                        <li id="abdomen-pelvis">ABDOMEN-PELVIS</li>
-                        <li id="pankreas">PANKREAS</li>
-                        <li id="spine">SPINE</li>
-                        <li id="angio-tc">ANGIO TC</li>
-                    </ul>
-                </li>
-                <li>
-                    MRI
-                    <ul>
-                        <li id="neckRM">MR NECK</li>
-                        <li id="cardiacRM">MR CARDIAC</li>
-                        <li id="angioRM">ANGIO MR</li>
-                        <li id="wholebodyRM">MRI WHOLEBODY</li>
-                        <li id="abdomenRM">MR ABDOMEN</li>
-                        <li id="prostataRM">MR PROSTATA</li>
-                        <li id="shoulderRM">MR SHOULDER</li>
-                        <li id="elbowRM">MR ELBOW</li>
-                        <li id="spineRM">MR SPINE</li>
-                        <li id="wristRM">MR WRIST</li>
-                        <li id="hipRM">MR HIP</li>
-                        <li id="kneeRM">MR KNEE</li>
-                        <li id="ankleRM">MR ANKLE</li>
-                    </ul>
-                </li>
-                <li>
-                    ECO
-                    <!-- Aggiungi ulteriori sottomenu o sottocategorie qui, se necessario -->
-                </li>
-            </ul>
-        </div>
+
         <div id="Clinica-Sistemi" class="tab-content Clinica-Sistemi" style="display: none;">
             <!-- Contenuto del primo tab: Metodica -->
             <!-- Qui va il tuo menu attuale -->
