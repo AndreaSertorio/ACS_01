@@ -612,7 +612,261 @@ const templates = {
         </tr>
     </table>
     `,
-    'angio-tc': 'Contenuto per ANGIO TC...',
+    'angio-tc': `
+    <table>
+     <tr>
+            <th>ADDOME/PRINCIPALE</th>
+            <th>DESCRIZIONE DEI RISULTATI</th>
+        </tr>
+        <tr>
+            <td>Aorta addominale</td>
+            <td contenteditable="true">Placca aterosclerotica lieve.</td>
+        </tr>
+        <tr>
+            <td>Tronco celiaco</td>
+            <td contenteditable="true">Permeabile.</td>
+        </tr>
+        <tr>
+            <td>Arteria epatica</td>
+            <td contenteditable="true">Normale.</td>
+        </tr>
+        <tr>
+            <td>Arteria splenica</td>
+            <td contenteditable="true">Normale.</td>
+        </tr>
+        <tr>
+            <td>Arterie gastriche</td>
+            <td contenteditable="true">Normali.</td>
+        </tr>
+        <tr>
+            <td>Arteria SMA</td>
+            <td contenteditable="true">Permeabile.</td>
+        </tr>
+        <tr>
+            <td>Arteria IMA</td>
+            <td contenteditable="true">Permeabile.</td>
+        </tr>
+        <tr>
+            <td>Arterie renali</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>SINISTRA:</td>
+                        <td contenteditable="true">Permeabile.</td>
+                    </tr>
+                    <tr>
+                        <td>DESTRA:</td>
+                        <td contenteditable="true">Permeabile.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Sistema venoso</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>VENA CAVA INFERIORE:</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>VENA PORTA:</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Vene renali</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>SINISTRA:</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>DESTRA:</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+<tr>
+            <th>PELVI/PRINCIPALE</th>
+            <th>DESCRIZIONE DEI RISULTATI</th>
+        </tr>
+        <tr>
+            <td>Arterie iliache</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>ARTERIA ILIACA COMUNE SINISTRA</td>
+                        <td contenteditable="true">Placca aterosclerotica lieve.</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA ILIACA COMUNE DESTRA</td>
+                        <td contenteditable="true">Placca aterosclerotica lieve.</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA ILIACA ESTERNA SINISTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA ILIACA ESTERNA DESTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA ILIACA INTERNA SINISTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA ILIACA INTERNA DESTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Sistema venoso</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>VENA CAVA INFERIORE</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>VENA ILIACA COMUNE SINISTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>VENA ILIACA COMUNE DESTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>VENA ILIACA ESTERNA SINISTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>VENA ILIACA ESTERNA DESTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>VENA ILIACA INTERNA SINISTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                    <tr>
+                        <td>VENA ILIACA INTERNA DESTRA</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+<tr>
+            <th>ARTI INFERIORI/PRINCIPALE</th>
+            <th>DESCRIZIONE DELLE CONDIZIONI</th>
+        </tr>
+        <tr>
+            <td>ARTERIE FEMORALI</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>SINISTRA:</td>
+                        <td contenteditable="true">Placca aterosclerotica minima.</td>
+                    </tr>
+                    <tr>
+                        <td>DESTRA:</td>
+                        <td contenteditable="true">Placca aterosclerotica minima.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>ARTERIE POPLITEE</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>SINISTRA:</td>
+                        <td contenteditable="true">Stenosi lieve della porzione prossimale dell'arteria poplitea sinistra.</td>
+                    </tr>
+                    <tr>
+                        <td>DESTRA:</td>
+                        <td contenteditable="true">Normale.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+		<tr>
+            <td>Arterie tibiali e peronee</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>TRONCO PERONEALE - SINISTRO</td>
+                        <td contenteditable="true">Normale</td>
+                    </tr>
+                    <tr>
+                        <td>TRONCO PERONEALE - DESTRO</td>
+                        <td contenteditable="true">Stenosi moderata del tronco peroneale destro</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA TIBIALE ANTERIORE - SINISTRO</td>
+                        <td contenteditable="true">Stenosi lieve della porzione prossimale dell'arteria tibiale anteriore sinistra</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA TIBIALE ANTERIORE - DESTRO</td>
+                        <td contenteditable="true">Stenosi lieve</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA PERONEALE - SINISTRO</td>
+                        <td contenteditable="true">Normale</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA PERONEALE - DESTRO</td>
+                        <td contenteditable="true">Normale</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA TIBIALE POSTERIORE - SINISTRO</td>
+                        <td contenteditable="true">Stenosi lieve</td>
+                    </tr>
+                    <tr>
+                        <td>ARTERIA TIBIALE POSTERIORE - DESTRO</td>
+                        <td contenteditable="true">Stenosi minima</td>
+                    </tr>
+                    <tr>
+                        <td>Sistema venoso</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>VENA FEMORALE - SINISTRO</td>
+                                    <td contenteditable="true">Normale</td>
+                                </tr>
+                                <tr>
+                                    <td>VENA FEMORALE - DESTRO</td>
+                                    <td contenteditable="true">Normale</td>
+                                </tr>
+                                <tr>
+                                    <td>VENA SAFENA MAGGIORE - SINISTRO</td>
+                                    <td contenteditable="true">Normale</td>
+                                </tr>
+                                <tr>
+                                    <td>VENA SAFENA MAGGIORE - DESTRO</td>
+                                    <td contenteditable="true">Normale</td>
+                                </tr>
+                                <tr>
+                                    <td>VENA SAFENA MINORE - SINISTRO</td>
+                                    <td contenteditable="true">Normale</td>
+                                </tr>
+                                <tr>
+                                    <td>VENA SAFENA MINORE - DESTRO</td>
+													          <td contenteditable="true">Normale</td>
+                                </tr>
+													   <table>
+													</td>
+											 </tr>
+									<table>
+							</td>
+					 </tr>
+    </table>
+    `,
     'mr-neck': 'Contenuto per MR NECK...',
     'mr-cardiac': 'Contenuto per MR CARDIAC...',
     'angio-mr': 'Contenuto per ANGIO MR...',
