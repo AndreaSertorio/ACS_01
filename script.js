@@ -1,9 +1,4 @@
-﻿// mette il template dopo che hai schiacchiato il bottone nel menu laterale sinistro
-function changeContent(id) {
-    const tableContainer = document.querySelector('.table-container');
-    tableContainer.innerHTML = templates[id];
-}
-
+﻿
 function handleSubMenuClick(event) {
     const targetId = event.target.id;
     changeContent(targetId);
@@ -11,8 +6,22 @@ function handleSubMenuClick(event) {
 document.querySelectorAll('#Metodica li[id]').forEach(submenu => {
     submenu.addEventListener('click', handleSubMenuClick);
 });
+
+document.querySelectorAll('.sidebar li').forEach(menuItem => {
+    const subMenu = menuItem.querySelector('ul');
+    if (subMenu) {
+        menuItem.addEventListener('click', (event) => {
+            event.stopPropagation();
+            menuItem.classList.toggle('clicked');
+        });
+    }
+});
+
+
 // gestisce tab del menu laterale sinsitro
 function openTab(evt, tabName) {
+    evt.stopPropagation(); // Aggiungi questa riga per fermare la propagazione dell'evento di click
+    
     var i, tabcontent, tabbuttons;
     tabcontent = document.getElementsByClassName("tab-content");
     for (i = 0; i < tabcontent.length; i++) {
@@ -26,6 +35,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
+
 // apre menu laterale sinsitro
 document.querySelector('.right-sidebar .toggle-area').addEventListener('click', function () {
     document.querySelector('.right-sidebar').classList.toggle('open');
@@ -33,16 +43,26 @@ document.querySelector('.right-sidebar .toggle-area').addEventListener('click', 
 
 
 
+// Aggiungi una variabile per tracciare lo stato del sottomenu
+let submenuOpen = false;
+
+// Modifica la funzione toggle-area per aprire o chiudere il sottomenu in base allo stato attuale
 document.querySelector('.toggle-area').addEventListener('click', () => {
     const sidebar = document.querySelector('.sidebar');
     const tabBar = document.querySelector('.tab-bar');
-    sidebar.classList.toggle('open');
-
-    if (sidebar.classList.contains('open')) {
-        tabBar.style.display = 'flex';
-    } else {
+    
+    // Se il sottomenu è aperto, chiudilo
+    if (tabBar.getAttribute('data-open') === 'true') {
         tabBar.style.display = 'none';
+        tabBar.setAttribute('data-open', 'false');
+    } 
+    // Se il sottomenu è chiuso, aprilo
+    else {
+        tabBar.style.display = 'flex';
+        tabBar.setAttribute('data-open', 'true');
     }
+    
+    sidebar.classList.toggle('open');
 });
 
 
@@ -55,10 +75,13 @@ document.getElementById("Metodica").style.display = "block";
 let currentTemplateId = null;
 
 function fillTemplate(templateId, indicazioneClinica) {
+    if (currentTemplateId === templateId) {
+      return;
+    }
+  
     currentTemplateId = templateId;
-    const template = templates[templateId];
-    const content = document.getElementById('content');
-    content.innerHTML = template;
+    const content = document.querySelector('.table-container');
+    content.innerHTML = templates[templateId];
   
     const indicazioneClinicaRow = document.getElementById('indicazione-clinica-row');
     if (indicazioneClinica) {
@@ -66,7 +89,10 @@ function fillTemplate(templateId, indicazioneClinica) {
     } else {
       indicazioneClinicaRow.style.display = 'none';
     }
+    
   }
+  
+  
   
   ///aggiungi un event listener alla checkbox per aggiornare il template quando lo stato della checkbox cambia:
   document.getElementById('indicazione-clinica-checkbox').addEventListener('change', (e) => {
@@ -75,8 +101,17 @@ function fillTemplate(templateId, indicazioneClinica) {
   });
   
   
-
-
+  function updateTemplate(optionId, text, isChecked) {
+    const rowId = optionId + '-row';
+    const row = document.getElementById(rowId);
+    if (row) {
+        row.style.display = isChecked ? '' : 'none';
+        const descriptionCell = row.querySelector('.description');
+        if (descriptionCell) {
+            descriptionCell.textContent = text;
+        }
+    }
+}
 
 
 

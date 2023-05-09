@@ -138,6 +138,14 @@ const templates = {
             <td>ALTRI RISULTATI</td>
             <td class="description" contenteditable="true">Nessuna significativa opacizzazione delle cellule mastoidee</td>
         </tr>
+        <tr id="head-option-1-row" style="display: none;">
+        <td>OPZIONE 1</td>
+        <td class="description" contenteditable="true">Testo opzione 1</td>
+      </tr>
+      <tr id="head-option-2-row" style="display: none;">
+        <td>OPZIONE 2</td>
+        <td class="description" contenteditable="true">Testo opzione 2</td>
+      </tr>
     </table>
     `,
 
