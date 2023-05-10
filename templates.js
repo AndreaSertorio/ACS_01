@@ -149,7 +149,6 @@ const templates = {
       </tr>
     </table>
     `,
-
     'ct-neck': `
     <table>
         <tr>
@@ -161,15 +160,15 @@ const templates = {
             <td>
                 <table>
                     <tr>
-                        <td>THYROID:</td>
+                        <td data-section="thyroid">THYROID:</td>
                         <td contenteditable="true">The thyroid gland is homogeneous in texture and has normal dimensions (right lobe measures 5.0 x 1.8 x 1.7 cm and left lobe measures 4.5 x 1.6 x 1.5 cm). No nodules or masses are identified.</td>
                     </tr>
                     <tr>
-                        <td>LYMPH NODES:</td>
+                        <td data-section="lymph-nodes">LYMPH NODES:</td>
                         <td contenteditable="true">Multiple small reactive lymph nodes are noted in the bilateral cervical chains.</td>
                     </tr>
                     <tr>
-                        <td>MUSCLES:</td>
+                        <td data-section="muscles">MUSCLES:</td>
                         <td contenteditable="true">The sternocleidomastoid and strap muscles appear normal in appearance and signal intensity.</td>
                     </tr>
                     <tr>
@@ -193,7 +192,6 @@ const templates = {
         </tr>
     </table>
     `,
-
     'ct-sinuses': `
     <table>
         <tr>
@@ -365,7 +363,6 @@ const templates = {
                             </tr>
                         </table>
      `,
-
      'ct-abdomen-pelvis': `
     <table>
         <tr>
@@ -880,4 +877,26 @@ const templates = {
     'mr-hip': 'Contenuto per MR HIP...',
     'mr-knee': 'Contenuto per MR KNEE...',
     'mr-ankle': 'Contenuto per MR ANKLE...',
+};
+
+/////
+const sectionData = {
+    'thyroid': {
+        tableDesc: 'Descrizione della ghiandola tiroidea...',
+        normalDesc: 'Una breve descrizione di come dovrebbe essere normalmente la ghiandola tiroidea...',
+        imageDesc: 'Come guardare la ghiandola tiroidea nelle immagini...',
+        pathologyList: ['Ipotiroidismo', 'Ipertiroidismo', 'Tiroidite']
+    },
+    'lymph-nodes': {
+        tableDesc: 'Descrizione dei linfonodi...',
+        normalDesc: 'Una breve descrizione di come dovrebbero essere normalmente i linfonodi...',
+        imageDesc: 'Come guardare i linfonodi nelle immagini...',
+        pathologyList: ['Linfadenopatia', 'Linfoma']
+    },
+    'muscles': {
+        tableDesc: 'Descrizione dei muscoli...',
+        normalDesc: 'Una breve descrizione di come dovrebbero apparire normalmente i muscoli...',
+        imageDesc: 'Come guardare i muscoli nelle immagini...',
+        pathologyList: ['Distrofia muscolare', 'Miopatia']
+    },
 };

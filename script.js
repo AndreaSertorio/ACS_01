@@ -20,7 +20,7 @@ document.querySelectorAll('.sidebar li').forEach(menuItem => {
 
 // gestisce tab del menu laterale sinsitro
 function openTab(evt, tabName) {
-    evt.stopPropagation(); // Aggiungi questa riga per fermare la propagazione dell'evento di click
+    if (evt) evt.stopPropagation(); // Aggiungi questa riga per fermare la propagazione dell'evento di click
     
     var i, tabcontent, tabbuttons;
     tabcontent = document.getElementsByClassName("tab-content");
@@ -32,9 +32,8 @@ function openTab(evt, tabName) {
         tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
     }
     document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+    if (evt) evt.currentTarget.className += " active";
 }
-
 
 // apre menu laterale sinsitro
 document.querySelector('.right-sidebar .toggle-area').addEventListener('click', function () {
@@ -75,42 +74,21 @@ document.getElementById("Metodica").style.display = "block";
 let currentTemplateId = null;
 
 function fillTemplate(templateId, indicazioneClinica) {
-    debug('Chiamata a fillTemplate');
-  
-    if (currentTemplateId === templateId) {
-      debug('Il template è già il corrente');
-      return;
-    }
 
-    debug('Impostazione del nuovo template');
-  
+    if (currentTemplateId === templateId) {
+        return;
+    }
     currentTemplateId = templateId;
     const content = document.querySelector('.table-container');
     content.innerHTML = templates[templateId];
-  
-   
-    // Generate the list of hidden options
-    const hiddenOptions = generateHiddenOptionsList(templateId);
-    debug('Generazione elenco opzioni nascoste');
 
-    // Create a string with all the hidden options
-    const hiddenOptionsText = hiddenOptions.join(', ');
-    debug('Creazione stringa opzioni nascoste');
-
-    // Find the text container and update its content
-    const textContainer = document.querySelector('.text-container');
-    debug('textContainer: ' + textContainer);
-
-    textContainer.textContent = `Opzioni nascoste: ${hiddenOptionsText}`;
-    debug('Opzioni nascoste: ' + hiddenOptionsText);
-
+    // Aggiunta degli event listener
+    addEventListeners();
 
     const indicazioneClinicaRow = document.getElementById('indicazione-clinica-row');
     if (indicazioneClinica) {
-      debug('Mostra indicazione clinica');
       indicazioneClinicaRow.style.display = '';
     } else {
-      debug('Nascondi indicazione clinica');
       indicazioneClinicaRow.style.display = 'none';
     }
 
@@ -138,30 +116,34 @@ function fillTemplate(templateId, indicazioneClinica) {
 }
 
 
-//// cerca elementi nascosti dentro template
+////
+// Aggiungere un event listener "click" a ciascuna delle sezioni non editabili del template e apri la barra laterale destra quando viene fatto clic su una sezione.
+function addEventListeners() {
+    const nonEditableSections = document.querySelectorAll('[data-section]');
 
-function generateHiddenOptionsList(templateId) {
-    // Get the template
-    const template = templates[templateId];
-
-    // Create a temporary DOM element to hold the template
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = template;
-
-    // Find all rows that are initially hidden
-    const hiddenRows = tempDiv.querySelectorAll('tr[style*="display: none"]');
-
-    // Generate a list of the hidden option names
-    const hiddenOptionNames = Array.from(hiddenRows).map(row => {
-        // Assume the name is in the first cell of the row
-        return row.querySelector('td').textContent;
+    nonEditableSections.forEach(section => {
+        section.addEventListener('click', function() {
+            const sectionId = this.getAttribute('data-section');
+            const data = sectionData[sectionId];
+            if (data) {
+                document.getElementById('table-desc').textContent = data.tableDesc;
+                document.getElementById('normal-desc').textContent = data.normalDesc;
+                document.getElementById('image-desc').textContent = data.imageDesc;
+                const pathologyList = document.getElementById('pathology-list');
+                pathologyList.innerHTML = '';
+                data.pathologyList.forEach(pathology => {
+                    const li = document.createElement('li');
+                    li.textContent = pathology;
+                    pathologyList.appendChild(li);
+                });
+                openTab(null, 'Focus');
+                document.querySelector('.right-sidebar').classList.add('open');
+            } else {
+                debug('Nessun dato trovato per sectionId: ' + sectionId);
+            }
+        });
     });
-
-    // Return the list of hidden option names
-    return hiddenOptionNames;
 }
-
-
 
 
 
@@ -216,3 +198,4 @@ function debug(message) {
     messageElement.textContent = message;
     debugElement.appendChild(messageElement);
 }
+
