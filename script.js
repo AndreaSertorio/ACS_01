@@ -35,7 +35,7 @@ function openTab(evt, tabName) {
     if (evt) evt.currentTarget.className += " active";
 }
 
-// apre menu laterale sinsitro
+// apre menu laterale destro
 document.querySelector('.right-sidebar .toggle-area').addEventListener('click', function () {
     document.querySelector('.right-sidebar').classList.toggle('open');
 });
@@ -103,17 +103,14 @@ function fillTemplate(templateId, indicazioneClinica) {
   });
   
   
-  function updateTemplate(optionId, text, isChecked) {
+  function updateTemplate(optionId, isChecked) {
     const rowId = optionId + '-row';
     const row = document.getElementById(rowId);
     if (row) {
         row.style.display = isChecked ? '' : 'none';
-        const descriptionCell = row.querySelector('.description');
-        if (descriptionCell) {
-            descriptionCell.textContent = text;
-        }
     }
 }
+
 
 
 ////
@@ -137,6 +134,7 @@ function addEventListeners() {
                     pathologyList.appendChild(li);
                 });
                 openTab(null, 'Focus');
+             
                 document.querySelector('.right-sidebar').classList.add('open');
             } else {
                 debug('Nessun dato trovato per sectionId: ' + sectionId);

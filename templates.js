@@ -8,34 +8,6 @@ const templates = {
             <th>Descrizione</th>
         </tr>
         <tr>
-            <td>VOLUME CEREBRALE</td>
-            <td class="description">
-                <table>
-                    <tr>
-                        <td>SEGNO DELL'ETÀ:</td>
-                        <td contenteditable="true">No</td>
-                    </tr>
-                    <tr>
-                        <td>ATROFIA:</td>
-                        <td contenteditable="true">GLOBALE</td>
-                    </tr>
-                    <tr>
-                        <td>PREDILEZIONE LOBALE:</td>
-                        <td contenteditable="true">Nessuna</td>
-                    </tr>
-                    <tr>
-                        <td>ASIMMETRIA:</td>
-                        <td contenteditable="true">Nessuna</td>
-                    </tr>
-                    <tr>
-                        <td>REGIONALE:</td>
-                        <td contenteditable="true">Nessuna</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    
-        <tr>
             <td>VOLUME IPPOTALAMICO</td>
             <td class="description" contenteditable="true">Normale</td>
         </tr>
@@ -138,6 +110,33 @@ const templates = {
         <tr>
             <td>ALTRI RISULTATI</td>
             <td class="description" contenteditable="true">Nessuna significativa opacizzazione delle cellule mastoidee</td>
+        </tr>
+        <tr id="Volume_Cerebrale-row" style="display: none;">
+            <td>VOLUME CEREBRALE</td>
+            <td class="description">
+                <table>
+                    <tr>
+                        <td>SEGNO DELL'ETÀ:</td>
+                        <td contenteditable="true">No</td>
+                    </tr>
+                    <tr>
+                        <td>ATROFIA:</td>
+                        <td contenteditable="true">GLOBALE</td>
+                    </tr>
+                    <tr>
+                        <td>PREDILEZIONE LOBALE:</td>
+                        <td contenteditable="true">Nessuna</td>
+                    </tr>
+                    <tr>
+                        <td>ASIMMETRIA:</td>
+                        <td contenteditable="true">Nessuna</td>
+                    </tr>
+                    <tr>
+                        <td>REGIONALE:</td>
+                        <td contenteditable="true">Nessuna</td>
+                    </tr>
+                </table>
+            </td>
         </tr>
         <tr id="head-option-1-row" style="display: none;">
         <td>OPZIONE 1</td>

@@ -35,15 +35,17 @@
                             <span id="ct-head" onclick="fillTemplate('ct-head', true)">CT HEAD</span>
                             <ul>
                                 <li>
-                                    <input type="checkbox" id="head-option-1" onchange="updateTemplate('head-option-1', 'Testo opzione 1', this.checked)" onclick="event.stopPropagation();">
+                                    <input type="checkbox" id="head-option-1" onchange="updateTemplate('head-option-1', this.checked)" onclick="event.stopPropagation();">
                                     <label for="head-option-1">Opzione 1</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" id="head-option-2" onchange="updateTemplate('head-option-2', 'Testo opzione 2', this.checked)" onclick="event.stopPropagation();">
+                                    <input type="checkbox" id="head-option-2" onchange="updateTemplate('head-option-2', this.checked)" onclick="event.stopPropagation();">
                                     <label for="head-option-2">Opzione 2</label>
                                 </li>
-                                
-                                
+                                <li>
+                                    <input type="checkbox" id="Volume_Cerebrale" onchange="updateTemplate('Volume_Cerebrale', this.checked)" onclick="event.stopPropagation();">
+                                    <label for="Volume_Cerebrale">Non ho capito</label>
+                                </li>
                                 <!-- Aggiungi altre opzioni qui -->
                             </ul>
                         </li>
@@ -221,9 +223,8 @@
         <div contenteditable="true" class="editable-text"></div>
  
         <div id="content" data-template-id=""></div>
-        <td class="description editable" contenteditable="true">No</td>
 
-        
+        <div id="debug"></div>
     </div>
 
     <script src="templates.js"></script>
