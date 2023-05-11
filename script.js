@@ -82,6 +82,12 @@ function fillTemplate(templateId, indicazioneClinica) {
     const content = document.querySelector('.table-container');
     content.innerHTML = templates[templateId];
 
+        // Trova tutti gli elementi con la classe 'toggle' e simula un click su di loro
+        let toggles = content.getElementsByClassName('toggle');
+        for (let toggle of toggles) {
+            toggleContent(toggle);
+        }
+
     // Aggiunta degli event listener
     addEventListeners();
 
@@ -143,49 +149,22 @@ function addEventListeners() {
     });
 }
 
+/////// funzionalità all'interno dei template
 
+// mostra noscondi contenuto
+function toggleContent(element) {
+    let content = element.nextElementSibling.firstElementChild;
+    if (content.style.display === "none") {
+        content.style.display = "block";
+        debug('display table');
+    } else {
+        content.style.display = "none";
+    }
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-// Aggiungi gli ID e i sottomenu per ciascuna delle opzioni del menu "Clinica-Metodica"
-const tcOptions = [
-    { id: 'head', options: ['HEAD option 1', 'HEAD option 2'] },
-    { id: 'neck', options: ['NECK option 1', 'NECK option 2'] },
-    { id: 'sinuses', options: ['SINUSES option 1', 'SINUSES option 2'] },
-    { id: 'chest', options: ['CHEST option 1', 'CHEST option 2'] },
-    { id: 'abdomen', options: ['ABDOMEN option 1', 'ABDOMEN option 2'] },
-    { id: 'abdomen-pelvis', options: ['ABDOMEN-PELVIS option 1', 'ABDOMEN-PELVIS option 2'] },
-    { id: 'pankreas', options: ['PANKREAS option 1', 'PANKREAS option 2'] },
-    { id: 'spine', options: ['SPINE option 1', 'SPINE option 2'] },
-    { id: 'angio-tc', options: ['ANGIO TC option 1', 'ANGIO TC option 2'] },
-];
-
-const mriOptions = [
-    { id: 'neckRM', options: ['MR NECK option 1', 'MR NECK option 2'] },
-    { id: 'cardiacRM', options: ['MR CARDIAC option 1', 'MR CARDIAC option 2'] },
-    { id: 'angioRM', options: ['ANGIO MR option 1', 'ANGIO MR option 2'] },
-    { id: 'wholebodyRM', options: ['MRI WHOLEBODY option 1', 'MRI WHOLEBODY option 2'] },
-    { id: 'abdomenRM', options: ['MR ABDOMEN option 1', 'MR ABDOMEN option 2'] },
-    { id: 'prostataRM', options: ['MR PROSTATA option 1', 'MR PROSTATA option 2'] },
-    { id: 'shoulderRM', options: ['MR SHOULDER option 1', 'MR SHOULDER option 2'] },
-    { id: 'elbowRM', options: ['MR ELBOW option 1', 'MR ELBOW option 2'] },
-    { id: 'spineRM', options: ['MR SPINE option 1', 'MR SPINE option 2'] },
-    { id: 'wristRM', options: ['MR WRIST option 1', 'MR WRIST option 2'] },
-    { id: 'hipRM', options: ['MR HIP option 1', 'MR HIP option 2'] },
-    { id: 'kneeRM', options: ['MR KNEE option 1', 'MR KNEE option 2'] },
-    { id: 'ankleRM', options: ['MR ANKLE option 1', 'MR ANKLE option 2'] },
-];
-
-const ecoOptions = [
-    { id: 'eco', options: ['ECO option 1', 'ECO option 2'] },
-];
-
-// aggiungine uno uguale per l'RX
-const rxOptions = [
-    { id: 'rx', options: ['RX option 1', 'RX option 2'] },
-];
 
 
 /// DEBUG

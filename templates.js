@@ -8,135 +8,320 @@ const templates = {
             <th>Descrizione</th>
         </tr>
         <tr>
-            <td>VOLUME IPPOTALAMICO</td>
-            <td class="description" contenteditable="true">Normale</td>
-        </tr>
-        <tr>
-            <td>CERVELLO TRONCO CEREBELLO</td>
+        <td>PARENCHIMA CEREBRALE</td>
+        <td class="description">
+            <table>
+                <tr>
+                    <td>CORTECCIA CEREBRALE:</td>
+                    <td contenteditable="true">Descrizione dell'integrità e simmetria della sostanza grigia corticale.</td>
+                </tr>
+                <tr>
+                    <td>SOSTANZA BIANCA:</td>
+                    <td contenteditable="true">Descrizione della sostanza bianca, segni di leucodistrofia o lesioni ipodense.</td>
+                </tr>
+                <tr id="Volume_Cerebrale-row" >
+                <td class="toggle" onclick="toggleContent(this)">VOLUME CEREBRALE </td>
+                <td class="description">
+                      <table>
+                        <tr>
+                            <td>SEGNO DELL'ETÀ:</td>
+                            <td contenteditable="true">No</td>
+                        </tr>
+                        <tr>
+                            <td>ATROFIA:</td>
+                            <td contenteditable="true">GLOBALE</td>
+                        </tr>
+                        <tr>
+                            <td>PREDILEZIONE LOBALE:</td>
+                            <td contenteditable="true">Nessuna</td>
+                        </tr>
+                        <tr>
+                            <td>ASIMMETRIA:</td>
+                            <td contenteditable="true">Nessuna</td>
+                        </tr>
+                        <tr>
+                            <td>REGIONALE:</td>
+                            <td contenteditable="true">Nessuna</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr id="Strutture_Mediane-row" >
+            <td class="toggle" onclick="toggleContent(this)">STRUTTURE MEDIANE </td>
             <td class="description">
                 <table>
                     <tr>
-                        <td>VOLUME:</td>
-                        <td contenteditable="true">Normale</td>
+                        <td>GANGLI DELLA BASE:</td>
+                        <td contenteditable="true">Descrizione dei gangli della base, inclusi nucleo caudato, putamen e globo pallido.</td>
                     </tr>
                     <tr>
-                        <td>INTENSITÀ DEL SEGNALE:</td>
-                        <td contenteditable="true">Normale</td>
+                        <td>TALAMI:</td>
+                        <td contenteditable="true">Descrizione dei talami, simmetria e densità.</td>
                     </tr>
                     <tr>
-                        <td>CONDIZIONE:</td>
-                        <td contenteditable="true">Nessuna evidenza di progressiva paralisi sopranucleare, atrofia multisistemica o altre condizioni neurodegenerative cerebellari primarie.</td>
+                        <td>IPPOCAMPI:</td>
+                        <td contenteditable="true">Descrizione degli ippocampi, segni di atrofia o anomalie della densità.</td>
                     </tr>
-                </table>
-            </td>
-        </tr>
+                    <tr>
+                        <td>FORNICE E CORPI MAMMILLARI:</td>
+                        <td contenteditable="true">Descrizione del fornice e dei corpi mammillari.</td>
+                    </tr>
+                    <tr>
+                        <td>CORPO CALLOSO:</td>
+                        <td contenteditable="true">Descrizione del corpo calloso, eventuali segni di agenesia, disgenesia o lesioni.</td>
+                    </tr>
+                    </table>
+                    </td>
+                    </tr>
+                <tr>
+                <td class="toggle" onclick="toggleContent(this)">ISCHEMIA</td>
+                <td class="description">
+                    <table>
+                        <tr>
+                            <td>INFARTO ACUTO:</td>
+                            <td contenteditable="true">
+                                <select>
+                                    <option>Assente</option>
+                                    <option>Presente</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>INFARTO CRONICO:</td>
+                            <td contenteditable="true">
+                                <select>
+                                    <option>Assente</option>
+                                    <option>Presente</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LOCALIZZAZIONE:</td>
+                            <td contenteditable="true">Descrizione della localizzazione dell'area ischemica.</td>
+                        </tr>
+                        <tr>
+                            <td>ESTENSIONE:</td>
+                            <td contenteditable="true">Descrizione dell'estensione dell'area ischemica.</td>
+                        </tr>
+                        <tr>
+                            <td>EFFETTO MASSA:</td>
+                            <td contenteditable="true">Descrizione dell'effetto massa sulla strutture vicine, se presente.</td>
+                        </tr>
+                        <tr>
+                            <td>MALATTIA CRONICA DELLE PICCOLE VIE VASCOLARI:</td>
+                            <td contenteditable="true">
+                                <select>
+                                    <option>Assente</option>
+                                    <option>Presente</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>MICROEMORRAGIE CEREBRALI:</td>
+                            <td contenteditable="true">
+                                <select>
+                                    <option>Assente</option>
+                                    <option>Presente</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>COMMENTI AGGIUNTIVI:</td>
+                            <td contenteditable="true">Qualsiasi altra osservazione rilevante sull'ischemia.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+<tr>
+    <td class="toggle" onclick="toggleContent(this)">MASSA</td>
+    <td class="description">
+        <table>
+            <tr>
+                <td>POSIZIONE:</td>
+                <td contenteditable="true">Descrizione della posizione della massa.</td>
+            </tr>
+            <tr>
+                <td>DIMENSIONI:</td>
+                <td contenteditable="true">Descrizione delle dimensioni della massa.</td>
+            </tr>
+            <tr>
+                <td>PRENDITA DI CONTRASTO:</td>
+                <td contenteditable="true">
+                    <select>
+                        <option>Eseguita senza contrasto</option>
+                        <option>Prende contrasto</option>
+                        <option>Non prende contrasto</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>EFFETTO MASSA:</td>
+                <td contenteditable="true">Descrizione dell'effetto massa sulla strutture vicine.</td>
+            </tr>
+            <tr>
+                <td>DENSITÀ/COMPOSIZIONE:</td>
+                <td contenteditable="true">Descrizione della densità e composizione interna della massa, inclusi eventuali segni di emorragia o altre caratteristiche.</td>
+            </tr>
+            <tr>
+                <td>COMMENTI AGGIUNTIVI:</td>
+                <td contenteditable="true">Qualsiasi altra osservazione rilevante sulla massa.</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+            </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+    <td class="toggle" onclick="toggleContent(this)">SHIFT DELLA LINEA MEDIANA</td>
+    <td class="description">
+        <table>
+            <tr>
+                <td>IDENTIFICAZIONE:</td>
+                <td contenteditable="true">Centrata e allineata con la linea mediana del cranio.</td>
+            </tr>
+            <tr>
+                <td>MISURAZIONE:</td>
+                <td contenteditable="true">Distanza tra la linea mediana del cranio e la linea mediana del terzo ventricolo o del corpo calloso.</td>
+            </tr>
+            <tr>
+                <td>CAUSA:</td>
+                <td contenteditable="true">Nessuna massa, emorragia, edema o altre anomalie identificate che possano causare lo spostamento.</td>
+            </tr>
+            <tr>
+                <td>PARENCHIMA CEREBRALE:</td>
+                <td contenteditable="true">Nessuna area di ipodensità o iperdensità osservata.</td>
+            </tr>
+            <tr>
+                <td>STRUTTURE ADIACENTI:</td>
+                <td contenteditable="true">Nessun segno di compressione o spostamento del ventricolo laterale o del terzo ventricolo.</td>
+            </tr>
+            <tr>
+                <td>FOSSA POSTERIORE:</td>
+                <td contenteditable="true">Nessun segno di edema cerebellare o di ematoma che potrebbe causare un effetto di massa.</td>
+            </tr>
+            <tr>
+                <td>GRAVITÀ:</td>
+                <td contenteditable="true">Nessuno spostamento significativo della linea mediana osservato.</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+    <tr>
+    <td class="toggle" onclick="toggleContent(this)">TRONCO ENCEFALICO</td>
+    <td class="description">
+        <table>
+            <tr>
+                <td>MESSENCEFALO (MIDBRAIN):</td>
+                <td contenteditable="true">Descrizione del mesencefalo, incluse le strutture come i collicoli superiori e inferiori, sostanza nera e acquedotto cerebrale.</td>
+            </tr>
+            <tr>
+                <td>PONTE (PONS):</td>
+                <td contenteditable="true">Descrizione del ponte, comprese le sue fibre trasversali e longitudiali e il quarto ventricolo.</td>
+            </tr>
+            <tr>
+                <td>BULBO (MEDULLA OBLONGATA):</td>
+                <td contenteditable="true">Descrizione del bulbo, incluse le piramidi e l'oliva, nonché la continuità con il midollo spinale.</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<tr>
+    <td class="toggle" onclick="toggleContent(this)">CERVELLETTO</td>
+    <td class="description">
+        <table>
+            <tr>
+                <td>EMISFERI CERVELLETTOSI:</td>
+                <td contenteditable="true">Descrizione della simmetria, morfologia e densità dei due emisferi cerebellari.</td>
+            </tr>
+            <tr>
+                <td>VERME CERVELLETTOSO:</td>
+                <td contenteditable="true">Descrizione del verme cerebellare, comprese le sue dimensioni e densità.</td>
+            </tr>
+            <tr>
+                <td>FOSSA POSTERIORE:</td>
+                <td contenteditable="true">Descrizione dello spazio della fossa posteriore, eventuali segni di ipertensione intracranica o idrocefalo.</td>
+            </tr>
+            <tr>
+                <td>IV VENTRICOLO:</td>
+                <td contenteditable="true">Descrizione del quarto ventricolo, compresa la sua posizione, dimensioni e eventuali segni di dilatazione o compressione.</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+   
     
-        <tr>
-            <td>CORTECCIA GANGLI BASALI</td>
-            <td class="description" contenteditable="true">EVIDENZA: Nessuna evidenza di lesioni pregresse, mineralizzazione anomala, malattia da prioni o encefalite autoimmune.</td>
-        </tr>
-        <tr>
-            <td>ISCHEMIA</td>
-            <td class="description">
-                <table>
-                    <tr>
-                        <td>INFARTO:</td>
-                        <td contenteditable="true">Nessuno</td>
-                    </tr>
-                    <tr>
-                        <td>MALATTIA CRONICA DELLE PICCOLE VIE VASCOLARI:</td>
-                        <td>
-                            <table>
-                                <tr>
-                                    <td>COMPONENTE PROFONDA:</td>
-                                    <td contenteditable="true">assente</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>MICROEMORRAGIE CEREBRALI:</td>
-                        <td contenteditable="true">Nessuna</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    
-        <tr>
-            <td>MASSA</td>
-            <td class="description">
-                <table>
-                    <tr>
-                        <td>POSIZIONE:</td>
-                        <td contenteditable="true">regione sellare e soprasellare</td>
-                    </tr>
-                    <tr>
-                        <td>DESCRIZIONE:</td>
-                        <td contenteditable="true">con contrasto, con una misura di circa 3,2 x 2,8 x 3,1 cm, che comprime superiormente il chiasma ottico e si estende bilateralmente nei seni cavernosi, più coerente con un macroadenoma ipofisario</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    
-        <tr>
-            <td>VENTRICOLI</td>
-            <td class="description">
-                <table>
-                    <tr>
-                        <td>IDROCEFALO:</td>
-                        <td>
-                            <table>
-                                <tr>
-                                    <td>TIPO:</td>
-                                    <td contenteditable="true">No</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>DESCRIZIONE:</td>
-                        <td contenteditable="true">Nessuna</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    
-        <tr>
-            <td>COLLEZIONI DI LIQUIDO EXTRA ASSIALE</td>
-            <td class="description" contenteditable="true">Nessuna</td>
-        </tr>
+ 
+<tr>
+    <td class="toggle" onclick="toggleContent(this)">VENTRICOLI E SPAZI SUBARACNOIDEI</td>
+    <td class="description">
+        <table>
+            <tr>
+                <td>VENTRICOLI LATERALI:</td>
+                <td contenteditable="true">Dimensioni, forma e simmetria normali. Nessun segno di dilatazione o asimmetria.</td>
+            </tr>
+            <tr>
+                <td>III VENTRICOLO:</td>
+                <td contenteditable="true">Normale. Nessun segno di dilatazione.</td>
+            </tr>
+            <tr>
+                <td>IV VENTRICOLO:</td>
+                <td contenteditable="true">Normale. Nessun segno di dilatazione.</td>
+            </tr>
+            <tr>
+                <td>SISTEMA DEI SENI VENOSI:</td>
+                <td contenteditable="true">Normale. Nessun segno di anomalie o trombosi.</td>
+            </tr>
+            <tr>
+                <td>CISTERNE DELLA BASE E SPAZI SUBARACNOIDEI:</td>
+                <td contenteditable="true">Normali. Nessun segno di sanguinamento o aumento di spazio.</td>
+            </tr>
+            <tr>
+                <td>SPAZIO SUBDURALE E EPIDURALE:</td>
+                <td contenteditable="true">Normale. Nessun segno di raccolta fluida o emorragia.</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td class="toggle" onclick="toggleContent(this)">STRUTTURE EXTRACRANICHE</td>
+    <td class="description">
+        <table>
+            <tr>
+                <td>PELLE E CUOIO CAPELLUTO:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+                <td>MUSCOLI CRANICI:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+                <td>GHIANDOLE SALIVARI:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+                <td>SENI PARANASALI:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+                <td>REGIONE ORBITARIA:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
         <tr>
             <td>ALTRI RISULTATI</td>
             <td class="description" contenteditable="true">Nessuna significativa opacizzazione delle cellule mastoidee</td>
         </tr>
-        <tr id="Volume_Cerebrale-row" style="display: none;">
-            <td>VOLUME CEREBRALE</td>
-            <td class="description">
-                <table>
-                    <tr>
-                        <td>SEGNO DELL'ETÀ:</td>
-                        <td contenteditable="true">No</td>
-                    </tr>
-                    <tr>
-                        <td>ATROFIA:</td>
-                        <td contenteditable="true">GLOBALE</td>
-                    </tr>
-                    <tr>
-                        <td>PREDILEZIONE LOBALE:</td>
-                        <td contenteditable="true">Nessuna</td>
-                    </tr>
-                    <tr>
-                        <td>ASIMMETRIA:</td>
-                        <td contenteditable="true">Nessuna</td>
-                    </tr>
-                    <tr>
-                        <td>REGIONALE:</td>
-                        <td contenteditable="true">Nessuna</td>
-                    </tr>
-                </table>
-            </td>
+    
+        <tr id="Volume_Ipotalamico-row" style="display: none;">
+            <td>VOLUME IPOTALAMICO</td>
+            <td class="description" contenteditable="true">Normale</td>
         </tr>
         <tr id="head-option-1-row" style="display: none;">
         <td>OPZIONE 1</td>
@@ -899,3 +1084,28 @@ const sectionData = {
         pathologyList: ['Distrofia muscolare', 'Miopatia']
     },
 };
+
+
+
+
+//////////////////////////
+////visibilità sezioni////
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    $(".toggle").click(function() {
+        $(this).next().children().toggle();
+    });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        let toggles = document.getElementsByClassName('toggle');
+    
+        for (let i = 0; i < toggles.length; i++) {
+            toggles[i].addEventListener('click', function() {
+                let content = this.nextElementSibling.firstElementChild;
+                if (content.style.display === "none") {
+                    content.style.display = "block";
+                } else {
+                    content.style.display = "none";
+                }
+            });
+        }
+    });

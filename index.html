@@ -44,7 +44,15 @@
                                 </li>
                                 <li>
                                     <input type="checkbox" id="Volume_Cerebrale" onchange="updateTemplate('Volume_Cerebrale', this.checked)" onclick="event.stopPropagation();">
-                                    <label for="Volume_Cerebrale">Non ho capito</label>
+                                    <label for="Volume_Cerebrale">Volume Cerebrale</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="Volume_Ipotalamico" onchange="updateTemplate('Volume_Ipotalamico', this.checked)" onclick="event.stopPropagation();">
+                                    <label for="Volume_Ipotalamico">Volume Ipotalamico</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="IV_Ventricolo" onchange="updateTemplate('IV_Ventricolo', this.checked)" onclick="event.stopPropagation();">
+                                    <label for="IV_Ventricolo">IV Ventricolo</label>
                                 </li>
                                 <!-- Aggiungi altre opzioni qui -->
                             </ul>
@@ -226,7 +234,8 @@
 
         <div id="debug"></div>
     </div>
-
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="templates.js"></script>
     <script src="script.js"></script> <!-- Aggiungi questa riga per includere il tuo file JavaScript esterno -->
 
