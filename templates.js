@@ -313,10 +313,166 @@ const templates = {
         </table>
     </td>
 </tr>
-
+<tr>
+    <td class="toggle" onclick="toggleContent(this)">OSSA CRANICHE</td>
+    <td class="description">
+        <table>
+            <tr>
+                <td>OSSO FRONTALE:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+                <td>OSSA PARIETALI:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+                <td>OSSA TEMPORALI:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+                <td>OSSO OCCIPITALE:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+                <td>FOSSA CRANICA ANTERIORE, MEDIA E POSTERIORE:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+                <td>BASE DEL CRANIO:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+            <tr>
+            <td>SUTURA CRANICA:</td>
+            <td contenteditable="true">Normale</td>
+        </tr>
+            <tr>
+                <td>VALUTAZIONE FINALE DELL'OSSEO CRANICO:</td>
+                <td contenteditable="true">Normale</td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td class="toggle" onclick="toggleContent(this)">AngioTC - Vascolarizzazione</td>
+    <td class="description">
+    <table>
+    <tr>
+        <th>Vaso</th>
+        <th>Descrizione</th>
+    </tr>
+    <tr>
+        <td>Arterie Carotidi</td>
+        <td>
+            <table>
+                <tr>
+                    <td>Interna sinistra:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Interna destra:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Esterna sinistra:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Esterna destra:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>Arterie Vertebrali</td>
+        <td>
+            <table>
+                <tr>
+                    <td>Sinistra:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Destra:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>Circolo di Willis</td>
+        <td>
+            <table>
+                <tr>
+                    <td>Arteria cerebrale anteriore:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Arteria cerebrale media:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Arteria cerebrale posteriore:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Arteria comunicante anteriore:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Arteria comunicante posteriore:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>Seni Venosi della Dura Madre</td>
+        <td>
+            <table>
+                <tr>
+                    <td>Seni sagittale superiore:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Seni sagittale inferiore:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Seni trasverso:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Seni sigmoideo:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Seni cavernoso:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>Vene Giugulari</td>
+        <td>
+            <table>
+                <tr>
+                    <td>Vene Giugulari interne:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+                <tr>
+                    <td>Vene Giugulari esterne:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+    </td>
+</tr>
         <tr>
             <td>ALTRI RISULTATI</td>
-            <td class="description" contenteditable="true">Nessuna significativa opacizzazione delle cellule mastoidee</td>
+            <td class="description" contenteditable="true">Eventuali ulteriori osservazioni</td>
         </tr>
     
         <tr id="Volume_Ipotalamico-row" style="display: none;">

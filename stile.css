@@ -228,11 +228,6 @@ h1 {
         margin-left: 40px;
     }
 
-    .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
 
 
@@ -269,13 +264,19 @@ h1 {
     overflow-y: auto;
     height: calc(100vh - 60px);
     width: 900px;
-    margin-right: -210px;;
+    transition: margin 0.3s ease; /* animazione per lo spostamento */
+
+}
+.content.left {
+    margin-left: 300px; /* o qualsiasi sia la larghezza del tuo menu laterale sinistro */
+}
+
+.content.right {
+    margin-right: 300px; /* o qualsiasi sia la larghezza del tuo menu laterale destro */
 }
 .table-container {
     width: 100%;
     max-width: 1200px;
-  
-
     overflow-x: auto;
     margin-bottom: 20px;
     margin-top: 60px; /* Aggiungi questa riga */
@@ -286,20 +287,22 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 20px;
+    border: 2px solid #344137;
   }
   
   th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #752929;
     padding: 8px;
   }
   
   th {
-    background-color: #f2f2f2;
+    background-color: #f1baba;
   }
   
   td[contenteditable="true"] {
     background-color: #fff9c0;
     color: #333;
+    
   }
   
   td.description {
@@ -310,13 +313,29 @@ table {
   td.description table {
     width: 100%;
     border-collapse: collapse;
+    
   }
   
   td.description td {
     border: none;
     padding: 8px;
+   
   }
+/* ----TEMPLATE---- */
+.hidden {
+    display: none;
+}
+.toggle {
+    transition: background-color 0.5s ease;
+    border: 1px solid #6afe8d; /* Aggiunge un bordo nero di 2px */
+}
+/* Vorrei impostare il bordo di colore rosso quando le opzioni sono visibili */
 
+
+.toggle:hover {
+    background-color: #a8ffd9;  /* Cambia questo al colore che preferisci */
+    cursor: pointer;
+}
 
 
 
@@ -346,7 +365,7 @@ table {
         bottom: 0; /* Posizionala in fondo alla pagina */
         left: 0; /* Posizionala a sinistra */
         width: 100%; /* Fa in modo che occupi l'intera larghezza della pagina */
-        height: 100px; /* Imposta l'altezza della finestra di debug */
+        height: 30px; /* Imposta l'altezza della finestra di debug */
         overflow: auto; /* Consente lo scorrimento se il contenuto supera l'altezza */
         background-color: rgba(0, 0, 0, 0.8); /* Imposta un colore di sfondo semitrasparente */
         color: #fff; /* Imposta il colore del testo a bianco */

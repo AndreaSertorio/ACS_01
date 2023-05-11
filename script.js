@@ -18,34 +18,16 @@ document.querySelectorAll('.sidebar li').forEach(menuItem => {
 });
 
 
-// gestisce tab del menu laterale sinsitro
-function openTab(evt, tabName) {
-    if (evt) evt.stopPropagation(); // Aggiungi questa riga per fermare la propagazione dell'evento di click
-    
-    var i, tabcontent, tabbuttons;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tabbuttons = document.getElementsByClassName("tab-button");
-    for (i = 0; i < tabbuttons.length; i++) {
-        tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    if (evt) evt.currentTarget.className += " active";
-}
+///////////// MENU LATERALI /////////////
+
 
 // apre menu laterale destro
 document.querySelector('.right-sidebar .toggle-area').addEventListener('click', function () {
     document.querySelector('.right-sidebar').classList.toggle('open');
+    adjustContentPosition();
 });
 
-
-
-// Aggiungi una variabile per tracciare lo stato del sottomenu
-let submenuOpen = false;
-
-// Modifica la funzione toggle-area per aprire o chiudere il sottomenu in base allo stato attuale
+// apre menu laterale sinistro
 document.querySelector('.toggle-area').addEventListener('click', () => {
     const sidebar = document.querySelector('.sidebar');
     const tabBar = document.querySelector('.tab-bar');
@@ -62,15 +44,54 @@ document.querySelector('.toggle-area').addEventListener('click', () => {
     }
     
     sidebar.classList.toggle('open');
+    adjustContentPosition();
 });
 
-
+// gestisce tab del menu laterale sinsitro
+function openTab(evt, tabName) {
+    if (evt) evt.stopPropagation(); // Aggiungi questa riga per fermare la propagazione dell'evento di click
+    
+    var i, tabcontent, tabbuttons;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tabbuttons = document.getElementsByClassName("tab-button");
+    for (i = 0; i < tabbuttons.length; i++) {
+        tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    if (evt) evt.currentTarget.className += " active";
+}
 // Apri la scheda "Metodica" di default 
-
 document.getElementById("Metodica").style.display = "block";
 
 
-/////////// Update Template con indicazionii clinica 
+////funzione che gestirà lo spostamento del contenuto centrale in base allo stato dei menu laterali:
+function adjustContentPosition() {
+    const content = document.querySelector('.content');
+    const leftSidebar = document.querySelector('.sidebar');
+    const rightSidebar = document.querySelector('.right-sidebar');
+  
+    if (leftSidebar.classList.contains('open') && rightSidebar.classList.contains('open')) {
+        content.classList.remove('left', 'right');
+    } else if (leftSidebar.classList.contains('open')) {
+        content.classList.remove('right');
+        content.classList.add('left');
+    } else if (rightSidebar.classList.contains('open')) {
+        content.classList.remove('left');
+        content.classList.add('right');
+    } else {
+        content.classList.remove('left', 'right');
+    }
+}
+
+
+
+
+///////////// TEMPLATE /////////////
+
+/////Crea template
 let currentTemplateId = null;
 
 function fillTemplate(templateId, indicazioneClinica) {
@@ -100,7 +121,7 @@ function fillTemplate(templateId, indicazioneClinica) {
 
 }
 
-  
+  /////////// Update Template con indicazionii clinica 
   
   ///aggiungi un event listener alla checkbox per aggiornare il template quando lo stato della checkbox cambia:
   document.getElementById('indicazione-clinica-checkbox').addEventListener('change', (e) => {
