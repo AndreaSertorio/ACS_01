@@ -66,6 +66,11 @@ function openTab(evt, tabName) {
 // Apri la scheda "Metodica" di default 
 document.getElementById("Metodica").style.display = "block";
 
+function simulateLeftSidebarToggleClick() {
+    const leftSidebarToggle = document.querySelector('.sidebar .toggle-area');
+    leftSidebarToggle.click();
+}
+
 
 ////funzione che gestirà lo spostamento del contenuto centrale in base allo stato dei menu laterali:
 function adjustContentPosition() {
@@ -103,12 +108,12 @@ function fillTemplate(templateId, indicazioneClinica) {
     const content = document.querySelector('.table-container');
     content.innerHTML = templates[templateId];
 
-        // Trova tutti gli elementi con la classe 'toggle' e simula un click su di loro
+        // Trova tutti gli elementi con la classe 'toggle' dentro il template e simula un click su di loro
         let toggles = content.getElementsByClassName('toggle');
         for (let toggle of toggles) {
             toggleContent(toggle);
         }
-
+    simulateLeftSidebarToggleClick();
     // Aggiunta degli event listener
     addEventListeners();
 

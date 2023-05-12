@@ -7,45 +7,82 @@ const templates = {
             <th>Organo\Sistema</th>
             <th>Descrizione</th>
         </tr>
-        <tr>
-        <td>PARENCHIMA CEREBRALE</td>
-        <td class="description">
-            <table>
-                <tr>
-                    <td>CORTECCIA CEREBRALE:</td>
-                    <td contenteditable="true">Descrizione dell'integrità e simmetria della sostanza grigia corticale.</td>
-                </tr>
-                <tr>
-                    <td>SOSTANZA BIANCA:</td>
-                    <td contenteditable="true">Descrizione della sostanza bianca, segni di leucodistrofia o lesioni ipodense.</td>
-                </tr>
-                <tr id="Volume_Cerebrale-row" >
-                <td class="toggle" onclick="toggleContent(this)">VOLUME CEREBRALE </td>
+ <tr>
+    <td>PARENCHIMA CEREBRALE</td>
+    <td class="description">
+        <table>
+            <tr>
+                <td data-section="cerebral-cortex">CORTECCIA CEREBRALE:</td>
+                <td contenteditable="true">Descrizione dell'integrità e simmetria della sostanza grigia corticale.</td>
+            </tr>
+            <tr>
+                <td data-section="white-matter">SOSTANZA BIANCA:</td>
+                <td contenteditable="true">Descrizione della sostanza bianca, segni di leucodistrofia o lesioni ipodense.</td>
+            </tr>
+<tr id="Volumi_Cerebrali-row">
+    <td class="toggle" onclick="toggleContent(this)">VOLUMI CEREBRALI</td>
+    <td class="description">
+        <table>
+            <tr>
+                <td>Volume Generale del Cervello:</td>
+                <td contenteditable="true">Descrizione del volume generale del cervello, eventuali segni di atrofia cerebrale o di un aumento del volume cerebrale.</td>
+            </tr>
+            <tr>
+                <td>Asimmetria:</td>
+                <td contenteditable="true">Descrizione di eventuali segni di asimmetria nel cervello.</td>
+            </tr>
+            <tr>
+                <td class="toggle" onclick="toggleContent(this)">LOBI CEREBRALI</td>
                 <td class="description">
-                      <table>
+                    <table>
                         <tr>
-                            <td>SEGNO DELL'ETÀ:</td>
-                            <td contenteditable="true">No</td>
+                            <td>Lobi Frontali:</td>
+                            <td contenteditable="true">Descrizione del volume e della simmetria dei lobi frontali, eventuali segni di atrofia o di espansione.</td>
                         </tr>
                         <tr>
-                            <td>ATROFIA:</td>
-                            <td contenteditable="true">GLOBALE</td>
+                            <td>Lobi Temporali:</td>
+                            <td contenteditable="true">Descrizione del volume e della simmetria dei lobi temporali, eventuali segni di atrofia o di espansione.</td>
                         </tr>
                         <tr>
-                            <td>PREDILEZIONE LOBALE:</td>
-                            <td contenteditable="true">Nessuna</td>
+                            <td>Lobi Parietali:</td>
+                            <td contenteditable="true">Descrizione del volume e della simmetria dei lobi parietali, eventuali segni di atrofia o di espansione.</td>
                         </tr>
                         <tr>
-                            <td>ASIMMETRIA:</td>
-                            <td contenteditable="true">Nessuna</td>
-                        </tr>
-                        <tr>
-                            <td>REGIONALE:</td>
-                            <td contenteditable="true">Nessuna</td>
+                            <td>Lobi Occipitali:</td>
+                            <td contenteditable="true">Descrizione del volume e della simmetria dei lobi occipitali, eventuali segni di atrofia o di espansione.</td>
                         </tr>
                     </table>
                 </td>
             </tr>
+            <tr>
+                <td class="toggle" onclick="toggleContent(this)">REMANENTI STRUTTURE</td>
+                <td class="description">
+                    <table>
+                        <tr>
+                            <td>Gangli della Base:</td>
+                            <td contenteditable="true">Descrizione del volume dei gangli della base, eventuali segni di atrofia o di espansione.</td>
+                        </tr>
+                        <tr>
+                            <td>Talamo:</td>
+                            <td contenteditable="true">Descrizione del volume del talamo, eventuali segni di atrofia o di espansione.</td>
+                        </tr>
+                        <tr>
+                            <td>Cervelletto:</td>
+                            <td contenteditable="true">Descrizione del volume del cervelletto, eventuali segni di atrofia o di espansione.</td>
+                        </tr>
+                        <tr>
+                            <td>Tronco Encefalico:</td>
+                            <td contenteditable="true">Descrizione del volume del tronco encefalico, eventuali segni di atrofia o di espansione.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+
+
             <tr id="Strutture_Mediane-row" >
             <td class="toggle" onclick="toggleContent(this)">STRUTTURE MEDIANE </td>
             <td class="description">
@@ -167,17 +204,27 @@ const templates = {
                 <td>COMMENTI AGGIUNTIVI:</td>
                 <td contenteditable="true">Qualsiasi altra osservazione rilevante sulla massa.</td>
             </tr>
+            
         </table>
+        
     </td>
+    
 </tr>
+
             </tr>
+            
             </table>
+            
         </td>
     </tr>
     <tr>
     <td class="toggle" onclick="toggleContent(this)">SHIFT DELLA LINEA MEDIANA</td>
     <td class="description">
         <table>
+              <tr>
+            <th>Struttura</th>
+            <th>Descrizione</th>
+        </tr>
             <tr>
                 <td>IDENTIFICAZIONE:</td>
                 <td contenteditable="true">Centrata e allineata con la linea mediana del cranio.</td>
@@ -213,6 +260,10 @@ const templates = {
     <td class="toggle" onclick="toggleContent(this)">TRONCO ENCEFALICO</td>
     <td class="description">
         <table>
+              <tr>
+            <th>Struttura</th>
+            <th>Descrizione</th>
+        </tr>
             <tr>
                 <td>MESSENCEFALO (MIDBRAIN):</td>
                 <td contenteditable="true">Descrizione del mesencefalo, incluse le strutture come i collicoli superiori e inferiori, sostanza nera e acquedotto cerebrale.</td>
@@ -233,6 +284,10 @@ const templates = {
     <td class="toggle" onclick="toggleContent(this)">CERVELLETTO</td>
     <td class="description">
         <table>
+              <tr>
+            <th>Struttura</th>
+            <th>Descrizione</th>
+        </tr>
             <tr>
                 <td>EMISFERI CERVELLETTOSI:</td>
                 <td contenteditable="true">Descrizione della simmetria, morfologia e densità dei due emisferi cerebellari.</td>
@@ -259,6 +314,10 @@ const templates = {
     <td class="toggle" onclick="toggleContent(this)">VENTRICOLI E SPAZI SUBARACNOIDEI</td>
     <td class="description">
         <table>
+        <tr>
+            <th>Struttura</th>
+            <th>Descrizione</th>
+        </tr>
             <tr>
                 <td>VENTRICOLI LATERALI:</td>
                 <td contenteditable="true">Dimensioni, forma e simmetria normali. Nessun segno di dilatazione o asimmetria.</td>
@@ -290,6 +349,10 @@ const templates = {
     <td class="toggle" onclick="toggleContent(this)">STRUTTURE EXTRACRANICHE</td>
     <td class="description">
         <table>
+              <tr>
+            <th>Struttura</th>
+            <th>Descrizione</th>
+        </tr>
             <tr>
                 <td>PELLE E CUOIO CAPELLUTO:</td>
                 <td contenteditable="true">Normale</td>
@@ -317,6 +380,10 @@ const templates = {
     <td class="toggle" onclick="toggleContent(this)">OSSA CRANICHE</td>
     <td class="description">
         <table>
+        <tr>
+        <th>Osso</th>
+        <th>Descrizione</th>
+    </tr>
             <tr>
                 <td>OSSO FRONTALE:</td>
                 <td contenteditable="true">Normale</td>
@@ -360,46 +427,61 @@ const templates = {
         <th>Vaso</th>
         <th>Descrizione</th>
     </tr>
+       <tr>
+    <td data-section="Carotid-Arteries" class="toggle" onclick="toggleContent(this)">Arterie Carotidi</td>
+    <td>
+        <table>
+            <tr>
+                <td data-section="Common-Carotid" class="toggle" onclick="toggleContent(this)">Carotidi Comuni</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Sinistra:</td>
+                            <td contenteditable="true">Permeabile.</td>
+                        </tr>
+                        <tr>
+                            <td>Destra:</td>
+                            <td contenteditable="true">Permeabile.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td data-section="Int-Carotid" class="toggle" onclick="toggleContent(this)">Carotidi Interne</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Sinistra:</td>
+                            <td contenteditable="true">Permeabile.</td>
+                        </tr>
+                        <tr>
+                            <td>Destra:</td>
+                            <td contenteditable="true">Permeabile.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td data-section="Ext-Carotid" class="toggle" onclick="toggleContent(this)">Carotidi Esterne</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Sinistra:</td>
+                            <td contenteditable="true">Permeabile.</td>
+                        </tr>
+                        <tr>
+                            <td>Destra:</td>
+                            <td contenteditable="true">Permeabile.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
     <tr>
-        <td>Arterie Carotidi</td>
-        <td>
-            <table>
-                <tr>
-                    <td>Interna sinistra:</td>
-                    <td contenteditable="true">Permeabile.</td>
-                </tr>
-                <tr>
-                    <td>Interna destra:</td>
-                    <td contenteditable="true">Permeabile.</td>
-                </tr>
-                <tr>
-                    <td>Esterna sinistra:</td>
-                    <td contenteditable="true">Permeabile.</td>
-                </tr>
-                <tr>
-                    <td>Esterna destra:</td>
-                    <td contenteditable="true">Permeabile.</td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td>Arterie Vertebrali</td>
-        <td>
-            <table>
-                <tr>
-                    <td>Sinistra:</td>
-                    <td contenteditable="true">Permeabile.</td>
-                </tr>
-                <tr>
-                    <td>Destra:</td>
-                    <td contenteditable="true">Permeabile.</td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td>Circolo di Willis</td>
+        <td class="toggle" onclick="toggleContent(this)">Circolo di Willis</td>
         <td>
             <table>
                 <tr>
@@ -407,15 +489,15 @@ const templates = {
                     <td contenteditable="true">Permeabile.</td>
                 </tr>
                 <tr>
+                    <td>Arteria comunicante anteriore:</td>
+                    <td contenteditable="true">Permeabile.</td>
+                </tr>       
+                <tr>
                     <td>Arteria cerebrale media:</td>
                     <td contenteditable="true">Permeabile.</td>
                 </tr>
                 <tr>
                     <td>Arteria cerebrale posteriore:</td>
-                    <td contenteditable="true">Permeabile.</td>
-                </tr>
-                <tr>
-                    <td>Arteria comunicante anteriore:</td>
                     <td contenteditable="true">Permeabile.</td>
                 </tr>
                 <tr>
@@ -426,7 +508,71 @@ const templates = {
         </td>
     </tr>
     <tr>
-        <td>Seni Venosi della Dura Madre</td>
+    <td class="toggle" onclick="toggleContent(this)">Circolo Posteriore</td>
+    <td>
+        <table>
+            <tr>
+                <td>Arterie Vertebrali</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Sinistra:</td>
+                            <td contenteditable="true">Permeabile.</td>
+                        </tr>
+                        <tr>
+                            <td>Destra:</td>
+                            <td contenteditable="true">Permeabile.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>Arterie Basilari</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Basilaris:</td>
+                            <td contenteditable="true">Permeabile.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+            <td class="toggle" onclick="toggleContent(this)">PICA</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Sinistra:</td>
+                        <td contenteditable="true">Permeabile.</td>
+                    </tr>
+                    <tr>
+                        <td>Destra:</td>
+                        <td contenteditable="true">Permeabile.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="toggle" onclick="toggleContent(this)">AICA</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>Sinistra:</td>
+                        <td contenteditable="true">Permeabile.</td>
+                    </tr>
+                    <tr>
+                        <td>Destra:</td>
+                        <td contenteditable="true">Permeabile.</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        </table>
+    </td>
+</tr>
+
+    <tr>
+        <td class="toggle" onclick="toggleContent(this)">Seni Venosi della Dura Madre</td>
         <td>
             <table>
                 <tr>
@@ -453,7 +599,7 @@ const templates = {
         </td>
     </tr>
     <tr>
-        <td>Vene Giugulari</td>
+        <td class="toggle" onclick="toggleContent(this)">Vene Giugulari</td>
         <td>
             <table>
                 <tr>
@@ -703,7 +849,7 @@ const templates = {
                             </tr>
                         </table>
      `,
-     'ct-abdomen-pelvis': `
+    'ct-abdomen-pelvis': `
     <table>
         <tr>
             <th>Struttura anatomica</th>
@@ -1221,6 +1367,26 @@ const templates = {
 
 /////
 const sectionData = {
+    /////////----------TC HEAD
+    'cerebral-cortex': {
+        tableDesc: 'Descrizione della corteccia cerebrale...',
+        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente la corteccia cerebrale...',
+        imageDesc: 'Come guardare la corteccia cerebrale nelle immagini...',
+        imagePath: '/ACS_01/img/grey_matter.jpg', // Aggiungi questo campo per ogni sezione
+        pathologyList: ['Cortical Atrophy', 'Cortical Dysplasia', 'Cerebral Edema']
+    },
+    'white-matter': {
+        tableDesc: 'Descrizione della sostanza bianca...',
+        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente la sostanza bianca...',
+        imageDesc: 'Come guardare la sostanza bianca nelle immagini...',
+        imagePath: 'ACS_01/img/sostanza_bianca_cervello.jpg', // Aggiungi questo campo per ogni sezione
+        pathologyList: ['Leukodystrophy', 'Multiple Sclerosis', 'White Matter Lesions']
+    },
+
+
+
+
+    //// TC NECK
     'thyroid': {
         tableDesc: 'Descrizione della ghiandola tiroidea...',
         normalDesc: 'Una breve descrizione di come dovrebbe essere normalmente la ghiandola tiroidea...',
@@ -1239,29 +1405,8 @@ const sectionData = {
         imageDesc: 'Come guardare i muscoli nelle immagini...',
         pathologyList: ['Distrofia muscolare', 'Miopatia']
     },
+
 };
 
 
 
-
-//////////////////////////
-////visibilità sezioni////
-src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    $(".toggle").click(function() {
-        $(this).next().children().toggle();
-    });
-
-    document.addEventListener('DOMContentLoaded', (event) => {
-        let toggles = document.getElementsByClassName('toggle');
-    
-        for (let i = 0; i < toggles.length; i++) {
-            toggles[i].addEventListener('click', function() {
-                let content = this.nextElementSibling.firstElementChild;
-                if (content.style.display === "none") {
-                    content.style.display = "block";
-                } else {
-                    content.style.display = "none";
-                }
-            });
-        }
-    });
