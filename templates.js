@@ -1372,14 +1372,14 @@ const sectionData = {
         tableDesc: 'Descrizione della corteccia cerebrale...',
         normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente la corteccia cerebrale...',
         imageDesc: 'Come guardare la corteccia cerebrale nelle immagini...',
-        imagePath: '/ACS_01/img/grey_matter.jpg', // Aggiungi questo campo per ogni sezione
+        imagePath: 'img/grey_matter.jpg', // Aggiungi questo campo per ogni sezione
         pathologyList: ['Cortical Atrophy', 'Cortical Dysplasia', 'Cerebral Edema']
     },
     'white-matter': {
         tableDesc: 'Descrizione della sostanza bianca...',
         normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente la sostanza bianca...',
         imageDesc: 'Come guardare la sostanza bianca nelle immagini...',
-        imagePath: 'ACS_01/img/sostanza_bianca_cervello.jpg', // Aggiungi questo campo per ogni sezione
+        imagePath: 'img/sostanza_bianca_cervello.jpg', // Aggiungi questo campo per ogni sezione
         pathologyList: ['Leukodystrophy', 'Multiple Sclerosis', 'White Matter Lesions']
     },
 
