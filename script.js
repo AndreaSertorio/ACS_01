@@ -165,12 +165,18 @@ function addEventListeners() {
                     li.textContent = pathology;
                     pathologyList.appendChild(li);
                 });
+
+                // Imposta l'attributo src dell'elemento img
+                document.getElementById('section-image').src = data.imagePath;
+
+
                 openTab(null, 'Focus');
              
                 document.querySelector('.right-sidebar').classList.add('open');
             } else {
                 debug('Nessun dato trovato per sectionId: ' + sectionId);
             }
+            adjustContentPosition()
         });
     });
 }

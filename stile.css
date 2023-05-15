@@ -192,11 +192,11 @@ h1 {
     background-color: #333;
     padding: 20px;
     box-sizing: border-box;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
     .right-sidebar.open {
-        width: 300px;
+        width: 500px;
     }
     .right-sidebar:not(.open) .tab-bar {
         display: none;
@@ -229,7 +229,10 @@ h1 {
     }
 
 
-
+#section-image {
+    width: 100%;
+    height: auto;
+}
 
 .editable-text {
     width: 100%;
