@@ -1,3 +1,7 @@
 {
-    "inline-bookmarks.view.showVisibleFilesOnly": true
+    "inline-bookmarks.view.showVisibleFilesOnly": true,
+    "CodeGPT.model": "gpt-4",
+    "CodeGPT.query.language": "Italian",
+    "CodeGPT.maxTokens": 30000,
+    "CodeGPT.temperature": 0.2
 }
