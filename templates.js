@@ -1372,11 +1372,7 @@ const sectionData = {
         tableDesc: 'Descrizione della corteccia cerebrale...',
         normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente la corteccia cerebrale...',
         imageDesc: 'Come guardare la corteccia cerebrale nelle immagini...',
-<<<<<<< HEAD
         imagePath: 'img/grey_matter.jpeg', // Aggiungi questo campo per ogni sezione
-=======
-        imagePath: 'img/grey_matter.jpg', // Aggiungi questo campo per ogni sezione
->>>>>>> 7e34744b901009f6cb58d4d94886455e04173ead
         pathologyList: ['Cortical Atrophy', 'Cortical Dysplasia', 'Cerebral Edema']
     },
     'white-matter': {
@@ -1498,10 +1494,6 @@ const sectionData = {
         imagePath: 'img/collo.jpg', // Aggiungi questo campo per ogni sezione
         pathologyList: ['Neck Tumor', 'Neck Hemorrhage', 'Neck Infection']
     },
-
-
-
-
 
 
 };
