@@ -1,0 +1,12 @@
+collections:
+  - name: "focusFile"
+    label: "FocusFile"
+    folder: "focusFile"
+    create: true
+    fields:
+      - {name: "title", label: "Title", widget: "string"}
+      - {name: "tableDesc", label: "Table Description", widget: "string"}
+      - {name: "normalDesc", label: "Normal Description", widget: "string"}
+      - {name: "imageDesc", label: "Image Description", widget: "string"}
+      - {name: "imagePath", label: "Image Path", widget: "string"}
+      - {name: "pathologyList", label: "Pathology List", widget: "list"}
