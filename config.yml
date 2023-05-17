@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: AndreaSertorio/ACS_01 # sostituisci con il tuo nome utente GitHub e il nome della repository
+media_folder: img/ # sostituisci con il percorso in cui desideri memorizzare le immagini caricate
+collections:
+  - name: "sections"
+    label: "Sections"
+    folder: "sections"
+    create: true
+    fields:
+      - {name: "tableDesc", label: "Table Description", widget: "string"}
+      - {name: "normalDesc", label: "Normal Description", widget: "string"}
+      - {name: "imageDesc", label: "Image Description", widget: "string"}
+      - {name: "imagePath", label: "Image Path", widget: "string"}
+      - {name: "pathologyList", label: "Pathology List", widget: "list"}
+
