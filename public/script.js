@@ -204,7 +204,7 @@ function toggleContent(element) {
 
 async function sendToOpenAI() {
     // Get the text from the text area
-    const text = document.getElementById('inputText').value;
+    const text = document.querySelector('.editable-text').innerText;
 
     // Send a POST request to the server
     const response = await fetch('https://damp-plains-57695.herokuapp.com/get-gpt-3-response', {
@@ -227,6 +227,7 @@ async function sendToOpenAI() {
             console.error('debug: Error:', error); // Debug: stampa l'errore, se presente
         });
 }
+
 
 
 /// DEBUG
