@@ -1,7 +1,10 @@
 const express = require('express');
+require('dotenv').config();
+
 const openai = require('openai');
 
-openai.apiKey = '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';
+openai.apiKey = process.env.OPENAI_API_KEY;
+
 
 const app = express();
 app.use(express.json());
