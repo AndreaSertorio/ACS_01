@@ -206,6 +206,9 @@ async function sendToOpenAI() {
     // Get the text from the text area
     const text = document.querySelector('.editable-text').innerText;
 
+    // Create a messages array
+    const messages = [{ "role": "system", "content": "Sei connesso al servizio di assistenza radiologica." }, { "role": "user", "content": text }];
+
     // Send a POST request to the server
     const response = await fetch('https://damp-plains-57695.herokuapp.com/get-gpt-3-response', {
         method: 'POST',
@@ -213,7 +216,7 @@ async function sendToOpenAI() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: text }),
+        body: JSON.stringify({ messages: messages }), // Send the messages array
     })
         .then(response => response.json())
         .then(data => {
