@@ -209,6 +209,7 @@ async function sendToOpenAI() {
     // Send a POST request to the server
     const response = await fetch('https://damp-plains-57695.herokuapp.com/get-gpt-3-response', {
         method: 'POST',
+        mode: 'cors', // Add this line
         headers: {
             'Content-Type': 'application/json',
         },
@@ -226,7 +227,6 @@ async function sendToOpenAI() {
             console.error('debug: Error:', error); // Debug: stampa l'errore, se presente
         });
 }
-
 
 
 /// DEBUG
