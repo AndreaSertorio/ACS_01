@@ -5,9 +5,11 @@ const openai = require('openai');
 
 openai.apiKey = process.env.OPENAI_API_KEY;
 
-
 const app = express();
 app.use(express.json());
+
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
 
 app.post('/get-gpt-3-response', async (req, res) => {
     const prompt = req.body.text;
@@ -20,6 +22,7 @@ app.post('/get-gpt-3-response', async (req, res) => {
     res.json({ response: response.choices[0].text.strip() });
 });
 
-app.listen(5000, () => {
-    console.log('Server is running on port 5000');
+// Listen on the port assigned by Heroku or default to 5000
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`Server is running on port ${process.env.PORT || 5000}`);
 });
