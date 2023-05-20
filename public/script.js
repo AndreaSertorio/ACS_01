@@ -202,36 +202,30 @@ function toggleContent(element) {
 
 //// ONPEN AI   /////
 
-const openai = require('openai');
-
-openai.apiKey = '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';
-
-async function generateText(prompt) {
-    const response = await openai.Completion.create({
-        engine: 'text-davinci-002',
-        prompt: prompt,
-        max_tokens: 100,
-        temperature: 0.5,
-    });
-
-    return response.choices[0].text.strip();
-}
-
 async function sendToOpenAI() {
+    // Get the text from the text area
     const text = document.getElementById('inputText').value;
-    const response = await fetch('/get-gpt-3-response', {
+
+    // Send a POST request to the server
+    const response = await fetch('https://damp-plains-57695.herokuapp.com/get-gpt-3-response', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: text })
-    });
-    const data = await response.json();
-    const div = document.createElement('div');
-    div.textContent = data.response;
-    document.getElementById('responseContainer').appendChild(div);
+        body: JSON.stringify({ text: text }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('debug: received data', data); // Debug: stampa i dati ricevuti
+            let responseContainer = document.getElementById("responseContainer");
+            let responseText = document.createElement("p");
+            responseText.innerText = data.response;
+            responseContainer.appendChild(responseText);
+        })
+        .catch((error) => {
+            console.error('debug: Error:', error); // Debug: stampa l'errore, se presente
+        });
 }
-
 
 
 
