@@ -1,0 +1,160 @@
+- schema template
+- PARENCHIMA CEREBRALE:
+    - CORTECCIA CEREBRALE: Descrizione dell'integrità e simmetria della sostanza grigia corticale.
+    - SOSTANZA BIANCA: Descrizione della sostanza bianca, segni di leucodistrofia o lesioni ipodense.
+    - VOLUMI CEREBRALI:
+        - Volume Generale del Cervello: Descrizione del volume generale del cervello, eventuali segni di atrofia cerebrale o di un aumento del volume cerebrale.
+        - Asimmetria: Descrizione di eventuali segni di asimmetria nel cervello.
+        - LOBI CEREBRALI:
+        - Lobi Frontali: Descrizione del volume e della simmetria dei lobi frontali, eventuali segni di atrofia o di espansione.
+        - Lobi Temporali: Descrizione ...
+        - Lobi Parietali: Descrizione ...
+        - Lobi Occipitali: Descrizione ...
+        - REMANENTI STRUTTURE:
+            - Gangli della Base: Descrizione del volume dei gangli della base, eventuali segni di atrofia o di espansione.
+            - Talamo: Descrizione del volume del talamo, eventuali segni di atrofia o di espansione.
+            - Cervelletto: Descrizione del volume del cervelletto, eventuali segni di atrofia o di espansione.
+            - Tronco Encefalico: Descrizione del volume del tronco encefalico, eventuali segni di atrofia o di espansione.
+    - STRUTTURE MEDIANE:
+        - Gangli della Base: Descrizione dei gangli della base, inclusi nucleo caudato, putamen e globo pallido.
+        - Talami: Descrizione dei talami, simmetria e densità.
+        - Ippocampi: Descrizione degli ippocampi, segni di atrofia o anomalie della densità.
+        - Fornice e Corpi Mammillari: Descrizione del fornice e dei corpi mammillari.
+        - Corpo Calloso: Descrizione del corpo calloso, eventuali segni di agenesia, disgenesia o lesioni.
+    - ISCHEMIA:
+        - INFARTO ACUTO: Selezione tra "Assente" e "Presente".
+        - INFARTO CRONICO: Selezione tra "Assente" e "Presente".
+        - LOCALIZZAZIONE: Descrizione della localizzazione dell'area ischemica.
+        - ESTENSIONE: Descrizione dell'estensione dell'area ischemica.
+        - EFFETTO MASSA: Descrizione dell'effetto massa sulle strutture vicine, se presente.
+        - MALATTIA CRONICA DELLE PICCOLE VIE VASCOLARI: Selezione tra "Assente" e "Presente".
+        - MICROEMORRAGIE CEREBRALI: Selezione tra "Assente" e "Presente".
+        - COMMENTI AGGIUNTIVI: Qualsiasi altra osservazione rilevante sull'ischemia.
+    - MASSA:
+        - POSIZIONE: Descrizione della posizione della massa.
+        - DIMENSIONI: Descrizione delle dimensioni della massa.
+        - PRENDITA DI CONTRASTO: Selezione tra "Eseguita senza contrasto", "Prende contrasto" e "Non prende contrasto".
+        - EFFETTO MASSA: Descrizione dell'effetto massa sulle strutture vicine.
+        - DENSITÀ/COMPOSIZIONE: Descrizione della densità e composizione interna della massa, inclusi eventuali segni di emorragia o altre caratteristiche.
+        - COMMENTI AGGIUNTIVI: Qualsiasi altra osservazione rilevante sulla massa.
+- SHIFT DELLA LINEA MEDIANA:
+    - IDENTIFICAZIONE: Centrata e allineata con la linea mediana del cranio.
+    - MISURAZIONE: Distanza tra la linea mediana del cranio e la linea mediana del terzo ventricolo o del corpo calloso.
+    - CAUSA: Nessuna massa, emorragia, edema o altre anomalie identificate che possano causare lo spostamento.
+    - PARENCHIMA CEREBRALE: Nessuna area di ipodensità o iperdensità osservata.
+    - STRUTTURE ADIACENTI: Nessun segno di compressione o spostamento del ventricolo laterale o del terzo ventricolo.
+    - FOSSA POSTERIORE: Nessun segno di edema cerebellare o di ematoma che potrebbe causare un effetto di massa.
+    - GRAVITÀ: Nessuno spostamento significativo della linea mediana osservato.
+- TRONCO ENCEFALICO:
+    - MESSENCEFALO (MIDBRAIN): Descrizione del mesencefalo, inclusi i collicoli superiori e inferiori, la sostanza nera e l'acquedotto cerebrale.
+    - PONTE (PONS): Descrizione del ponte, comprese le sue fibre trasversali e longitudinale e il quarto ventricolo.
+    - BULBO (MEDULLA OBLONGATA): Descrizione del bulbo, incluse le piramidi e l'oliva, nonché la continuità con il midollo spinale.
+- CERVELLETTO:
+    - EMISFERI CERVELLETTOSI: Descrizione della simmetria, morfologia e densità dei due emisferi cerebellari.
+    - VERME CERVELLETTOSO: Descrizione del verme cerebellare, comprese le sue dimensioni e densità.
+    - FOSSA POSTERIORE: Descrizione dello spazio della fossa posteriore, eventuali segni di ipertensione intracranica o idrocefalo.
+    - IV VENTRICOLO: Descrizione del quarto ventricolo, compresa la sua posizione, dimensioni e eventuali segni di dilatazione o compressione.
+- VENTRICOLI E SPAZI SUBARACNOIDEI:
+    - VENTRICOLI LATERALI: Dimensioni, forma e simmetria normali. Nessun segno di dilatazione o asimmetria.
+    - III VENTRICOLO: Normale. Nessun segno di dilatazione.
+    - IV VENTRICOLO: Normale. Nessun segno di dilatazione.
+    - SISTEMA DEI SENI VENOSI: Normale. Nessun segno di anomalie o trombosi.
+    - CISTERNE DELLA BASE E SPAZI SUBARACNOIDEI: Normali. Nessun segno di sanguinamento o aumento di spazio.
+    - SPAZIO SUBDURALE E EPIDURALE: Normale. Nessun segno di raccolta fluida o emorragia.
+- STRUTTURE EXTRACRANICHE:
+    - PELLE E CUOIO CAPELLUTO: Normale.
+    - MUSCOLI CRANICI: Normale.
+    - GHIANDOLE SALIVARI: Normale.
+    - SENI PARANASALI: Normale.
+    - REGIONE ORBITARIA: Normale.
+- OSSA CRANICHE:
+    - OSSO FRONTALE: Normale.
+    - OSSA PARIETALI: Normale.
+    - OSSA TEMPORALI: Normale.
+    - OSSO OCCIPITALE: Normale.
+    - FOSSA CRANICA ANTERIORE, MEDIA E POSTERIORE: Normale.
+    - BASE DEL CRANIO: Normale.
+    - SUTURA CRANICA: Normale.
+    - VALUTAZIONE FINALE DELL'OSSEO CRANICO: Normale.
+- AngioTC - Vascolarizzazione:
+- Arterie Carotidi:
+    - Carotidi Comuni:
+        - Sinistra: Permeabile.
+        - Destra: Permeabile.
+    - Carotidi Interne:
+        - Sinistra: Permeabile.
+        - Destra: Permeabile.
+    - Carotidi Esterne:
+        - Sinistra: Permeabile.
+        - Destra: Permeabile.
+- Circolo di Willis:
+    - Arteria cerebrale anteriore: Permeabile.
+    - Arteria comunicante anteriore: Permeabile.
+    - Arteria cerebrale media: Permeabile.
+    - Arteria cerebrale posteriore: Permeabile.
+    - Arteria comunicante posteriore: Permeabile.
+- Circolo Posteriore:
+    - Arterie Vertebrali:
+        - Sinistra: Permeabile.
+        - Destra: Permeabile.
+    - Arterie Basilari:
+        - Basilaris: Permeabile.
+    - PICA:
+        - Sinistra: Permeabile.
+        - Destra: Permeabile.
+    - AICA:
+        - Sinistra: Permeabile.
+        - Destra: Permeabile.
+- Seni Venosi della Dura Madre:
+    - Seni sagittale superiore: Permeabile.
+    - Seni sagittale inferiore: Permeabile.
+    - Seni trasverso: Permeabile.
+    - Seni sigmoideo: Permeabile.
+    - Seni cavernoso: Permeabile.
+- Vene Giugulari:
+    - Vene Giugulari interne: Permeabile.
+    - Vene Giugulari esterne: Permeabile.
+- ALTRI RISULTATI: Eventuali ulteriori osservazioni.
+
+
+queste sono alcune indicazioni cliniche:
+| Indicazione Clinica | Aspetti Particolari da Esaminare |
+| --- | --- |
+| Trauma Cranico | Fratture ossee, ematoma epidurale, ematoma subdurale, emorragia subaracnoidea, contusione cerebrale, emorragia intraparenchimale. |
+| Cefalea Nuova o Cambiata | Malformazioni vascolari, tumori, idrocefalo, sinusite. |
+| Perdita di Coscienza | Emorragia, ischemia, tumori, idrocefalo, edema cerebrale. |
+| Deficit Neurologici Focali Acuti (es. afasia, emiparesi) | Area di ischemia o infarto, emorragia, tumori, edema cerebrale. |
+| Segni di Aumento della Pressione Intracranica (es. vomito, edema del nervo ottico) | Tumori, idrocefalo, emorragia, edema cerebrale. |
+| Convulsioni, specialmente se nuove o inusuali | Malformazioni vascolari, tumori, cicatrici post-traumatiche, calcificazioni. |
+| Sospetta Infezione del Sistema Nervoso Centrale (es. meningite, ascesso) | Ascessi, encefalite, meningite, sinusite, osteomielite. |
+| Monitoraggio di Patologie Conosciute (es. tumori) | Crescita tumorale, risposta alla terapia, effetti collaterali della terapia, edema. |
+| Valutazione Pre-Operativa o Pre-Procedurale | Anatomia dettagliata della regione di interesse, idrocefalo, emorragia, edema. |
+| Segni o Sintomi di Malattia Vascolare (es. ischemia transitoria) | Aneurismi, malformazioni artero-venose, stenosi delle arterie carotidi, ischemia o infarto. |
+| Controllo Post-Operativo o Post-Procedurale | Complicanze post-operatorie come emorragia, ischemia, edema, idrocefalo. |
+| Sospetta Malattia Degenerativa (es. morbo di Alzheimer) | Atrofia cerebrale, alterazioni della sostanza bianca. |
+
+questo è come normalmente conserviamo le informazioni, crea una struttura come questa, ma adeguatamente riempita per queste indicazioni cliniche:
+const clinicalIndicationsData = {
+    'ct-head': {
+        indications: [
+            {
+                id: 'Volumi_Cerebrali',
+                label: 'Indicazione Volumi Cerebrali'
+            },
+            {
+                id: 'Edema_Cerebrale',
+                label: 'Indicazione Edema Cerebrale'
+            },
+            {
+                id: 'Hemorragia_Intracranica',
+                label: 'Indicazione Hemorragia Intracranica'
+            }
+        ],
+        focus: {
+            'Volumi_Cerebrali': ['Volumi_Cerebrali', 'Strutture_Mediane'], // Aggiunta di 'Strutture_Mediane'
+            'Edema_Cerebrale': ['Edema_Cerebrale'], // Ad esempio
+            'Hemorragia_Intracranica': ['Hemorragia_Intracranica'] // Ad esempio
+        }
+    },
+    // Altri modelli, se necessario...
+};

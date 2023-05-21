@@ -7,7 +7,7 @@ const templates = {
             <th>Organo\Sistema</th>
             <th>Descrizione</th>
         </tr>
- <tr>
+ <tr id="Parenchima_Cerebrale">
     <td>PARENCHIMA CEREBRALE</td>
     <td class="description">
         <table>
@@ -31,7 +31,7 @@ const templates = {
                 <td>Asimmetria:</td>
                 <td contenteditable="true">Descrizione di eventuali segni di asimmetria nel cervello.</td>
             </tr>
-            <tr>
+            <tr id="Volumi_Lobi_Cerebrali">
                 <td class="toggle" onclick="toggleContent(this)">LOBI CEREBRALI</td>
                 <td class="description">
                     <table>
@@ -54,8 +54,8 @@ const templates = {
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td class="toggle" onclick="toggleContent(this)">REMANENTI STRUTTURE</td>
+            <tr id="Volumi_Rimanenti_Strutture_Cerebrali">
+                <td class="toggle" onclick="toggleContent(this)">RIMANENTI STRUTTURE</td>
                 <td class="description">
                     <table>
                         <tr>
@@ -110,7 +110,7 @@ const templates = {
                     </table>
                     </td>
                     </tr>
-                <tr>
+                <tr id="Ischemia_Cerebrale">
                 <td class="toggle" onclick="toggleContent(this)">ISCHEMIA</td>
                 <td class="description">
                     <table>
@@ -170,7 +170,7 @@ const templates = {
                 </td>
             </tr>
             
-<tr>
+<tr id="Massa_Cerebrale">
     <td class="toggle" onclick="toggleContent(this)">MASSA</td>
     <td class="description">
         <table>
@@ -217,7 +217,7 @@ const templates = {
             
         </td>
     </tr>
-    <tr>
+    <tr id="Shift_Linea_Mediana">
     <td class="toggle" onclick="toggleContent(this)">SHIFT DELLA LINEA MEDIANA</td>
     <td class="description">
         <table>
@@ -256,7 +256,7 @@ const templates = {
         </table>
     </td>
 </tr>
-    <tr>
+    <tr id="Tronco_Encefalico">
     <td class="toggle" onclick="toggleContent(this)">TRONCO ENCEFALICO</td>
     <td class="description">
         <table>
@@ -280,7 +280,7 @@ const templates = {
     </td>
 </tr>
 
-<tr>
+<tr id="Cervelletto">
     <td class="toggle" onclick="toggleContent(this)">CERVELLETTO</td>
     <td class="description">
         <table>
@@ -310,7 +310,7 @@ const templates = {
    
     
  
-<tr>
+<tr id="Ventricoli_SpaziSubAracnoidei">
     <td class="toggle" onclick="toggleContent(this)">VENTRICOLI E SPAZI SUBARACNOIDEI</td>
     <td class="description">
         <table>
@@ -345,7 +345,7 @@ const templates = {
         </table>
     </td>
 </tr>
-<tr>
+<tr id="Strutture_Extracraniche">
     <td class="toggle" onclick="toggleContent(this)">STRUTTURE EXTRACRANICHE</td>
     <td class="description">
         <table>
@@ -376,7 +376,7 @@ const templates = {
         </table>
     </td>
 </tr>
-<tr>
+<tr id="Ossa_Craniche">
     <td class="toggle" onclick="toggleContent(this)">OSSA CRANICHE</td>
     <td class="description">
         <table>
@@ -419,7 +419,7 @@ const templates = {
         </table>
     </td>
 </tr>
-<tr>
+<tr id="AngioTC_-_Vascolarizzazione">
     <td class="toggle" onclick="toggleContent(this)">AngioTC - Vascolarizzazione</td>
     <td class="description">
     <table>
@@ -427,11 +427,11 @@ const templates = {
         <th>Vaso</th>
         <th>Descrizione</th>
     </tr>
-       <tr>
+       <tr id="Carotid-Arteries">
     <td data-section="Carotid-Arteries" class="toggle" onclick="toggleContent(this)">Arterie Carotidi</td>
     <td>
         <table>
-            <tr>
+            <tr id="Carotid-Common">
                 <td data-section="Common-Carotid" class="toggle" onclick="toggleContent(this)">Carotidi Comuni</td>
                 <td>
                     <table>
@@ -446,7 +446,7 @@ const templates = {
                     </table>
                 </td>
             </tr>
-            <tr>
+            <tr id="Carotid-Int">
                 <td data-section="Int-Carotid" class="toggle" onclick="toggleContent(this)">Carotidi Interne</td>
                 <td>
                     <table>
@@ -461,7 +461,7 @@ const templates = {
                     </table>
                 </td>
             </tr>
-            <tr>
+            <tr id="Carotid-Est">
                 <td data-section="Ext-Carotid" class="toggle" onclick="toggleContent(this)">Carotidi Esterne</td>
                 <td>
                     <table>
@@ -480,7 +480,7 @@ const templates = {
     </td>
 </tr>
 
-    <tr>
+    <tr id="Circolo_Willis">
         <td class="toggle" onclick="toggleContent(this)">Circolo di Willis</td>
         <td>
             <table>
@@ -507,7 +507,7 @@ const templates = {
             </table>
         </td>
     </tr>
-    <tr>
+    <tr id="Circolo_Posteriore">
     <td class="toggle" onclick="toggleContent(this)">Circolo Posteriore</td>
     <td>
         <table>
@@ -537,7 +537,7 @@ const templates = {
                     </table>
                 </td>
             </tr>
-            <tr>
+            <tr id="PICA-Arteries">
             <td class="toggle" onclick="toggleContent(this)">PICA</td>
             <td>
                 <table>
@@ -552,7 +552,7 @@ const templates = {
                 </table>
             </td>
         </tr>
-        <tr>
+        <tr id="AICA-Arteries">
             <td class="toggle" onclick="toggleContent(this)">AICA</td>
             <td>
                 <table>
@@ -571,7 +571,7 @@ const templates = {
     </td>
 </tr>
 
-    <tr>
+    <tr id="Seni_Venosi">
         <td class="toggle" onclick="toggleContent(this)">Seni Venosi della Dura Madre</td>
         <td>
             <table>
@@ -598,7 +598,7 @@ const templates = {
             </table>
         </td>
     </tr>
-    <tr>
+    <tr id="Vene_Giugulari">
         <td class="toggle" onclick="toggleContent(this)">Vene Giugulari</td>
         <td>
             <table>
@@ -1364,307 +1364,3 @@ const templates = {
     'mr-knee': 'Contenuto per MR KNEE...',
     'mr-ankle': 'Contenuto per MR ANKLE...',
 };
-
-/////
-const sectionData = {
-    /////////----------TC HEAD
-    'cerebral-cortex': {
-        tableDesc: 'Descrizione della corteccia cerebrale...',
-        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente la corteccia cerebrale...',
-        imageDesc: 'Come guardare la corteccia cerebrale nelle immagini...',
-        imagePath: 'img/grey_matter.jpeg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Cortical Atrophy', 'Cortical Dysplasia', 'Cerebral Edema']
-    },
-    'white-matter': {
-        tableDesc: 'Descrizione della sostanza bianca...',
-        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente la sostanza bianca...',
-        imageDesc: 'Come guardare la sostanza bianca nelle immagini...',
-        imagePath: 'img/sostanza_bianca_cervello.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Leukodystrophy', 'Multiple Sclerosis', 'White Matter Lesions']
-    },
-    'ventricles': { // Aggiungi questo campo per ogni sezione           
-        tableDesc: 'Descrizione dei ventricoli...',
-        normalDesc: 'Una breve descrizione di come dovrebbero apparire normalmente i ventricoli...',
-        imageDesc: 'Come guardare i ventricoli nelle immagini...',
-        imagePath: 'img/ventricoli.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Hydrocephalus', 'Ventriculomegaly', 'Ventricular Hemorrhage']
-    },
-    'basal-ganglia': {
-        tableDesc: 'Descrizione dei gangli della base...',
-        normalDesc: 'Una breve descrizione di come dovrebbero apparire normalmente i gangli della base...',
-        imageDesc: 'Come guardare i gangli della base nelle immagini...',
-        imagePath: 'img/gangli_base.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Basal Ganglia Calcification', 'Basal Ganglia Hemorrhage', 'Basal Ganglia Infarction']
-    },
-    'cerebellum': {
-        tableDesc: 'Descrizione del cervelletto...',
-        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente il cervelletto...',
-        imageDesc: 'Come guardare il cervelletto nelle immagini...',
-        imagePath: 'img/cervelletto.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Cerebellar Atrophy', 'Cerebellar Hemorrhage', 'Cerebellar Infarction']
-    },
-    'brainstem': {
-        tableDesc: 'Descrizione del tronco encefalico...',
-        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente il tronco encefalico...',
-        imageDesc: 'Come guardare il tronco encefalico nelle immagini...',
-        imagePath: 'img/tronco_encefalico.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Brainstem Hemorrhage', 'Brainstem Infarction', 'Brainstem Tumor']
-    },
-    'sinuses': {
-        tableDesc: 'Descrizione dei seni paranasali...',
-        normalDesc: 'Una breve descrizione di come dovrebbero apparire normalmente i seni paranasali...',
-        imageDesc: 'Come guardare i seni paranasali nelle immagini...',
-        imagePath: 'img/sinusite.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Sinusitis', 'Sinus Polyps', 'Sinus Tumor']
-    },
-    'temporal-bone': {
-        tableDesc: 'Descrizione dell\'osso temporale...',
-        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente l\'osso temporale...',
-        imageDesc: 'Come guardare l\'osso temporale nelle immagini...',
-        imagePath: 'img/osso_temporale.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Temporal Bone Fracture', 'Temporal Bone Tumor', 'Temporal Bone Osteomyelitis']
-    },
-    'orbit': {
-        tableDesc: 'Descrizione dell\'orbita...',
-        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente l\'orbita...',
-        imageDesc: 'Come guardare l\'orbita nelle immagini...',
-        imagePath: 'img/orbita.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Orbital Fracture', 'Orbital Tumor', 'Orbital Hemorrhage']
-    },
-
-
-   //// TC NECK
-
-
-
-    'oropharynx': {
-        tableDesc: 'Descrizione dell\'orofaringe...',
-        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente l\'orofaringe...',
-        imageDesc: 'Come guardare l\'orofaringe nelle immagini...',
-        imagePath: 'img/orofaringe.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Oropharyngeal Tumor', 'Oropharyngeal Hemorrhage', 'Oropharyngeal Infection']
-    },
-    'larynx': {
-        tableDesc: 'Descrizione della laringe...',
-        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente la laringe...',
-        imageDesc: 'Come guardare la laringe nelle immagini...',
-        imagePath: 'img/laringe.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Laryngeal Tumor', 'Laryngeal Hemorrhage', 'Laryngeal Infection']
-    },
-    'tonsils': {
-        tableDesc: 'Descrizione delle tonsille...',
-        normalDesc: 'Una breve descrizione di come dovrebbero apparire normalmente le tonsille...',
-        imageDesc: 'Come guardare le tonsille nelle immagini...',
-        imagePath: 'img/tonsille.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Tonsillar Hypertrophy', 'Tonsillar Hemorrhage', 'Tonsillar Infection']
-    },
-    'salivary-glands': {
-        tableDesc: 'Descrizione delle ghiandole salivari...',
-        normalDesc: 'Una breve descrizione di come dovrebbero apparire normalmente le ghiandole salivari...',
-        imageDesc: 'Come guardare le ghiandole salivari nelle immagini...',
-        imagePath: 'img/ghiandole_salivari.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Salivary Gland Tumor', 'Salivary Gland Hemorrhage', 'Salivary Gland Infection']
-    },
-    'thyroid': {
-        tableDesc: 'Descrizione della ghiandola tiroidea...',
-
-        normalDesc: 'Una breve descrizione di come dovrebbe essere normalmente la ghiandola tiroidea...',
-        imageDesc: 'Come guardare la ghiandola tiroidea nelle immagini...',
-        imagePath: 'img/tiroide.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Hypothyroidism', 'Hyperthyroidism', 'Thyroiditis']
-    },
-    'lymph-nodes': {
-        tableDesc: 'Descrizione dei linfonodi...',
-        normalDesc: 'Una breve descrizione di come dovrebbero essere normalmente i linfonodi...',
-        imageDesc: 'Come guardare i linfonodi nelle immagini...',
-        imagePath: 'img/linfonodi.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Lymphadenopathy', 'Lymphoma']
-    },
-    'muscles': {
-        tableDesc: 'Descrizione dei muscoli...',
-        normalDesc: 'Una breve descrizione di come dovrebbero apparire normalmente i muscoli...',
-        imageDesc: 'Come guardare i muscoli nelle immagini...',
-        imagePath: 'img/muscoli.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Muscle Tumor', 'Muscle Hemorrhage', 'Muscle Infection']
-    },  
-    'neck': {
-        tableDesc: 'Descrizione del collo...',
-        normalDesc: 'Una breve descrizione di come dovrebbe apparire normalmente il collo...',
-        imageDesc: 'Come guardare il collo nelle immagini...',
-        imagePath: 'img/collo.jpg', // Aggiungi questo campo per ogni sezione
-        pathologyList: ['Neck Tumor', 'Neck Hemorrhage', 'Neck Infection']
-    },
-
-
-
-    'Volumi_Cerebrali': {
-        id: 'Volumi_Cerebrali',
-        title: 'VOLUMI CEREBRALI',
-        content: 'gfxgfxfgxgfxgfxgjfxjgfxjgfxjgfxj' // Aggiungi il contenuto della sezione qui, se necessario
-    },
-    'Strutture_Mediane': { // Questa è la nuova sezione
-        id: 'Strutture_Mediane',
-        title: 'STRUTTURE MEDIANE',
-        content: '' // Contenuto della sezione
-    },
-
-
-};
-
-
-
-/////////    INDICAZIONI CLINICHE    //////////
-const clinicalIndicationsData = {
-    'ct-head': {
-        indications: [
-            {
-                id: 'Volumi_Cerebrali',
-                label: 'Indicazione Volumi Cerebrali'
-            },
-            {
-                id: 'Edema_Cerebrale',
-                label: 'Indicazione Edema Cerebrale'
-            },
-            {
-                id: 'Hemorragia_Intracranica',
-                label: 'Indicazione Hemorragia Intracranica'
-            }
-        ],
-        focus: {
-            'Volumi_Cerebrali': ['Volumi_Cerebrali', 'Strutture_Mediane'], // Aggiunta di 'Strutture_Mediane'
-            'Edema_Cerebrale': ['Edema_Cerebrale'], // Ad esempio
-            'Hemorragia_Intracranica': ['Hemorragia_Intracranica'] // Ad esempio
-        }
-    },
-    // Altri modelli, se necessario...
-};
-
-
-// qui implementiamo la funzione toggleContent()
-function toggleContent(id, shouldBeExpanded) {
-    const element = document.getElementById(id);
-    if (element) {
-        element.style.display = shouldBeExpanded ? 'block' : 'none';
-    }
-}
-
-//// set un checkboxes
-class ClinicalIndications {
-    constructor(modelId) {
-        this.modelId = modelId;
-        this.indications = clinicalIndicationsData[modelId].indications;
-        this.setupCheckboxes();
-        // Aggiungi una proprietà per tracciare lo stato corrente di ciascuna sezione
-        this.sectionStates = {};
-        Object.keys(sectionData).forEach((sectionKey) => {
-            this.sectionStates[sectionKey] = false;
-        });
-        this.updateDisplay();
-    }
-
-    // Aggiungi un metodo per aggiornare lo stato di una sezione
-    updateSectionState(id, isOpen) {
-        this.sectionStates[id] = isOpen;
-    }
-
-    setupCheckboxes() {
-
-        const container = document.getElementById('clinical-indications-container');
-        this.indications.forEach(indication => {
-
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.id = `indications_${indication.id}`;
-            checkbox.addEventListener('change', () => this.updateDisplay());
-
-            const label = document.createElement('label');
-            label.htmlFor = `indications_${indication.id}`;
-            label.textContent = indication.label;
-
-            container.appendChild(checkbox);
-            container.appendChild(label);
-            container.appendChild(document.createElement('br'));
-        });
-    }
-
-    getSelectedIndications() {
-        const selectedIndications = this.indications
-            .filter(indication => {
-                const checkbox = document.getElementById(`indications_${indication.id}`);
-                const isChecked = checkbox && checkbox.checked;
-                // debug per ciascuna indicazione
-                //  debug(`Indicazione: ${indication.id}, Selezionato: ${isChecked}`);
-                return isChecked;
-            })
-            .map(indication => indication.id);
-
-        // debug per le indicazioni selezionate
-        // debug(`Indicazioni selezionate: ${selectedIndications.join(', ')}`);
-
-        return selectedIndications;
-    }
-
-    getSectionsToExpand(selectedIndications) {
-        const sectionsToExpand = new Set();
-
-        selectedIndications.forEach(indicationId => {
-            const sections = clinicalIndicationsData[this.modelId].focus[indicationId];
-            if (sections) {
-                // debug per ciascuna sezione da espandere
-                sections.forEach(sectionId => {
-                    //  debug(`Sezione da espandere per l'indicazione ${indicationId}: ${sectionId}`);
-                    sectionsToExpand.add(sectionId);
-                });
-            } else {
-                // debug nel caso non ci siano sezioni da espandere per un'indicazione
-                debug(`Nessuna sezione da espandere per l'indicazione ${indicationId}`);
-            }
-        });
-
-        return sectionsToExpand;
-    }
-
-    simulateClick(id) {
-        debug('simulateClick ');
-        const sectionElement = document.getElementById(id);
-        if (sectionElement) {
-            const toggleElement = sectionElement.querySelector('.toggle');
-            if (toggleElement && toggleElement.onclick) {
-                toggleElement.onclick();
-                // Aggiorna lo stato della sezione dopo il click
-                this.updateSectionState(id, !this.sectionStates[id]);
-            } else {
-                debug(`Toggle element non trovato o non ha un evento onclick: ${id}`);
-            }
-        } else {
-            debug(`Elemento della sezione non trovato: ${id}`);
-        }
-    }
-
-    updateDisplay() {
-        const selectedIndications = this.getSelectedIndications();
-        const sectionsToExpand = this.getSectionsToExpand(selectedIndications);
-
-        // Aggiorna le sezioni espandibili
-        Object.keys(sectionData).forEach((sectionKey) => {
-            const shouldBeExpanded = sectionsToExpand.has(sectionKey);
-            const isCurrentlyExpanded = this.sectionStates[sectionKey];
-            const element = document.getElementById(sectionData[sectionKey].id);
-
-            if (element) {
-                // Aggiunge o rimuove la classe "selected" basandosi su shouldBeExpanded
-                element.classList.toggle('selected', shouldBeExpanded);
-            }
-
-            // Simula un click sull'elemento se il suo stato dovrebbe cambiare
-            if (shouldBeExpanded !== isCurrentlyExpanded) {
-                this.simulateClick(sectionData[sectionKey].id);
-                debug(`Simula un click sulla sezione ${sectionKey}`);
-            }
-        });
-        debug('updateDisplay ');
-    }
-
-
-
-}

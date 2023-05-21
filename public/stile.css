@@ -3,24 +3,181 @@
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
     position: relative;
+    overflow-y: auto;
 }
 
 h1 {
-    position: fixed;
+    position: relative;
     top: 0;
     width: 100%;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     z-index: 1;
     margin: 0;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.369);
+    }
+    
+    
+    /* vorrei un css per il titolo   <h3>Indicazioni Cliniche</h3>, che sia addossato a sinistra */
+    h3 {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #499f749f;
+        margin-top: 10px;
+        margin-left: 0;
+        margin-bottom: 0px;
+        text-align: left !important;
+    }
+    
+    /* COntenitone Centrale */
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    
+        height: calc(100vh - 60px);
+        width: 900px;
+        transition: margin 0.3s ease;
+        /* animazione per lo spostamento */
+    
+    }
+    
+    .content.left {
+        margin-left: 300px;
+        /* o qualsiasi sia la larghezza del tuo menu laterale sinistro */
+    }
+    
+    .content.right {
+        margin-right: 300px;
+        /* o qualsiasi sia la larghezza del tuo menu laterale destro */
+    }
+    
+    /* indicazioni cliniche  */
+    
+    #clinical-indications-container {
+        width: 100%;
+        padding: 20px;
+        background-color: #92a5e9;
+        box-sizing: border-box;
+    
+        height: 100px;
+    }
+    
+    #clinical-indications-container input[type=checkbox] {
+        margin-right: 10px;
+    }
+    
+    .table-container {
+        width: 100%;
+        max-width: 1200px;
+        overflow-x: auto;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        /* Aggiungi questa riga */
+    
+    }
+    
+    .editable-text {
+        width: 100%;
+        max-width: 1200px;
+        min-height: 100px;
+        min-width: 600px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgb(252, 252, 252);
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        resize: none;
+        outline: none;
+    }
+    
+    .hidden-options {
+        display: none;
+    }
+    
+    .description:hover .hidden-options,
+    .visible-options {
+        display: table-row;
+    }
+    
+    /* ------------------TEMPLATE----------------- */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 2px solid #344137;
+    }
+    
+    th,
+    td {
+        border: 1px solid #752929;
+        padding: 8px;
+    
+    }
+    
+    th {
+        background-color: #f1baba;
+    }
+    
+    td[contenteditable="true"] {
+        background-color: #fff9c0;
+        color: #333;
+    
+    }
+    
+    td.description {
+        padding: 0;
+        border: none;
+    
+    }
+    
+    td.description table {
+        width: 100%;
+        border-collapse: collapse;
+    
+    }
+    
+    td.description td {
+        border: none;
+        padding: 8px;
+    
+    }
+    
+    /* ----TEMPLATE---- */
+    .hidden {
+        display: none;
+    }
+    
+    .toggle {
+        transition: background-color 0.5s ease;
+        border: 1px solid #6afe8d;
+        /* Aggiunge un bordo nero di 2px */
 }
 
+/* Vorrei impostare il bordo di colore rosso quando le opzioni sono visibili */
 
+
+.toggle:hover {
+    background-color: #a8ffd9;
+    /* Cambia questo al colore che preferisci */
+    cursor: pointer;
+}
+
+/* modifica sezioni per indicazioni cliniche */
+/* Stile di base per le sezioni */
+
+/* Stile per le sezioni selezionate */
+.selected {
+    background-color: #cf95fb;
+    /* Colore di sfondo quando selezionato */
+    /* Altri stili... */
+}
 /* ------------------------------------ */
 /* ! Sidebar */
 /* ------------------------------------ */
@@ -153,9 +310,7 @@ h1 {
     .tab-content.Clinica-Sistemi {
         background-color: #7f68c9; /* viola-blu più chiaro */
     }
-    .tab-content.Clinica-Metodica {
-        background-color: #7f68c9; /* viola-blu più chiaro */
-    }
+
 
 .system-item {
     position: relative;
@@ -181,6 +336,7 @@ h1 {
         padding: 5px 0;
     }
 
+/* MENU LATERALE DESTRO */
 
 .right-sidebar {
     position: absolute;
@@ -234,124 +390,6 @@ h1 {
     height: auto;
 }
 
-.editable-text {
-    width: 100%;
-    max-width: 1200px;
-    min-height: 100px;
-    min-width: 600px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: rgb(252, 252, 252);
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-    resize: none;
-    outline: none;
-}
-
-.hidden-options {
-    display: none;
-}
-
-.description:hover .hidden-options,
-.visible-options {
-    display: table-row;
-}
- /* COntenitone Centrale */
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
-    overflow-y: auto;
-    height: calc(100vh - 60px);
-    width: 900px;
-    transition: margin 0.3s ease; /* animazione per lo spostamento */
-
-}
-.content.left {
-    margin-left: 300px; /* o qualsiasi sia la larghezza del tuo menu laterale sinistro */
-}
-
-.content.right {
-    margin-right: 300px; /* o qualsiasi sia la larghezza del tuo menu laterale destro */
-}
-.table-container {
-    width: 100%;
-    max-width: 1200px;
-    overflow-x: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
-        /* Aggiungi questa riga */
-
-}
-/* ------------------TEMPLATE----------------- */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
-    border: 2px solid #344137;
-  }
-  
-  th, td {
-    border: 1px solid #752929;
-    padding: 8px;
-    
-  }
-  
-  th {
-    background-color: #f1baba;
-  }
-  
-  td[contenteditable="true"] {
-    background-color: #fff9c0;
-    color: #333;
-    
-  }
-  
-  td.description {
-    padding: 0;
-    border: none;
-    
-  }
-  
-  td.description table {
-    width: 100%;
-    border-collapse: collapse;
-    
-  }
-  
-  td.description td {
-    border: none;
-    padding: 8px;
-   
-  }
-/* ----TEMPLATE---- */
-.hidden {
-    display: none;
-}
-.toggle {
-    transition: background-color 0.5s ease;
-    border: 1px solid #6afe8d; /* Aggiunge un bordo nero di 2px */
-}
-/* Vorrei impostare il bordo di colore rosso quando le opzioni sono visibili */
-
-
-.toggle:hover {
-    background-color: #a8ffd9;  /* Cambia questo al colore che preferisci */
-    cursor: pointer;
-}
-
-/* modifica sezioni per indicazioni cliniche */
-/* Stile di base per le sezioni */
-
-/* Stile per le sezioni selezionate */
-.selected {
-    background-color: #cf95fb;
-    /* Colore di sfondo quando selezionato */
-    /* Altri stili... */
-}
 
 
  /* COntenitone UnityWebGl */
@@ -390,29 +428,3 @@ table {
         z-index: 9999; /* Assicura che la finestra di debug sia sopra gli altri elementi */
     }
     
-/* indicazioni cliniche  */
-
-#clinical-indications-container {
-    width: 100%;
-    padding: 20px;
-    background-color: #92a5e9;
-    box-sizing: border-box;
-
-    height: 100px;
-}
-
-#clinical-indications-container input[type=checkbox] {
-    margin-right: 10px;
-}
-
-/* vorrei un css per il titolo   <h3>Indicazioni Cliniche</h3>, che sia addossato a sinistra */
-h3 {
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #499f749f;
-    margin-top: 40px;
-    margin-left: 0;
-    margin-bottom: 0px;
-    text-align: left;
-}
