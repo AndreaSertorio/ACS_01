@@ -282,7 +282,8 @@ h1 {
     max-width: 1200px;
     overflow-x: auto;
     margin-bottom: 20px;
-    margin-top: 60px; /* Aggiungi questa riga */
+    margin-top: 20px;
+        /* Aggiungi questa riga */
 
 }
 /* ------------------TEMPLATE----------------- */
@@ -296,6 +297,7 @@ table {
   th, td {
     border: 1px solid #752929;
     padding: 8px;
+    
   }
   
   th {
@@ -311,6 +313,7 @@ table {
   td.description {
     padding: 0;
     border: none;
+    
   }
   
   td.description table {
@@ -340,6 +343,15 @@ table {
     cursor: pointer;
 }
 
+/* modifica sezioni per indicazioni cliniche */
+/* Stile di base per le sezioni */
+
+/* Stile per le sezioni selezionate */
+.selected {
+    background-color: #cf95fb;
+    /* Colore di sfondo quando selezionato */
+    /* Altri stili... */
+}
 
 
  /* COntenitone UnityWebGl */
@@ -354,7 +366,7 @@ table {
     /* Stile per l'iframe */
     .contenitore iframe {
         position: absolute;
-        top: 50px;
+        top: 0px;
         left: 0;
         width: 100%;
         height: 100%;
@@ -368,7 +380,8 @@ table {
         bottom: 0; /* Posizionala in fondo alla pagina */
         left: 0; /* Posizionala a sinistra */
         width: 100%; /* Fa in modo che occupi l'intera larghezza della pagina */
-        height: 30px; /* Imposta l'altezza della finestra di debug */
+        height: 150px;
+            /* Imposta l'altezza della finestra di debug */
         overflow: auto; /* Consente lo scorrimento se il contenuto supera l'altezza */
         background-color: rgba(0, 0, 0, 0.8); /* Imposta un colore di sfondo semitrasparente */
         color: #fff; /* Imposta il colore del testo a bianco */
@@ -377,3 +390,29 @@ table {
         z-index: 9999; /* Assicura che la finestra di debug sia sopra gli altri elementi */
     }
     
+/* indicazioni cliniche  */
+
+#clinical-indications-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #92a5e9;
+    box-sizing: border-box;
+
+    height: 100px;
+}
+
+#clinical-indications-container input[type=checkbox] {
+    margin-right: 10px;
+}
+
+/* vorrei un css per il titolo   <h3>Indicazioni Cliniche</h3>, che sia addossato a sinistra */
+h3 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #499f749f;
+    margin-top: 40px;
+    margin-left: 0;
+    margin-bottom: 0px;
+    text-align: left;
+}

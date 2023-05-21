@@ -114,9 +114,14 @@ function fillTemplate(templateId, indicazioneClinica) {
             toggleContent(toggle);
         }
     simulateLeftSidebarToggleClick();
+    // Svuota il contenitore delle indicazioni cliniche
+    const container = document.getElementById('clinical-indications-container');
+    container.innerHTML = '';
+    // Creazione di una nuova istanza di ClinicalIndications e impostazione delle checkbox
+    clinicalIndications = new ClinicalIndications(templateId);
+
     // Aggiunta degli event listener
     addEventListeners();
-
     const indicazioneClinicaRow = document.getElementById('indicazione-clinica-row');
     if (indicazioneClinica) {
       indicazioneClinicaRow.style.display = '';
@@ -128,20 +133,20 @@ function fillTemplate(templateId, indicazioneClinica) {
 
   /////////// Update Template con indicazionii clinica 
   
-  ///aggiungi un event listener alla checkbox per aggiornare il template quando lo stato della checkbox cambia:
-  document.getElementById('indicazione-clinica-checkbox').addEventListener('change', (e) => {
-    const indicazioneClinica = e.target.checked;
-    fillTemplate(currentTemplateId, indicazioneClinica);
-  });
+//   ///aggiungi un event listener alla checkbox per aggiornare il template quando lo stato della checkbox cambia:
+//   document.getElementById('indicazione-clinica-checkbox').addEventListener('change', (e) => {
+//     const indicazioneClinica = e.target.checked;
+//     fillTemplate(currentTemplateId, indicazioneClinica);
+//   });
   
   
-  function updateTemplate(optionId, isChecked) {
-    const rowId = optionId + '-row';
-    const row = document.getElementById(rowId);
-    if (row) {
-        row.style.display = isChecked ? '' : 'none';
-    }
-}
+//   function updateTemplate(optionId, isChecked) {
+//     const rowId = optionId + '-row';
+//     const row = document.getElementById(rowId);
+//     if (row) {
+//         row.style.display = isChecked ? '' : 'none';
+//     }
+// }
 
 
 
@@ -193,6 +198,9 @@ function toggleContent(element) {
         content.style.display = "none";
     }
 }
+
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
