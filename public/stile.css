@@ -63,7 +63,7 @@ h1 {
         padding: 20px;
         background-color: #92a5e9;
         box-sizing: border-box;
-    
+        overflow-y: auto;
         height: 100px;
     }
     
@@ -418,7 +418,7 @@ h1 {
         bottom: 0; /* Posizionala in fondo alla pagina */
         left: 0; /* Posizionala a sinistra */
         width: 100%; /* Fa in modo che occupi l'intera larghezza della pagina */
-        height: 150px;
+        height: 20px;
             /* Imposta l'altezza della finestra di debug */
         overflow: auto; /* Consente lo scorrimento se il contenuto supera l'altezza */
         background-color: rgba(0, 0, 0, 0.8); /* Imposta un colore di sfondo semitrasparente */

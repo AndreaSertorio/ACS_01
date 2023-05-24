@@ -32,31 +32,7 @@
                     TC
                     <ul>
                         <li>
-                            <span id="ct-head" onclick="fillTemplate('ct-head', true)">CT HEAD</span>
-                            <ul>
-                                <!-- <li>
-                                    <input type="checkbox" id="head-option-1" onchange="updateTemplate('head-option-1', this.checked)" onclick="event.stopPropagation();">
-                                    <label for="head-option-1">Opzione 1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="head-option-2" onchange="updateTemplate('head-option-2', this.checked)" onclick="event.stopPropagation();">
-                                    <label for="head-option-2">Opzione 2</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="Volume_Cerebrale" onchange="updateTemplate('Volume_Cerebrale', this.checked)" onclick="event.stopPropagation();">
-                                    <label for="Volume_Cerebrale">Volume Cerebrale</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="Volume_Ipotalamico" onchange="updateTemplate('Volume_Ipotalamico', this.checked)" onclick="event.stopPropagation();">
-                                    <label for="Volume_Ipotalamico">Volume Ipotalamico</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="IV_Ventricolo" onchange="updateTemplate('IV_Ventricolo', this.checked)" onclick="event.stopPropagation();">
-                                    <label for="IV_Ventricolo">IV Ventricolo</label>
-                                </li> -->
-                                <!-- Aggiungi altre opzioni qui -->
-                            </ul>
-                        </li>
+                            <span id="ct-head" onclick="fillTemplate('ct-head', true)">CT HEAD</span></li>
                         <li><span id="ct-neck" onclick="fillTemplate('ct-neck', false)">CT NECK</span></li>
                         <li><span id="ct-sinuses" onclick="fillTemplate('ct-sinuses', false)">CT SINUSES</span></li>
                         <li><span id="ct-chest" onclick="fillTemplate('ct-chest', false)">CT CHEST</span></li>
@@ -240,11 +216,12 @@
 
         <div id="debug"></div>
     </div>
-    
+    <script src="/bundle.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="public/indicazionicliniche.js"></script>
     <script src="public/focus.js"></script>
     <script src="public/templates.js"></script>
+    <script src="src/index.js"></script>
 
     <script src="public/script.js"></script> <!-- Aggiungi questa riga per includere il tuo file JavaScript esterno -->
 

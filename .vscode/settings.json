@@ -3,5 +3,6 @@
     "CodeGPT.model": "gpt-4",
     "CodeGPT.query.language": "Italian",
     "CodeGPT.maxTokens": 7000,
-    "CodeGPT.temperature": 0.2
+    "CodeGPT.temperature": 0.2,
+    "github.copilot-labs.advanced": {}
 }

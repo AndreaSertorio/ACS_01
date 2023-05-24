@@ -419,7 +419,7 @@ const templates = {
         </table>
     </td>
 </tr>
-<tr id="AngioTC_-_Vascolarizzazione">
+<tr id="AngioTC_Vascolarizzazione">
     <td class="toggle" onclick="toggleContent(this)">AngioTC - Vascolarizzazione</td>
     <td class="description">
     <table>
