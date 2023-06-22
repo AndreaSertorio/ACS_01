@@ -72,6 +72,36 @@ function simulateLeftSidebarToggleClick() {
 }
 
 
+/////// funzione per lo spostamento dei menu laterali a seconda dello scroll della pagina principale
+
+let ticking = false;
+
+function updateSidebarPosition() {
+    const leftSidebar = document.getElementById("left-sidebar");
+    const rightSidebar = document.getElementById("right-sidebar");
+
+    if (window.pageYOffset > 0) {
+        leftSidebar.style.transform = `translateY(${window.pageYOffset}px)`;
+        rightSidebar.style.transform = `translateY(${window.pageYOffset}px)`;
+    } else {
+        leftSidebar.style.transform = "translateY(0)";
+        rightSidebar.style.transform = "translateY(0)";
+    }
+
+    ticking = false;
+}
+
+function requestTick() {
+    if (!ticking) {
+        requestAnimationFrame(updateSidebarPosition);
+        ticking = true;
+    }
+}
+
+// Aggiungi un event listener per l'evento di scroll
+window.addEventListener("scroll", requestTick);
+
+
 ////funzione che gestirà lo spostamento del contenuto centrale in base allo stato dei menu laterali:
 function adjustContentPosition() {
     const content = document.querySelector('.content');

@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esempio di pagina web</title>
-    <link rel="stylesheet" href="public/stile.css"> <!-- Aggiungi questa riga per collegare il tuo file CSS esterno -->
+<link rel="stylesheet" href="public/stile.css"> <!--   Aggiungi questa riga per collegare il tuo file CSS esterno -->
         <!-- Aggiungi dipendenze per Cornerstone -->
+<style>
+  
+    
 
-
+</style>
 </head>
 <body>
     <div class="sidebar">
@@ -201,21 +204,25 @@
     </div>
 
 
+<div class="main-container">
     <div class="content">
         <h1>Radiology101</h1>
         <h3>Indicazioni Cliniche</h3>
         <div id="clinical-indications-container"></div>
-        <h3>Template</h3>
-        <div class="table-container"></div>
+            <h3>Template</h3>
+            <div class="table-container"></div>
         <h3>Testo Libero</h3>
         <div contenteditable="true" class="editable-text"></div>
-    <!-- <textarea id="inputText" rows="4" cols="50"></textarea>
-                                        <button onclick="sendToOpenAI()">Invia a OpenAI</button>
+
+        <!-- <textarea id="inputText" rows="4" cols="50"></textarea>
+                                    <button onclick="sendToOpenAI()">Invia a OpenAI</button>
     <div id="responseContainer"></div> -->
         <div id="content" data-template-id=""></div>
 
         <div id="debug"></div>
     </div>
+</div>
+
     <script src="/bundle.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="public/indicazionicliniche.js"></script>
