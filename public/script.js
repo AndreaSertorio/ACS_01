@@ -80,9 +80,9 @@ function updateSidebarPosition() {
     const leftSidebar = document.getElementById("left-sidebar");
     const rightSidebar = document.getElementById("right-sidebar");
 
-    if (window.pageYOffset > 0) {
-        leftSidebar.style.transform = `translateY(${window.pageYOffset}px)`;
-        rightSidebar.style.transform = `translateY(${window.pageYOffset}px)`;
+    if (window.scrollY > 0) {
+        leftSidebar.style.transform = `translateY(${window.scrollY}px)`;
+        rightSidebar.style.transform = `translateY(${window.scrollY}px)`;
     } else {
         leftSidebar.style.transform = "translateY(0)";
         rightSidebar.style.transform = "translateY(0)";
@@ -97,7 +97,6 @@ function requestTick() {
         ticking = true;
     }
 }
-
 // Aggiungi un event listener per l'evento di scroll
 window.addEventListener("scroll", requestTick);
 

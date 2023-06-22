@@ -40,43 +40,46 @@
     align-items: stretch;
         width: 900px;
         transition: margin 0.3s ease;
-.content.left {
-    margin-left: 300px;
-    /* o qualsiasi sia la larghezza del tuo menu laterale sinistro */
-}
 
-.content.right {
-    margin-right: 300px;
-    /* o qualsiasi sia la larghezza del tuo menu laterale destro */
-}
+  .content.left {
+      margin-left: 300px;
+      /* o qualsiasi sia la larghezza del tuo menu laterale sinistro */
+  }
 
-/* indicazioni cliniche  */
+  .content.right {
+      margin-right: 300px;
+      /* o qualsiasi sia la larghezza del tuo menu laterale destro */
+  }
 
-#clinical-indications-container {
-    width: 100%;
-    padding: 20px;
-    background-color: #92a5e9;
-    box-sizing: border-box;
-    overflow-y: auto;
-    height: 100px;
-}
+  /* indicazioni cliniche  */
 
-#clinical-indications-container input[type=checkbox] {
-    margin-right: 10px;
-}
+  #clinical-indications-container {
+      width: 100%;
+      padding: 20px;
+      background-color: #92a5e9;
+      box-sizing: border-box;
+      overflow-y: auto;
+      height: 100px;
+  }
+
+  #clinical-indications-container input[type=checkbox] {
+      margin-right: 10px;
+  }
+
   .main-container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 100vh;
   }
+
   .table-container {
       width: 100%;
       max-width: 1200px;
       overflow-x: auto;
     margin-top: 20px;
-    min-height: max-content;
-    /* Aggiungi questa riga */
+        min-height: max-content;
+        /* Aggiungi questa riga */
     
     }
     
@@ -358,17 +361,41 @@
         background-color: #333;
         padding: 20px;
         box-sizing: border-box;
-        transition: transform 0.4s ease;
-    }
+
 
   .right-sidebar.open {
       width: 500px;
+    transition: transform 0.1s ease;
   }
 
   .right-sidebar:not(.open) .tab-bar {
       display: none;
   }
 
+  .right-sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  }
+
+  .right-sidebar ul li {
+      padding: 10px;
+      cursor: pointer;
+      color: white;
+      font-size: 18px;
+      margin-right: -20px;
+      border: 1px solid #555;
+  }
+
+  .right-sidebar ul li ul {
+      display: none;
+      margin-right: 30px;
+  }
+
+  .right-sidebar ul li:hover>ul,
+  .right-sidebar ul li.clicked>ul {
+      display: block;
+  }
   .right-sidebar .toggle-area {
       position: absolute;
       top: 0;
@@ -398,16 +425,10 @@
       margin-left: 40px;
   }
 
-.sticky-sidebar {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-}
-
-#section-image {
-    width: 100%;
-    height: auto;
-}
+  #section-image {
+      width: 100%;
+      height: auto;
+  }
 
 
 
@@ -443,7 +464,7 @@
         /* Fa in modo che occupi l'intera larghezza della pagina */
         height: 20px;
         /* Imposta l'altezza della finestra di debug */
-    overflow: auto;
+        overflow: auto;
         /* Consente lo scorrimento se il contenuto supera l'altezza */
         background-color: rgba(0, 0, 0, 0.8);
         /* Imposta un colore di sfondo semitrasparente */
