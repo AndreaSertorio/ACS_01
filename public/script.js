@@ -229,9 +229,66 @@ function toggleContent(element) {
 }
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const fetch = require('node-fetch');
+
+document.getElementById('send-btn').addEventListener('click', function () {
+    var text = document.querySelector('.editable-text').innerText;
+    var prompt = document.getElementById('gpt-prompt').value;
+    var apiKey = document.getElementById('api-key').value;
+
+    // // Controllo della chiave API
+    // if (!apiKey || apiKey.length != 59) {
+    //     alert('Per favore, inserisci una chiave API valida.');
+    //     return;
+    // }
+
+    var requestPayload = {
+        "messages": [
+            { "role": "system", "content": "Sei un assistente utile e formale." },
+            { "role": "user", "content": prompt + text }
+        ]
+    };
+
+    fetch("https://api.openai.com/v1/engines/gpt-3.5-turbo/completions", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + apiKey
+        },
+        body: JSON.stringify(requestPayload)
+    })
+        .then(response => {
+            if (!response.ok) {
+                switch (response.status) {
+                    case 401:
+                        throw new Error("Errore di autenticazione. Controlla la tua chiave API.");
+                    case 429:
+                        throw new Error("Limite di velocità raggiunto. Riprova più tardi.");
+                    case 503:
+                        throw new Error("Il motore è attualmente sovraccarico. Riprova più tardi.");
+                    default:
+                        throw new Error("Errore sconosciuto. Controlla la console per i dettagli.");
+                }
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('response-container').innerText = data['choices'][0]['message']['content'];
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert(error.message);  // Mostra il messaggio di errore all'utente
+        });
+});
 
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -239,34 +296,34 @@ function toggleContent(element) {
 
 //// ONPEN AI   /////
 
-async function sendToOpenAI() {
-    // Get the text from the text area
-    const text = document.querySelector('.editable-text').innerText;
+// async function sendToOpenAI() {
+//     // Get the text from the text area
+//     const text = document.querySelector('.editable-text').innerText;
 
-    // Create a messages array
-    const messages = [{ "role": "system", "content": "Sei connesso al servizio di assistenza radiologica." }, { "role": "user", "content": text }];
+//     // Create a messages array
+//     const messages = [{ "role": "system", "content": "Sei connesso al servizio di assistenza radiologica." }, { "role": "user", "content": text }];
 
-    // Send a POST request to the server
-    const response = await fetch('https://damp-plains-57695.herokuapp.com/get-gpt-3-response', {
-        method: 'POST',
-        mode: 'cors', // Add this line
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ messages: messages }), // Send the messages array
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log('debug: received data', data); // Debug: stampa i dati ricevuti
-            let responseContainer = document.getElementById("responseContainer");
-            let responseText = document.createElement("p");
-            responseText.innerText = data.response;
-            responseContainer.appendChild(responseText);
-        })
-        .catch((error) => {
-            console.error('debug: Error:', error); // Debug: stampa l'errore, se presente
-        });
-}
+//     // Send a POST request to the server
+//     const response = await fetch('https://damp-plains-57695.herokuapp.com/get-gpt-3-response', {
+//         method: 'POST',
+//         mode: 'cors', // Add this line
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ messages: messages }), // Send the messages array
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log('debug: received data', data); // Debug: stampa i dati ricevuti
+//             let responseContainer = document.getElementById("responseContainer");
+//             let responseText = document.createElement("p");
+//             responseText.innerText = data.response;
+//             responseContainer.appendChild(responseText);
+//         })
+//         .catch((error) => {
+//             console.error('debug: Error:', error); // Debug: stampa l'errore, se presente
+//         });
+// }
 
 
 

@@ -207,8 +207,15 @@
         <div id="clinical-indications-container"></div>
             <h3>Template</h3>
             <div class="table-container"></div>
-        <h3>Testo Libero</h3>
-        <div contenteditable="true" class="editable-text"></div>
+    <h3>Testo Libero</h3>
+    <div contenteditable="true" class="editable-text"></div>
+    <button id="send-btn">Invia a OpenAI</button>
+    <h3>Prompt per GPT</h3>
+    <input type="text" id="gpt-prompt" placeholder="Inserisci il prompt qui...">
+    <h3>Inserisci la tua chiave API</h3>
+    <input type="text" id="api-key" placeholder="Inserisci la tua chiave API qui...">
+    <h3>Risposta</h3>
+    <div id="response-container"></div>
 
         <!-- <textarea id="inputText" rows="4" cols="50"></textarea>
                                     <button onclick="sendToOpenAI()">Invia a OpenAI</button>
