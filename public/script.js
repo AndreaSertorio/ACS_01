@@ -243,7 +243,7 @@ document.getElementById('send-btn').addEventListener('click', function () {
         ]
     };
 
-    fetch("https://us-central1-radiology101-a8ef1.cloudfunctions.net/chatWithOpenAI", {
+    fetch("https://europe-west1-radiology101-a8ef1.cloudfunctions.net/chatWithOpenAI", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
