@@ -16,8 +16,11 @@
     "cornerstone-tools": "^6.0.9",
     "cornerstone-wado-image-loader": "^4.13.1",
     "dicom-parser": "^1.8.21",
+    "firebase": "^9.23.0",
+    "firebase-admin": "^11.9.0",
+    "firebase-functions": "^4.4.1",
     "netlify-cms-app": "^2.15.72",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   }
 }

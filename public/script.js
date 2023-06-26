@@ -232,19 +232,9 @@ function toggleContent(element) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-const fetch = require('node-fetch');
-
 document.getElementById('send-btn').addEventListener('click', function () {
     var text = document.querySelector('.editable-text').innerText;
     var prompt = document.getElementById('gpt-prompt').value;
-    var apiKey = document.getElementById('api-key').value;
-
-    // // Controllo della chiave API
-    // if (!apiKey || apiKey.length != 59) {
-    //     alert('Per favore, inserisci una chiave API valida.');
-    //     return;
-    // }
 
     var requestPayload = {
         "messages": [
@@ -253,11 +243,10 @@ document.getElementById('send-btn').addEventListener('click', function () {
         ]
     };
 
-    fetch("https://api.openai.com/v1/engines/gpt-3.5-turbo/completions", {
+    fetch("https://us-central1-radiology101-a8ef1.cloudfunctions.net/chatWithOpenAI", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + apiKey
         },
         body: JSON.stringify(requestPayload)
     })
@@ -293,6 +282,29 @@ document.getElementById('send-btn').addEventListener('click', function () {
 
 
 /////////////// BACKEND  !!!!!! ///////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////                FIREBASE        ////////////////////////////////////////////////////////
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDCxgZiQHYVyYIscxXM9jLzHT6v_gzEHHw",
+    authDomain: "radiology101-a8ef1.firebaseapp.com",
+    projectId: "radiology101-a8ef1",
+    storageBucket: "radiology101-a8ef1.appspot.com",
+    messagingSenderId: "425716729763",
+    appId: "1:425716729763:web:34eb802e7ad9be34b2bc16",
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+
+
+
+
+
+
+
 
 //// ONPEN AI   /////
 

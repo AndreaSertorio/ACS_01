@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esempio di pagina web</title>
 <link rel="stylesheet" href="public/stile.css"> <!--   Aggiungi questa riga per collegare il tuo file CSS esterno -->
-        <!-- Aggiungi dipendenze per Cornerstone -->
-
+        <!-- Aggiungi dipendenze per Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
 </head>
 <body>
     <div id="left-sidebar" class="sidebar">
@@ -212,9 +212,7 @@
     <button id="send-btn">Invia a OpenAI</button>
     <h3>Prompt per GPT</h3>
     <input type="text" id="gpt-prompt" placeholder="Inserisci il prompt qui...">
-    <h3>Inserisci la tua chiave API</h3>
-    <input type="text" id="api-key" placeholder="Inserisci la tua chiave API qui...">
-    <h3>Risposta</h3>
+  <h3>Risposta</h3>
     <div id="response-container"></div>
 
         <!-- <textarea id="inputText" rows="4" cols="50"></textarea>
