@@ -264,6 +264,7 @@ document.getElementById('send-btn').addEventListener('click', function () {
                 }
             }
             return response.json();
+            console.log(data)
         })
         .then(data => {
             document.getElementById('response-container').innerText = data['choices'][0]['message']['content'];
@@ -287,6 +288,8 @@ document.getElementById('send-btn').addEventListener('click', function () {
 ///////////////////////////                FIREBASE        ////////////////////////////////////////////////////////
 
 // Your web app's Firebase configuration
+import { initializeApp } from "firebase/app";
+
 const firebaseConfig = {
     apiKey: "AIzaSyDCxgZiQHYVyYIscxXM9jLzHT6v_gzEHHw",
     authDomain: "radiology101-a8ef1.firebaseapp.com",
