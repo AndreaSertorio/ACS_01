@@ -286,6 +286,21 @@ document.getElementById('send-btn').addEventListener('click', function () {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////                FIREBASE        ////////////////////////////////////////////////////////
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDCxgZiQHYVyYIscxXM9jLzHT6v_gzEHHw",
+    authDomain: "radiology101-a8ef1.firebaseapp.com",
+    projectId: "radiology101-a8ef1",
+    storageBucket: "radiology101-a8ef1.appspot.com",
+    messagingSenderId: "425716729763",
+    appId: "1:425716729763:web:34eb802e7ad9be34b2bc16",
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+
+
+
 
 
 
