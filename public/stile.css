@@ -101,44 +101,21 @@
       resize: none;
       outline: none;
   }
-#send-btn {
-    margin-top: 10px;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
 
-#gpt-prompt{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
 
-#response-container {
-    width: 100%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: rgb(252, 252, 252);
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-    resize: none;
-    outline: none;
-    min-height: 100px;
-    margin-top: 10px;
-}
+    /* CHAT */
+
+
+
+    .chat-iframe {
+        width: 100%;
+        max-width: 1200px;
+        height: 400px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+
   .hidden-options {
       display: none;
   }
@@ -494,6 +471,18 @@
       height: 100%;
       border: none;
   }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   /* DEBUG */
