@@ -229,51 +229,79 @@ function toggleContent(element) {
 }
 
 
+
+
+
+
+
+
+
+//////////////// APERTURA CHAT //////////////////////
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('toggle-button').addEventListener('click', function () {
+        var container = document.getElementById('chat-container');
+        var chat = document.querySelector('.chat-container'); // seleziona l'elemento della chat
+        var arrowUp = document.getElementById('arrow-up');
+        var arrowDown = document.getElementById('arrow-down');
+
+        if (container.style.height === '100px') {
+            container.style.height = '50vh'; // espande a metà dello schermo
+            chat.style.height = 'calc(50vh - 50px)'; // modifica l'altezza della chat
+            arrowUp.style.display = 'none';
+            arrowDown.style.display = 'inline';
+        } else {
+            container.style.height = '100px'; // ritorna all'altezza iniziale
+            chat.style.height = '100px'; // ritorna l'altezza della chat all'altezza iniziale
+            arrowUp.style.display = 'inline';
+            arrowDown.style.display = 'none';
+        }
+    });
+});
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////     OPEN AI      ///////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-document.getElementById('send-btn').addEventListener('click', function () {
-    var text = document.querySelector('.editable-text').innerText;
-    var prompt = document.getElementById('gpt-prompt').value;
+// document.getElementById('send-btn').addEventListener('click', function () {
+//     var text = document.querySelector('.editable-text').innerText;
+//     var prompt = document.getElementById('gpt-prompt').value;
 
-    var requestPayload = {
-        "messages": [
-            { "role": "system", "content": "Sei un assistente utile e formale." },
-            { "role": "user", "content": prompt + text }
-        ]
-    };
+//     var requestPayload = {
+//         "messages": [
+//             { "role": "system", "content": "Sei un assistente utile e formale." },
+//             { "role": "user", "content": prompt + text }
+//         ]
+//     };
 
-    fetch("https://europe-west1-radiology101-a8ef1.cloudfunctions.net/chatWithOpenAI", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestPayload)
-    })
-        .then(response => {
-            if (!response.ok) {
-                switch (response.status) {
-                    case 401:
-                        throw new Error("Errore di autenticazione. Controlla la tua chiave API.");
-                    case 429:
-                        throw new Error("Limite di velocità raggiunto. Riprova più tardi.");
-                    case 503:
-                        throw new Error("Il motore è attualmente sovraccarico. Riprova più tardi.");
-                    default:
-                        throw new Error("Errore sconosciuto. Controlla la console per i dettagli.");
-                }
-            }
-            return response.json();
-            console.log(data)
-        })
-        .then(data => {
-            document.getElementById('response-container').innerText = data['choices'][0]['message']['content'];
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert(error.message);  // Mostra il messaggio di errore all'utente
-        });
-});
+//     fetch("https://europe-west1-radiology101-a8ef1.cloudfunctions.net/chatWithOpenAI", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(requestPayload)
+//     })
+//         .then(response => {
+//             if (!response.ok) {
+//                 switch (response.status) {
+//                     case 401:
+//                         throw new Error("Errore di autenticazione. Controlla la tua chiave API.");
+//                     case 429:
+//                         throw new Error("Limite di velocità raggiunto. Riprova più tardi.");
+//                     case 503:
+//                         throw new Error("Il motore è attualmente sovraccarico. Riprova più tardi.");
+//                     default:
+//                         throw new Error("Errore sconosciuto. Controlla la console per i dettagli.");
+//                 }
+//             }
+//             return response.json();
+//             console.log(data)
+//         })
+//         .then(data => {
+//             document.getElementById('response-container').innerText = data['choices'][0]['message']['content'];
+//         })
+//         .catch(error => {
+//             console.error('Error:', error);
+//             alert(error.message);  // Mostra il messaggio di errore all'utente
+//         });
+// });
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
