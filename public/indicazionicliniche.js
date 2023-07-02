@@ -194,7 +194,7 @@ class ClinicalIndications {
                 debug(`Simula un click sulla sezione ${sectionKey}`);
             }
         });
-        debug('updateDisplay ');
+        // debug('updateDisplay ');
     }
 
 

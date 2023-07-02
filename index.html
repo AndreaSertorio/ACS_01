@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esempio di pagina web</title>
+    <title>Radiology101</title>
+
 <link rel="stylesheet" href="public/stile.css"> <!--   Aggiungi questa riga per collegare il tuo file CSS esterno -->
         <!-- Aggiungi dipendenze per Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
@@ -167,11 +168,12 @@
     <div id="right-sidebar" class="right-sidebar">
         <div class="toggle-area"></div>
         <div class="tab-bar">
-            <button class="tab-button active" onclick="openTab(event, 'Focus')">Focus</button>
+            <button class="tab-button" onclick="openTab(event, 'Focus')">Focus</button>
             <button class="tab-button" onclick="openTab(event, 'Anatomia')">Anatomia</button>
+            <button class="tab-button active" onclick="openTab(event, 'ChatGPT')">ChatGPT</button>
 
         </div>
-        <div id="Focus" class="tab-content">
+        <div id="Focus" class="tab-content" style="display:none;">
             <h3>Descrizione della parte di Tabella selezionata</h3>
             <p id="table-desc">Descrizione della parte di Tabella selezionata che ha aperto questa sezione...</p>
             
@@ -196,44 +198,75 @@
             
             
         </div>
+            <div id="ChatGPT" class="tab-content">
+                <h3>ChatGPT</h3>
+                <div class="contenitore">
+                    <iframe src="chat.html" frameborder="0" class="chat-iframe"></iframe>
+                </div>
+            
+            
+            
+            </div>
         <!-- Contenuto del menu laterale destro -->
     </div>
 
-
 <div class="main-container">
     <div class="content">
-        <h1>Radiology101</h1>
+        <div id="header">
+            <h1>Radiology101</h1>
+            <button id="control-panel-button">
+                <img src="img/ingranaggio.png" alt="Impostazioni">
+            </button>
+            </div>
+
         <h3>Indicazioni Cliniche</h3>
         <div id="clinical-indications-container"></div>
-            <h3>Template</h3>
-            <div class="table-container"></div>
-    <h3>Testo Libero</h3>
-    <div contenteditable="true" class="editable-text"></div>
+        <h3>Template</h3>
+        <div class="table-container"></div>
+        <h3>Testo Libero</h3>
+        <div contenteditable="true" class="editable-text"></div>
+<button id="gather-content-button">Raccogli contenuto</button>
+<div id="results"></div>
 
-
-<!-- <iframe src="chat.html" frameborder="0" class="chat-iframe"></iframe> -->
-<div id="chat-container">
-    <iframe src="chat.html" frameborder="0" class="chat-iframe"></iframe>
-    <button id="toggle-button">
-        <span id="arrow-up">&#9650;</span>
-        <span id="arrow-down">&#9660;</span>
-    </button>
-</div>
+        <!-- <iframe src="chat.html" frameborder="0" class="chat-iframe"></iframe> -->
+        <!-- <div id="chat-container">
+                                                    <iframe src="chat.html" frameborder="0" class="chat-iframe"></iframe>
+                                                    <button id="toggle-button">
+                                                        <span id="arrow-up">&#9650;</span>
+                                                        <span id="arrow-down">&#9660;</span>
+                                                    </button>
+        </div> -->
         <div id="content" data-template-id=""></div>
 
-        <!-- <div id="debug"></div> -->
+        <div id="debug"></div>
     </div>
 </div>
+<div id="control-panel">
+    <h3>Control Panel</h3>
+    <label for="font-size">Font Size:</label>
+    <input type="range" id="font-size" min="10" max="30" value="16">
+    <label for="line-height">Line Height:</label>
+    <input type="range" id="line-height" min="1" max="3" step="0.1" value="1.5">
+    <label for="font-family">Font Family:</label>
+    <select id="font-family">
+        <option value="Arial">Arial</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Verdana">Verdana</option>
+    </select>
+</div>
 
-    <script src="/bundle.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="public/indicazionicliniche.js"></script>
-    <script src="public/focus.js"></script>
-    <script src="public/templates.js"></script>
-    <script src="src/index.js"></script>
-    <script src="public/firebaseaccesso.js"></script>
-    <script src="public/script.js"></script> <!-- Aggiungi questa riga per includere il tuo file JavaScript esterno -->
+<script src="/bundle.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="public/indicazionicliniche.js"></script>
+<script src="public/focus.js"></script>
+<script src="public/templates.js"></script>
+<script src="chat.html"></script>
+<script src="public/firebaseaccesso.js"></script>
+<script src="public/script.js"></script> <!-- Aggiungi questa riga per includere il tuo file JavaScript esterno -->
 
 
 </body>
+
 </html>

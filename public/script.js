@@ -143,6 +143,14 @@ function fillTemplate(templateId, indicazioneClinica) {
             toggleContent(toggle);
         }
     simulateLeftSidebarToggleClick();
+
+    // Aggiungi un event listener per l'evento input a tutti gli elementi contenteditable
+    document.querySelectorAll('[contenteditable="true"]').forEach((element) => {
+        element.addEventListener('input', function () {
+            // Aggiungi la classe 'modified' all'elemento quando viene modificato
+            this.classList.add('modified');
+        });
+    });
     // Svuota il contenitore delle indicazioni cliniche
     const container = document.getElementById('clinical-indications-container');
     container.innerHTML = '';
@@ -185,10 +193,11 @@ function addEventListeners() {
     const nonEditableSections = document.querySelectorAll('[data-section]');
 
     nonEditableSections.forEach(section => {
-        section.addEventListener('click', function() {
+        section.addEventListener('click', function () {
             const sectionId = this.getAttribute('data-section');
             const data = sectionData[sectionId];
             if (data) {
+                console.log('Sezione non editabile cliccata: ' + sectionId); // Aggiunto console.log qui
                 document.getElementById('table-desc').textContent = data.tableDesc;
                 document.getElementById('normal-desc').textContent = data.normalDesc;
                 document.getElementById('image-desc').textContent = data.imageDesc;
@@ -203,9 +212,8 @@ function addEventListeners() {
                 // Imposta l'attributo src dell'elemento img
                 document.getElementById('section-image').src = data.imagePath;
 
-
                 openTab(null, 'Focus');
-             
+
                 document.querySelector('.right-sidebar').classList.add('open');
             } else {
                 debug('Nessun dato trovato per sectionId: ' + sectionId);
@@ -215,7 +223,7 @@ function addEventListeners() {
     });
 }
 
-/////// funzionalità all'interno dei template
+/////// funzionalità all'interno dei template [apertura chiusura sotto menu]
 
 // mostra noscondi contenuto
 function toggleContent(element) {
@@ -258,55 +266,77 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////     OPEN AI      ///////////////////////////////////
+///////////////////////////////////    IMPOSTAZIONI    ///////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// document.getElementById('send-btn').addEventListener('click', function () {
-//     var text = document.querySelector('.editable-text').innerText;
-//     var prompt = document.getElementById('gpt-prompt').value;
 
-//     var requestPayload = {
-//         "messages": [
-//             { "role": "system", "content": "Sei un assistente utile e formale." },
-//             { "role": "user", "content": prompt + text }
-//         ]
-//     };
+window.onload = function () {
+    var controlPanelButton = document.getElementById('control-panel-button');
+    var controlPanel = document.getElementById('control-panel');
 
-//     fetch("https://europe-west1-radiology101-a8ef1.cloudfunctions.net/chatWithOpenAI", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(requestPayload)
-//     })
-//         .then(response => {
-//             if (!response.ok) {
-//                 switch (response.status) {
-//                     case 401:
-//                         throw new Error("Errore di autenticazione. Controlla la tua chiave API.");
-//                     case 429:
-//                         throw new Error("Limite di velocità raggiunto. Riprova più tardi.");
-//                     case 503:
-//                         throw new Error("Il motore è attualmente sovraccarico. Riprova più tardi.");
-//                     default:
-//                         throw new Error("Errore sconosciuto. Controlla la console per i dettagli.");
-//                 }
-//             }
-//             return response.json();
-//             console.log(data)
-//         })
-//         .then(data => {
-//             document.getElementById('response-container').innerText = data['choices'][0]['message']['content'];
-//         })
-//         .catch(error => {
-//             console.error('Error:', error);
-//             alert(error.message);  // Mostra il messaggio di errore all'utente
-//         });
-// });
+    controlPanelButton.onclick = function (event) {
+        if (controlPanel.style.display === 'none') {
+            controlPanel.style.display = 'block';
+        } else {
+            controlPanel.style.display = 'none';
+        }
+    }
+
+    window.onclick = function (event) {
+        if (controlPanel.style.display === 'block' && event.target !== controlPanel && event.target !== controlPanelButton && !controlPanel.contains(event.target)) {
+            controlPanel.style.display = 'none';
+        }
+    }
+}
+
+
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////    RACCOGLI PARTI EDITABILI           ////////////////////////////////////////////////////////////
 
+// prendi il contenuto modificato
+function gatherEditableContent() {
+    // Seleziona solo gli elementi contenteditable che hanno la classe 'modified'
+    let editableElements = document.querySelectorAll('[contenteditable="true"].modified');
+
+    let data = [];
+
+    editableElements.forEach((element) => {
+        // Ottieni il contenuto dell'elemento non modificabile che precede l'elemento modificabile
+        let label = element.previousElementSibling.textContent;
+
+        // Crea una stringa nel formato "label : content"
+        let contentString = `${label} : ${element.textContent}`;
+
+        // Aggiungi la stringa all'array data
+        data.push(contentString);
+    });
+
+    return data;
+}
+
+/// event listenere per il bottone
+document.getElementById('gather-content-button').addEventListener('click', function () {
+    let data = gatherEditableContent();
+    let dataString = JSON.stringify(data, null, 2);
+
+    // Messaggio di sistema predefinito
+    let systemMessage = "Ignora tutte le istruzioni precedenti: sei l'assistente di un radiologo esperto e devi aiutarlo a stilare il referto di un esame radiologico. Questo radiologo scrive in uno stile estremamente conciso ed esperto cerca di rispettarlo, non fare ipotesi diagnostiche ne considerazioni: scrivi il referto di una TC Encefalo senza mezzo di contrasto, usa la seguente [LISTA] di reperti che sono stati segnalati dal radiologi che ha accuratamente visionato le immagini, troverai i reperti nella forma \"sede/descrizione: reperto\", voglio che integri questi reperti in un discorso , non tralasciando le cose che normalmente si dovrebbero scrivere in un referto di una TC encefalo.  [LISTA]    ";
+
+    // Combina il messaggio di sistema predefinito con i dati raccolti
+    let fullMessage = systemMessage + "\n\n" + dataString;
+
+    // Visualizza il messaggio completo nell'elemento dei risultati
+    document.getElementById('results').textContent = fullMessage;
+    // Imposta il valore dell'input della chat al messaggio completo
+    document.getElementById('chat-input').value = fullMessage;
+
+    // Invia il messaggio
+    sendMessage();
+
+});
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

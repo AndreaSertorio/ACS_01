@@ -103,6 +103,42 @@
   }
 
 
+/* Stilizza il pulsante */
+#gather-content-button {
+    background-color: #4CAF50;
+    /* Verde */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+/* Cambia colore al passaggio del mouse */
+#gather-content-button:hover {
+    background-color: #45a049;
+}
+
+/* Stilizza il div dei risultati */
+#results {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-family: monospace;
+    white-space: pre;
+    /* Mantiene la formattazione del testo */
+    overflow: auto;
+    /* Aggiunge una barra di scorrimento se il contenuto è troppo grande */
+    height: 200px;
+    /* Imposta un'altezza fissa */
+}
     /* CHAT */
 
 
@@ -110,52 +146,80 @@
     .chat-iframe {
         width: 100%;
         max-width: 1200px;
-        height: 400px;
+        height: 100%;
         border: 1px solid #ccc;
         border-radius: 5px;
     }
 
-#chat-container {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    /* larghezza del componente */
-    height: 300px;
-    /* altezza iniziale */
-    transition: height 0.5s ease-in-out;
-    background-color: rgba(0, 0, 0, 0.1);
-    /* sfondo trasparente con un po' di opacità */
-    border: 1px solid #000;
-    /* bordo nero */
-    border-bottom: none;
-    /* rimuove il bordo inferiore */
-    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
-    /* ombra per separarlo dalla pagina principale */
-}
+/* IMPOSTAZIONI TESTO*/
 
-.chat-iframe {
-    width: 100%;
-    height: 100%;
-}
-
-#toggle-button {
-    position: absolute;
-    top: 0px;
-    /* posiziona il bottone al centro del margine superiore del componente */
-    left: 50%;
-    width: 50px;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-#arrow-down {
+#control-panel {
     display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f0f0f0;
+        border: 3px solid #ccc;
+        padding: 10px;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    #control-panel h3 {
+        margin-top: 0;
+    }
+    
+    #control-panel label {
+        display: block;
+        margin-top: 10px;
 }
 
+#control-panel input,
+#control-panel select {
+    width: 100%;
+}
+
+#header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#control-panel-button {
+    background-color: #4CAF50;
+    /* Colore di sfondo del bottone */
+    border: none;
+    /* Rimuove il bordo */
+        color: white;
+        /* Colore del testo */
+        padding: 10px 15px;
+        /* Spazio intorno al testo */
+        text-align: center;
+        /* Allinea il testo al centro */
+        text-decoration: none;
+        /* Rimuove il sottolineato */
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+    cursor: pointer;
+    /* Cambia il cursore quando si passa sopra al bottone */
+        border-radius: 12px;
+        /* Rende i bordi del bottone arrotondati */
+}
+
+#control-panel-button img {
+    width: 40px;
+    /* Imposta la larghezza dell'immagine */
+    height: 40px;
+    /* Imposta l'altezza dell'immagine */
+}
+
+#control-panel-button:hover {
+    background-color: #45a049;
+    /* Cambia il colore di sfondo quando si passa sopra al bottone */
+}
 /* NON SO */
 
 
@@ -172,6 +236,7 @@
   .visible-options {
       display: table-row;
   }
+
 
   /* ------------------TEMPLATE----------------- */
   table {
@@ -243,6 +308,7 @@
       /* Colore di sfondo quando selezionato */
       /* Altri stili... */
   }
+
 
   /* ------------------------------------ */
   /* ! Sidebar */
@@ -555,7 +621,7 @@
       /* Utilizza un carattere monospazio per facilitare la lettura */
       padding: 10px;
       /* Aggiunge un po' di spazio intorno al contenuto */
-      z-index: 9999;
+    z-index: -1;
       /* Assicura che la finestra di debug sia sopra gli altri elementi */
   }
 
