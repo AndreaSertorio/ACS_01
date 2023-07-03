@@ -9,7 +9,8 @@
         <!-- Aggiungi dipendenze per Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
 </head>
-<body>
+<body onload="init()">
+
     <div id="left-sidebar" class="sidebar">
         <div class="toggle-area"></div>
 
@@ -225,20 +226,41 @@
         <div class="table-container"></div>
         <h3>Testo Libero</h3>
         <div contenteditable="true" class="editable-text"></div>
-<button id="gather-content-button">Raccogli contenuto</button>
-<div id="results"></div>
+        <h4>Opzioni di generazione</h4>
+        <div class="options-bar">
+            <div class="option">
+                <label for="modelSelect">Modello GPT:</label>
+                <select id="modelSelect">
+                    <option value="gpt-3.5-turbo-0613">GPT-3.5</option>
+                    <option value="gpt-4-0613">GPT-4</option>
+        
+                    <!-- Aggiungi qui ulteriori modelli -->
+                </select>
+                <span id="selectedModelDisplay"></span>
+            </div>
+            <div class="option">
+                <label for="tempSlider">Temperatura:</label>
+                <input type="range" id="tempSlider" min="0" max="2" step="0.1" value="0">
+                <span id="selectedTempDisplay"></span>
+            </div>
+            <div class="option">
+                <button id="GeneraRefertoBtn">Genera Referto</button>
+            </div>
+            <!-- Inserisci qui ulteriori opzioni -->
+        </div>
+        
+        
+        
+        <div id="results">
+            <p id="loading">Scrittura della bozza...</p>
+        </div>
 
-        <!-- <iframe src="chat.html" frameborder="0" class="chat-iframe"></iframe> -->
-        <!-- <div id="chat-container">
-                                                    <iframe src="chat.html" frameborder="0" class="chat-iframe"></iframe>
-                                                    <button id="toggle-button">
-                                                        <span id="arrow-up">&#9650;</span>
-                                                        <span id="arrow-down">&#9660;</span>
-                                                    </button>
+
         </div> -->
         <div id="content" data-template-id=""></div>
 
-        <div id="debug"></div>
+<!-- <div id="debug"></div> -->
+
     </div>
 </div>
 <div id="control-panel">
@@ -262,9 +284,10 @@
 <script src="public/indicazionicliniche.js"></script>
 <script src="public/focus.js"></script>
 <script src="public/templates.js"></script>
-<script src="chat.html"></script>
 <script src="public/firebaseaccesso.js"></script>
-<script src="public/script.js"></script> <!-- Aggiungi questa riga per includere il tuo file JavaScript esterno -->
+<script src="public/gpt.js"></script>
+<script src="public/script.js"></script>
+<!-- Aggiungi questa riga per includere il tuo file JavaScript esterno -->
 
 
 </body>

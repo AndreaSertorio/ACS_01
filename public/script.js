@@ -216,7 +216,6 @@ function addEventListeners() {
 
                 document.querySelector('.right-sidebar').classList.add('open');
             } else {
-                debug('Nessun dato trovato per sectionId: ' + sectionId);
             }
             adjustContentPosition()
         });
@@ -230,7 +229,6 @@ function toggleContent(element) {
     let content = element.nextElementSibling.firstElementChild;
     if (content.style.display === "none") {
         content.style.display = "block";
-        debug('display table');
     } else {
         content.style.display = "none";
     }
@@ -238,33 +236,6 @@ function toggleContent(element) {
 
 
 
-
-
-
-
-
-
-//////////////// APERTURA CHAT //////////////////////
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('toggle-button').addEventListener('click', function () {
-        var container = document.getElementById('chat-container');
-        var chat = document.querySelector('.chat-container'); // seleziona l'elemento della chat
-        var arrowUp = document.getElementById('arrow-up');
-        var arrowDown = document.getElementById('arrow-down');
-
-        if (container.style.height === '100px') {
-            container.style.height = '50vh'; // espande a metà dello schermo
-            chat.style.height = 'calc(50vh - 50px)'; // modifica l'altezza della chat
-            arrowUp.style.display = 'none';
-            arrowDown.style.display = 'inline';
-        } else {
-            container.style.height = '100px'; // ritorna all'altezza iniziale
-            chat.style.height = '100px'; // ritorna l'altezza della chat all'altezza iniziale
-            arrowUp.style.display = 'inline';
-            arrowDown.style.display = 'none';
-        }
-    });
-});
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////    IMPOSTAZIONI    ///////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -317,31 +288,111 @@ function gatherEditableContent() {
     return data;
 }
 
-/// event listenere per il bottone
-document.getElementById('gather-content-button').addEventListener('click', function () {
-    let data = gatherEditableContent();
-    let dataString = JSON.stringify(data, null, 2);
 
-    // Messaggio di sistema predefinito
-    let systemMessage = "Ignora tutte le istruzioni precedenti: sei l'assistente di un radiologo esperto e devi aiutarlo a stilare il referto di un esame radiologico. Questo radiologo scrive in uno stile estremamente conciso ed esperto cerca di rispettarlo, non fare ipotesi diagnostiche ne considerazioni: scrivi il referto di una TC Encefalo senza mezzo di contrasto, usa la seguente [LISTA] di reperti che sono stati segnalati dal radiologi che ha accuratamente visionato le immagini, troverai i reperti nella forma \"sede/descrizione: reperto\", voglio che integri questi reperti in un discorso , non tralasciando le cose che normalmente si dovrebbero scrivere in un referto di una TC encefalo.  [LISTA]    ";
 
-    // Combina il messaggio di sistema predefinito con i dati raccolti
-    let fullMessage = systemMessage + "\n\n" + dataString;
 
-    // Visualizza il messaggio completo nell'elemento dei risultati
-    document.getElementById('results').textContent = fullMessage;
-    // Imposta il valore dell'input della chat al messaggio completo
-    document.getElementById('chat-input').value = fullMessage;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////       GPT         //////////////////////////////////////////////////////
 
-    // Invia il messaggio
-    sendMessage();
+///visualizzare tre puntini ("...") c
+var loadingText = document.getElementById('loading');
+loadingText.style.display = 'none'; // Nasconde il testo di caricamento all'inizio
 
+// variabili globali per conservare le scelte dell'utente
+document.addEventListener("DOMContentLoaded", function () {
+    let selectedModel = "gpt-3.5-turbo";
+    let selectedTemp = 0;
+
+    function init() {
+        // Inizializza gli eventi
+        document.getElementById("modelSelect").addEventListener("change", function (event) {
+            selectedModel = event.target.value;
+            document.getElementById("selectedModelDisplay").innerText = selectedModel;
+        });
+
+        document.getElementById("tempSlider").addEventListener("input", function (event) {
+            selectedTemp = event.target.value;
+            document.getElementById("selectedTempDisplay").innerText = selectedTemp;
+        });
+        /// event listenere per il bottone
+        document.getElementById('GeneraRefertoBtn').addEventListener('click', function () {
+            let data = gatherEditableContent();
+            let dataString = JSON.stringify(data, null, 2);
+            // Messaggio di sistema predefinito
+            let systemMessage = "Scrivi il referto di una TC Encefalo senza mezzo di contrasto, usa la seguente [LISTA] di reperti che sono stati segnalati dal radiologi che ha accuratamente visionato le immagini, troverai i reperti nella forma \"sede/descrizione: reperto\", voglio che integri questi reperti in un discorso , non tralasciando le cose che normalmente si dovrebbero scrivere in un referto di una TC encefalo; non mi fare ulteriori domande, questo è molto importante.  [LISTA]    ";
+            // Combina il messaggio di sistema predefinito con i dati raccolti
+            let fullMessage = systemMessage + "\n\n" + dataString;
+
+            // Invia il messaggio
+            sendToOpenAI_Template(fullMessage);
+
+
+        });
+
+
+        // Inizializza i display
+        document.getElementById("selectedModelDisplay").innerText = selectedModel;
+        document.getElementById("selectedTempDisplay").innerText = selectedTemp;
+    }
+
+
+    // La tua funzione sendToOpenAI_Template qui...
+
+
+
+    function sendToOpenAI_Template(userMessage) {
+
+        var requestPayload = {
+            "model": selectedModel,
+            "temperature": parseFloat(selectedTemp),
+            "messages": [
+                { "role": "system", "content": "sei l'assistente di un radiologo esperto e devi aiutarlo a stilare il referto di un esame radiologico. Questo radiologo scrive in uno stile estremamente conciso ed esperto cerca di rispettarlo, non fare ipotesi diagnostiche ne considerazioni." },
+                { "role": "user", "content": userMessage }
+            ]
+        };
+
+        document.getElementById("results").innerText = JSON.stringify(requestPayload, null, 2);
+        loadingText.style.display = 'block';
+        fetch("https://europe-west1-radiology101-a8ef1.cloudfunctions.net/chatWithOpenAI", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(requestPayload)
+        })
+            .then(response => {
+                loadingText.style.display = 'none';
+                if (!response.ok) {
+                    switch (response.status) {
+                        case 401:
+                            throw new Error("Errore di autenticazione. Controlla la tua chiave API.");
+                        case 429:
+                            throw new Error("Limite di velocità raggiunto. Riprova più tardi.");
+                        case 503:
+                            throw new Error("Il motore è attualmente sovraccarico. Riprova più tardi.");
+                        default:
+                            throw new Error("Errore sconosciuto. Controlla la console per i dettagli.");
+                    }
+                }
+                return response.json();
+                displayResponse(data['choices'][0]['message']['content']);
+            })
+            .then(data => {
+                displayResponse(data['choices'][0]['message']['content']);
+            })
+            .catch(error => {
+                loadingText.style.display = 'none';
+                console.error('Error:', error);
+                alert(error.message);  // Mostra il messaggio di errore all'utente
+            });
+    }
+    init();  // Chiama la funzione init
 });
 
+function displayResponse(responseText) {
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    document.getElementById('results').textContent = responseText;
+}
 
 
 

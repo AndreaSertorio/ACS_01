@@ -20,11 +20,12 @@ const corsMiddleware = cors(corsOptions);
 
 exports.chatWithOpenAI = functions.region('europe-west1').https.onRequest((request, response) => {
     corsMiddleware(request, response, async () => {
-        const chatMessages = request.body.messages;
+        const { model, temperature, messages: chatMessages } = request.body;
 
         try {
             const result = await axios.post('https://api.openai.com/v1/chat/completions', {
-                model: "gpt-3.5-turbo",
+                model: model,
+                temperature: temperature,
                 messages: chatMessages
             }, {
                 headers: {
